@@ -1,0 +1,7 @@
+FCymFunnyCreatorSU.xcodeproj/xcuserdata/
+FCymFunnyCreatorSU.xcworkspace/
+Pods/
+*.swp
+Podfile.lock
+.DS_Store
+FCymFunnyCreatorSU.xcodeproj/project.xcworkspace/xcuserdata/
