@@ -642,7 +642,24 @@ extension CameraViewController: AVCapturePhotoCaptureDelegate {
             
             // For now, it is only right
             let image = UIImage(cgImage: cgImageRef!, scale: 1, orientation: .right).fixOrientation()
-            
+            let targetWh = cameraCanvasSize.width / cameraCanvasSize.height
+            let imgWh = image.size.width / image.size.height
+            var cropRect = CGRect.zero
+            if targetWh > imgWh {
+                let cropWidth = image.size.width
+                let cropHeight = image.size.width / targetWh
+                let originX: CGFloat = 0
+                let originY = (image.size.height - cropHeight) / 2
+                cropRect = CGRect(x: originX, y: originY, width: cropWidth, height: cropHeight)
+            } else {
+                let cropHeight = image.size.height
+                let cropWidth = image.size.height * targetWh
+                let originX = (image.size.width - cropWidth) / 2
+                let originY: CGFloat = 0
+                cropRect = CGRect(x: originX, y: originY, width: cropWidth, height: cropHeight)
+            }
+             
+            let cropedImg = image.cropImage(withRect: cropRect)
             
 //            UIImage(data: data)?
             
@@ -654,7 +671,7 @@ extension CameraViewController: AVCapturePhotoCaptureDelegate {
             
             
             DispatchQueue.main.async {
-                self.delegate?.didFinishProcessingPhoto(image)
+                self.delegate?.didFinishProcessingPhoto(cropedImg ?? image)
             }
         }
     }
@@ -925,4 +942,20 @@ extension UIImage {
         return UIImage(cgImage: newCgimg)
     }
     
+    
+    func cropImage(withRect rect: CGRect) -> UIImage? {
+      if let cgImage = self.cgImage,
+        let croppedCgImage = cgImage.cropping(to: rect) {
+        return UIImage(cgImage: croppedCgImage)
+      } else if let ciImage = self.ciImage {
+        let croppedCiImage = ciImage.cropped(to: rect)
+        return UIImage(ciImage: croppedCiImage)
+      }
+      return nil
+    }
+
+
+    
+    
 }
+

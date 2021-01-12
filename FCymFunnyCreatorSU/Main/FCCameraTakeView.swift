@@ -9,6 +9,10 @@ import Foundation
 import SwiftUI
 import DynamicColor
 
+var maskShapeNameDefault: String = "shape_big_1"
+var bgImageNameDefault: String = "background_big_3"
+var stickerNameDefault: String = "sticker_big_1"
+
 
 struct FCCameraTakeView: View {
     @Environment(\.presentationMode) var mode
@@ -16,9 +20,9 @@ struct FCCameraTakeView: View {
     
     @ObservedObject var events = UserEvents()
 
-    @State private var maskShapeName: String = "shape_big_1"
-    @State private var bgImageName: String = "background_big_3"
-    @State private var stickerName: String = "sticker_big_1"
+    @State private var maskShapeName: String = maskShapeNameDefault
+    @State private var bgImageName: String = bgImageNameDefault
+    @State private var stickerName: String = stickerNameDefault
     
     var body: some View {
         
@@ -31,7 +35,7 @@ struct FCCameraTakeView: View {
                     cameraPreviewView
                         .frame(width: geo.size.width, height: geo.size.width, alignment: .center)
                         .backgroundFill(.white)
-                    CameraInterfaceView(events: events)
+                    cameraInterfaceView
                 }
                 .navigationBarHidden(true)
             }
@@ -73,7 +77,7 @@ extension FCCameraTakeView {
                     .frame(width: geo.size.width, height: geo.size.height, alignment: .center)
 //                backgroundPreviewView
                 
-//                FCMaskOverlayerView(maskShapeName: $maskShapeName, bgImageName: $bgImageName, stickerName: $stickerName)
+                FCMaskOverlayerView(maskShapeName: $maskShapeName, bgImageName: $bgImageName, stickerName: $stickerName)
                 
             }
         }
@@ -88,14 +92,82 @@ extension FCCameraTakeView {
                 .frame(width: geo.size.width, height: geo.size.height, alignment: .center)
         }
     }
-//
-    
-    
     
 }
 
 
+extension FCCameraTakeView: CameraActions {
+    
+    var cameraInterfaceView: some View {
+        VStack {
+            Spacer()
+            HStack {
+                Spacer()
+                rotateButton
+                    .hidden(true)
+                Spacer()
+                captureButton
+                Spacer()
+                rotateButton
+                    
+                Spacer()
+            }
+            Spacer()
+        }.backgroundFill(Color(DynamicColor(hexString: "#F4F4FA")))
 
+    }
+    
+    var rotateButton: some View {
+        Button(action: {
+            rotateBtnClick()
+        }, label: {
+            Image("camera_flip_ic")
+                .resizable()
+                .frame(width: 31, height: 25, alignment: .center)
+                
+        })
+        .frame(width: 60, height: 60, alignment: .center)
+    }
+    
+    var captureButton: some View {
+        VStack {
+            
+            NavigationLink(destination: FCEditShapeView(events: events, maskShapeName: maskShapeName, bgImageName: bgImageName, stickerName: stickerName)
+                            .frame(height: 400)
+                           , isActive: $events.didTakeCapturePhoto) {
+
+                Button(action: {
+                    
+                    captureBtnClick()
+                }, label: {
+                    Image("take_photo_ic")
+                        .resizable()
+                        .frame(width: 60, height: 60, alignment: .center)
+                        
+                })
+                .frame(width: 60, height: 60, alignment: .center)
+            }
+        }
+        
+        
+    }
+    
+   
+    
+    func rotateBtnClick() {
+        self.rotateCamera(events: events)
+    }
+    
+    func captureBtnClick() {
+        self.takePhoto(events: events)
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
+            
+             
+        }
+
+    }
+    
+}
 
 
 struct FCCameraTakeView_Previews: PreviewProvider {
@@ -132,110 +204,40 @@ struct FCMaskOverlayerView: View {
     }
 }
 
-struct CameraInterfaceView: View, CameraActions {
-    @ObservedObject var events: UserEvents
-    
-    var body: some View {
-        VStack {
-            Spacer()
-            HStack {
-                Spacer()
-                rotateButton
-                    .hidden(true)
-                Spacer()
-                captureButton
-                Spacer()
-                rotateButton
-                    
-                Spacer()
-            }
-            Spacer()
-        }.backgroundFill(Color(DynamicColor(hexString: "#F4F4FA")))
-        
-    }
-}
-
-extension CameraInterfaceView {
-    var rotateButton: some View {
-        Button(action: {
-            rotateBtnClick()
-        }, label: {
-            Image("camera_flip_ic")
-                .resizable()
-                .frame(width: 31, height: 25, alignment: .center)
-                
-        })
-        .frame(width: 60, height: 60, alignment: .center)
-    }
-    
-    var captureButton: some View {
-        VStack {
-            
-            NavigationLink(destination: EditCotnentView(events: events)
-                            .frame(height: 400)
-                           , isActive: $events.didTakeCapturePhoto) {
-
-                Button(action: {
-                    
-                    captureBtnClick()
-                }, label: {
-                    Image("take_photo_ic")
-                        .resizable()
-                        .frame(width: 60, height: 60, alignment: .center)
-                        
-                })
-                .frame(width: 60, height: 60, alignment: .center)
-            }
-        }
-        
-        
-    }
-    
-   
-    
-    func rotateBtnClick() {
-        self.rotateCamera(events: events)
-    }
-    
-    func captureBtnClick() {
-        self.takePhoto(events: events)
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
-            
-             
-        }
-        
-        
-        
-        
-    }
-    
-    
-    
-}
+//struct CameraInterfaceView: View, CameraActions {
+//    @ObservedObject var events: UserEvents
+//
+//    @State private var maskShapeName: String = maskShapeNameDefault
+//    @State private var bgImageName: String = bgImageNameDefault
+//    @State private var stickerName: String = stickerNameDefault
+//
+//    var body: some View {
+//        VStack {
+//            Spacer()
+//            HStack {
+//                Spacer()
+//                rotateButton
+//                    .hidden(true)
+//                Spacer()
+//                captureButton
+//                Spacer()
+//                rotateButton
+//
+//                Spacer()
+//            }
+//            Spacer()
+//        }.backgroundFill(Color(DynamicColor(hexString: "#F4F4FA")))
+//
+//    }
+//}
+//
+//extension CameraInterfaceView {
+//
+//
+//
+//
+//}
 
 
 
 
-struct EditCotnentView: View {
-    @ObservedObject var events: UserEvents
-    var body: some View {
-        GeometryReader { geo in
-            VStack {
-                
-                if events.resultImage != nil {
-                    Spacer()
-                        .frame(height: 100)
-                    Image(uiImage: events.resultImage!)
-                        .resizable()
-                        .frame(width: geo.size.width, height: geo.size.height, alignment: .center)
-                        .aspectRatio(contentMode: .fit)
-                        .background(.orange)
-                    Spacer()
-                        .frame(height: 100)
-                }
-                
-            }
-        }
-        
-    }
-}

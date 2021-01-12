@@ -11,6 +11,10 @@ import DynamicColor
 import SwiftUIX
 
 struct FCMainView: View {
+    
+    @State var isActive = false
+    
+    
     var body: some View {
         ZStack {
             VStack {
@@ -244,10 +248,19 @@ extension FCMainView {
         
         .frame(height: 106, alignment: .center)
     }
-  
 }
 
+extension FCMainView {
+    func request() {
+        PrivacyAuthorizationManager.default.requestCameraPermission {
+            
+            self.isActive = true
+        } deniedBlock: {
 
+        }
+    }
+    
+}
 
 /// Action
 extension FCMainView {
@@ -256,7 +269,19 @@ extension FCMainView {
     }
     
     func exploreNowBtnClick() {
-        
+        NavigationView {
+            VStack {
+                NavigationLink(destination: FCCameraTakeView()
+                                , isActive: $isActive) {
+
+                    Button {
+                        request()
+                    } label: {
+                        Text("跳转")
+                    }
+                }
+            }
+        }
     }
     
     func creatorBtnClick() {
