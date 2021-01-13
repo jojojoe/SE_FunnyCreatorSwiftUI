@@ -13,7 +13,10 @@ import DynamicColor
 struct FCCreatorMenuView: View {
     @Environment(\.presentationMode) var mode
     
-    
+    @State var emojiList: [CreatorEmojiStickerItem] = []
+    @State var isShowWallpaperView_emoji: Bool = false
+    @State var isShowWallpaperView_sticker: Bool = false
+    @State var isShowUserPhotoTakeView: Bool = false
     var body: some View {
         GeometryReader { geo in
             ZStack {
@@ -21,7 +24,7 @@ struct FCCreatorMenuView: View {
                     topBackBgView
                     Spacer()
                 }
-                
+//
                 VStack {
                     Spacer()
                     emojiBtn
@@ -61,22 +64,40 @@ extension FCCreatorMenuView {
 extension FCCreatorMenuView {
     
     var emojiBtn: some View {
-        contentBtn(icon: "emoji_madker_ic", title: "Emoji Maker", colorHex: "#FFDCEC")
-            .onTapGesture {
-                
-            }
+        NavigationLink(destination: FCCreatorEmojiStickerEditView(contentIconList: CFResourceModelManager.default.creatorEmojiItemList)
+                        .navigationBarHidden(true)
+                       , isActive: $isShowWallpaperView_emoji) {
+            contentBtn(icon: "emoji_madker_ic", title: "Emoji Maker", colorHex: "#FFDCEC")
+                .onTapGesture {
+                    isShowWallpaperView_emoji = true
+                }
+        }
+        
     }
     var stickerBtn: some View {
-        contentBtn(icon: "sticker_maker_ic", title: "Sticker Maker", colorHex: "#C9FFEE")
-            .onTapGesture {
-                
-            }
+        
+        NavigationLink(destination: FCCreatorEmojiStickerEditView(contentIconList: CFResourceModelManager.default.creatorStickerItemList)
+                        .navigationBarHidden(true)
+                       , isActive: $isShowWallpaperView_sticker) {
+            contentBtn(icon: "sticker_maker_ic", title: "Sticker Maker", colorHex: "#C9FFEE")
+                .onTapGesture {
+                    isShowWallpaperView_sticker = true
+                }
+        }
     }
     var photoBtn: some View {
-        contentBtn(icon: "photo_maker_ic", title: "Photo Maker", colorHex: "#F7F7FC")
-            .onTapGesture {
-                
-            }
+        
+        NavigationLink(destination: FCCreatorUserFaceTakeView()
+                        .navigationBarHidden(true)
+                       , isActive: $isShowUserPhotoTakeView) {
+            
+            contentBtn(icon: "photo_maker_ic", title: "Photo Maker", colorHex: "#F7F7FC")
+                .onTapGesture {
+                    isShowUserPhotoTakeView = true
+                }
+        }
+        
+        
         
     }
     

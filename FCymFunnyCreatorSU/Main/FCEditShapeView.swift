@@ -23,6 +23,8 @@ struct FCEditShapeView: View {
     
     @State var shapeList: [ShapeItem] = CFResourceModelManager.default.shapeItemList
     @State var selectionKeeper: Int = 0
+    @State var isShowPurchaseView: Bool = false
+    @State var isShowStickerAndBgView: Bool = false
     
     var body: some View {
 
@@ -40,9 +42,11 @@ struct FCEditShapeView: View {
                     shapeListView
                     Spacer()
                 }
-                .navigationBarHidden(true)
+                purchaseAlertView
+                    .hidden(!isShowPurchaseView)
+                    .animation(.easeInOut)
             }
-        }
+        }.navigationBarHidden(true)
     }
 }
 
@@ -60,24 +64,30 @@ extension FCEditShapeView {
             })
             
             Spacer()
-            
-            Button(action: {
-                nextBackClick()
-            }, label: {
-                ZStack {
-                    Color(DynamicColor(hexString: "#FFDCEC"))
-                        .cornerRadius(2)
+
+            NavigationLink(destination: FCEditStickerAndBgView(events: events, maskShapeName: maskShapeName, bgImageName: bgImageName, stickerName: stickerName)
+                            .navigationBarHidden(true)
+                           , isActive: $isShowStickerAndBgView) {
+                Button(action: {
+                    isShowStickerAndBgView = true
+                }, label: {
                     ZStack {
-                        Color(.white)
-                            .border(Color.black, width: 1, cornerRadius: 2)
-                        Text("Next")
-                            .foregroundColor(.black)
-                            .font(Font.custom("Avenir-BlackOblique", size: 12))
-                    }.padding(2)
+                        Color(DynamicColor(hexString: "#FFDCEC"))
+                            .cornerRadius(2)
+                        ZStack {
+                            Color(.white)
+                                .border(Color.black, width: 1, cornerRadius: 2)
+                            Text("Next")
+                                .foregroundColor(.black)
+                                .font(Font.custom("Avenir-BlackOblique", size: 12))
+                        }.padding(2)
+                        
+                    }
                     
-                }
-                
-            }).frame(width: 76, height: 30, alignment: .center)
+                }).frame(width: 76, height: 30, alignment: .center)
+            }
+            
+            
             
             Spacer()
                 .frame(width: 24)
@@ -100,8 +110,8 @@ extension FCEditShapeView {
     
     var backgroundPreviewView: some View {
         GeometryReader { geo in
-//            Image(uiImage: events.resultImage!)
-            Image("background_big_4")
+            Image(uiImage: events.resultImage!)
+//            Image("background_big_4")
                 .resizable()
                 .frame(width: geo.size.width, height: geo.size.height, alignment: .center)
         }
@@ -138,7 +148,9 @@ extension FCEditShapeView {
         // select index
         selectionKeeper = index
         maskShapeName = shapeList[index].bigName
-        
+        if shapeList[index].isPro {
+            isShowPurchaseView = true
+        }
     }
     
     var shapeListView: some View {
@@ -174,12 +186,75 @@ extension FCEditShapeView {
         mode.dismiss()
     }
     
-    func nextBackClick() {
+     
+}
+
+extension FCEditShapeView {
+    // purchase alert view
+    var purchaseAlertView: some View {
+        
+        ZStack {
+            Color(.clear)
+            VStack {
+                Spacer()
+                ZStack {
+                    RoundedCorners(color: .white, tl: 16, tr: 16, bl: 0, br: 0)
+                        .shadow(color: Color(DynamicColor.black.withAlphaComponent(0.5)), radius: 10, x: 0.0, y: 0.0)
+                        .edgesIgnoringSafeArea(.bottom)
+                    VStack {
+                        
+                        purchaseAlertBtn_Close
+                        Image("store_coins_ic")
+                            .resizable()
+                            .frame(width: 50, height: 50, alignment: .center)
+                        Spacer(minLength: 20)
+                        Text("Because you are using a paid item, 50coins will be charged when saving")
+                            .multilineTextAlignment(.center)
+                            .font(Font.custom("Avenir-Medium", size: 14))
+                            .frame(width: 300)
+                        Spacer(minLength: 34)
+                        purchaseAlertBtn_Ok
+                        Spacer()
+                    }
+                }.frame(height: 375)
+                
+            }
+        }
+    }
+    
+    var purchaseAlertBtn_Close: some View {
+        HStack {
+            Spacer()
+            Button(action: {
+                isShowPurchaseView = false
+            }, label: {
+                Image("setting_close_ic")
+            }).frame(width: 50, height: 50, alignment: .center)
+        }
+        
+    }
+    
+    var purchaseAlertBtn_Ok: some View {
+        Button(action: {
+            isShowPurchaseView = false
+        }, label: {
+            ZStack {
+                Color(DynamicColor(hexString: "#C9FFEE"))
+                    .cornerRadius(8)
+                ZStack {
+                    Color(.white)
+                        .border(Color.black, width: 1, cornerRadius: 8)
+                    Text("OK")
+                        .foregroundColor(.black)
+                        .font(Font.custom("Avenir-BlackOblique", size: 16))
+                }.padding(8)
+                
+            }
+            
+        }).frame(width: 150, height: 54, alignment: .center)
         
     }
 }
-
-
 
 
 struct FCShapeCell: View {

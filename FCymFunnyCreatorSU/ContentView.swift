@@ -11,9 +11,9 @@ struct ContentView: View {
     @State var isActive = false
     
     var body: some View {
-//        FCMainView()
+        FCMainView()
         
-        FCCreatorSaveView()
+//        FCCreatorSaveView()
         
 //        FCCreatorEmojiStickerEditView( contentIconList: CFResourceModelManager.default.creatorEmojiItemList)
         

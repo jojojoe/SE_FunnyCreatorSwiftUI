@@ -13,33 +13,44 @@ import SwiftUIX
 struct FCMainView: View {
     
     @State var isActive = false
-    
+    @State private var isShowSettingView = false
+    @State var isShowCoinStore = false
+    @State var isShowExploreNow = false
+    @State var isShowCreator = false
     
     var body: some View {
-        ZStack {
-            VStack {
-                topRightBgView
-                Spacer()
-                bottomLeftBgView
-            }
-            VStack {
-                settingBtn
-                topTitleLabel
-                ZStack {
-                    VStack {
-                        Spacer()
-                        contentBtnsBgView
-                        Spacer()
-                            .frame(width: 10, height: 18, alignment: .center)
-                        scannerBtnBgView
-                        Spacer()
-                            .frame(width: 10, height: 18, alignment: .center)
-                        storeBtnBgView
-                        Spacer()
+        
+        NavigationView {
+            ZStack {
+                VStack {
+                    topRightBgView
+                    Spacer()
+                    bottomLeftBgView
+                }
+                VStack {
+                    settingBtn
+                    Spacer()
+                    topTitleLabel
+                    
+                    ZStack {
+                        VStack {
+                            Spacer()
+                            contentBtnsBgView
+                            Spacer()
+                                .frame(width: 10, height: 18, alignment: .center)
+                            scannerBtnBgView
+                            Spacer()
+                                .frame(width: 10, height: 18, alignment: .center)
+                            storeBtnBgView
+                            Spacer()
+                        }
                     }
                 }
-            }
+            }.navigationBarHidden(true)
+            .background(.white)
         }
+        
+        
     }
 }
 
@@ -92,7 +103,7 @@ extension FCMainView {
             Spacer()
             VStack {
                 Button(action: {
-                    settingBtnClick()
+                    isShowSettingView = true
                 }) {
                     Image("home_setting_ic")
                 }
@@ -100,8 +111,14 @@ extension FCMainView {
                 .frame(width: 44,
                         height: 44,
                         alignment: .center)
+//                .sheet(isPresented: $isShowSettingView, content: {
+//                    FCSettingView()
+//                })
+                .fullScreenCover(isPresented: $isShowSettingView, content: {
+                    FCSettingView()
+                })
             }.frame(width: 80, height: 44, alignment: .top)
-        }
+        }.frame(height: 44)
     }
     
     /// topTitleLabel
@@ -130,24 +147,35 @@ extension FCMainView {
             Spacer()
                 .frame(width: 30, height: 15, alignment: .center)
             // exploreNowBtn
-            Button(action: {
-                exploreNowBtnClick()
-            }) {
-                contentBtnsView(bgColor: "#FFDCEC", imgName: "home_gril_ic", title1: "Explore", title2: "now")
+            NavigationLink(destination: FCCameraTakeView()
+                            , isActive: $isActive) {
+
+                Button(action: {
+                    requestExplorePhoto()
+                }) {
+                    contentBtnsView(bgColor: "#FFDCEC", imgName: "home_gril_ic", title1: "Explore", title2: "now")
+                }.cornerRadius(5)
             }
+            
             
             Spacer()
                 .frame(width: 15, height: 15, alignment: .center)
-            
-            // creatorBtn
-            Button(action: {
-                creatorBtnClick()
-            }) {
-                ZStack {
-                    contentBtnsView(bgColor: "#C9FFEE", imgName: "home_boy_ic", title1: "Go to", title2: "Creator")
+             
+            NavigationLink(destination: FCCreatorMenuView()
+                            .navigationBarHidden(true)
+                            , isActive: $isShowCreator) {
+
+                Button(action: {
+                    requestCreatorPhoto()
+                    
+                }) {
+                    ZStack {
+                        contentBtnsView(bgColor: "#C9FFEE", imgName: "home_boy_ic", title1: "Go to", title2: "Creator")
+                    }
                 }
+                .cornerRadius(5)
             }
-            .cornerRadius(5)
+            
             Spacer()
                 .frame(width: 30, height: 15, alignment: .center)
             
@@ -165,10 +193,14 @@ extension FCMainView {
     
     var storeBtnBgView: some View {
         Button(action: {
-            scannerBtnClick()
+            storeBtnClick()
         }) {
             bottomBtnsView(bgColor: "#F7F7FC", imgName: "home_code_ic", title1: "Magic coins store")
         }
+        .sheet(isPresented: $isShowCoinStore, content: {
+            FCStoreView()
+                .environmentObject(CoinManager.default)
+        })
     }
     
 }
@@ -251,10 +283,18 @@ extension FCMainView {
 }
 
 extension FCMainView {
-    func request() {
+    func requestExplorePhoto() {
         PrivacyAuthorizationManager.default.requestCameraPermission {
             
             self.isActive = true
+        } deniedBlock: {
+
+        }
+    }
+    
+    func requestCreatorPhoto() {
+        PrivacyAuthorizationManager.default.requestCameraPermission {
+            isShowCreator = true
         } deniedBlock: {
 
         }
@@ -264,36 +304,16 @@ extension FCMainView {
 
 /// Action
 extension FCMainView {
-    func settingBtnClick() {
-        debugPrint("TapSetting")
-    }
+ 
     
-    func exploreNowBtnClick() {
-        NavigationView {
-            VStack {
-                NavigationLink(destination: FCCameraTakeView()
-                                , isActive: $isActive) {
-
-                    Button {
-                        request()
-                    } label: {
-                        Text("跳转")
-                    }
-                }
-            }
-        }
-    }
-    
-    func creatorBtnClick() {
-        
-    }
+     
     
     func scannerBtnClick() {
         
     }
     
     func storeBtnClick() {
-        
+        isShowCoinStore = true
     }
 }
 

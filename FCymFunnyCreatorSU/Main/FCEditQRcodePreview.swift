@@ -14,14 +14,14 @@ struct FCEditQRcodePreview: View {
     
     @Environment(\.presentationMode) var mode
     @State var qrImage: UIImage
-    @State var contentImage: UIImage
+    
     @State var isShowSaveResultAlert = false
     @State var isSaveSuccessStatus = false
     
-    @State var previewSize: CGSize = CGSize.zero
+    
     @State private var isPresentedShare = false
     
-    @State var shareImage: UIImage = UIImage(named: "share_ic")!
+    
     
     
     
@@ -45,7 +45,7 @@ struct FCEditQRcodePreview: View {
                 .navigationBarHidden(true)
                 .activity(
                     isPresented: $isPresentedShare,
-                    items: ["generatePreviewImage()"]
+                    items: [qrImage]
                 )
             }
             
@@ -117,9 +117,7 @@ extension FCEditQRcodePreview {
                     .resizable()
                     .padding(40)
                 
-                Image(uiImage: contentImage)
-                    .resizable()
-                    .frame(width: 60, height: 60, alignment: .center)
+                 
                 
             }
         }
@@ -129,7 +127,7 @@ extension FCEditQRcodePreview {
     var saveQRImageBtn: some View {
         
         Button(action: {
-            let resultImage = generatePreviewImage()
+            let resultImage = qrImage
             saveBtnClick(resultImage: resultImage)
         }, label: {
             ZStack {
@@ -163,7 +161,7 @@ struct FCEditQRcodePreview_Previews: PreviewProvider {
     
     static var previews: some View {
         Group {
-            FCEditQRcodePreview(qrImage: UIImage(named: "background_ic_5")!, contentImage: UIImage(named: "background_ic_4")!)
+            FCEditQRcodePreview(qrImage: UIImage(named: "background_ic_5")!)
             
         }
     }

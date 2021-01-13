@@ -17,7 +17,7 @@ struct FCEditSaveView: View {
     @State var isSaveSuccessStatus = false
     @State var text = ""
     @State var isEditing = true
-    @State var isShowMakeQRView: Bool = true
+    @State var isShowMakeQRView: Bool = false
     @State var qrImage: UIImage? = nil
     
     
@@ -193,8 +193,9 @@ extension FCEditSaveView {
                             .disabled(!(text.count >= 1))
                         
                         Spacer(minLength: 60)
+                        Spacer()
                     }
-                }.frame(height: 375)
+                }.frame(height: 475)
                 
             }
         }
@@ -214,16 +215,49 @@ extension FCEditSaveView {
         
     }
     
+    func qrResultImage() -> UIImage {
+        let frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
+        
+        let canvasView = UIView()
+        canvasView.frame = frame
+        canvasView.backgroundColor = .white
+        
+        let qrImg = LBXScanWrapper.createCode(codeType: "CIQRCodeGenerator", codeString: text, size: frame.size, qrColor: UIColor.black, bkColor: UIColor.white)
+
+        
+//        let qrImgBlend = LBXScanWrapper.addImageLogo(srcImg: qrImg!, logoImg: logoImg, logoSize: CGSize(width: 62, height: 62))
+        
+        let qrImageView = UIImageView()
+        let padding: CGFloat = 10
+        qrImageView.frame = CGRect(x: padding, y: padding, width: frame.size.width - padding * 2, height: frame.size.height - padding * 2)
+        qrImageView.image = qrImg
+        canvasView.addSubview(qrImageView)
+        
+        let addImageView = UIImageView()
+        addImageView.frame = CGRect(x: 0, y: 0, width: 62, height: 62)
+        addImageView.center = CGPoint(x: frame.size.width / 2, y: frame.size.height / 2)
+        addImageView.image = resultImage
+        canvasView.addSubview(addImageView)
+        
+        return canvasView.screenshot ?? UIImage()
+        
+    }
+    
     var makeBtn_Ok: some View {
         
-        NavigationLink(destination: Text("")
-                        .frame(height: 400)
+        
+        NavigationLink(destination: FCEditQRcodePreview(qrImage: qrImage ?? UIImage())
+                        
                        , isActive: .constant(qrImage != nil)) {
 
             Button(action: {
+                qrImage = qrResultImage()
                 isShowMakeQRView = false
                 isEditing = false
                 hideKeyboard()
+                
+//
+                
             }, label: {
                 ZStack {
                     Color(DynamicColor(hexString: "#C9FFEE"))

@@ -9,7 +9,12 @@ import Foundation
 import SwiftUI
 import DynamicColor
 import SwiftUIX
+import MessageUI
 
+var privateUrlString = "https://www.baidu.com/"
+var termsUrlString = "https://www.baidu.com/"
+var feedbackString = "804463232@qq.com"
+var AppName = ""
 enum SettingContentBtnType: Equatable {
     case feedback
     case privacy
@@ -17,6 +22,11 @@ enum SettingContentBtnType: Equatable {
 }
 
 struct FCSettingView: View {
+    @Environment(\.presentationMode) var mode
+    
+    @State private var showMailSheet = false
+    
+    
     var body: some View {
         ZStack {
             VStack {
@@ -45,7 +55,10 @@ struct FCSettingView: View {
                     Spacer()
                 }
             }
-        }
+            
+
+            
+        }.background(.white)
     }
 }
 
@@ -107,6 +120,40 @@ extension FCSettingView {
         }, label: {
             if btnType == .feedback {
                 contentBtnText(title: "Feedback")
+                    .sheet(isPresented: self.$showMailSheet) {
+                        MailView(isShowing: self.$showMailSheet,
+                                 resultHandler: {
+                                    value in
+                                    switch value {
+                                    case .success(let result):
+                                        switch result {
+                                        case .cancelled:
+                                            print("cancelled")
+                                        case .failed:
+                                            print("failed")
+                                        case .saved:
+                                            print("saved")
+                                        default:
+                                            print("sent")
+                                        }
+                                    case .failure(let error):
+                                        print("error: \(error.localizedDescription)")
+                                    }
+                        },
+                                 subject: "Feedback",
+                                 toRecipients: [feedbackString],
+                                 
+                                 
+                                 messageBody: feedbackMessageBody(),
+                                 isHtml: false,
+                                 attachments: nil)
+                        .safe()
+                        /*
+                         [("Sample file content".data(using: .utf8)!,
+                                        "Text",
+                                        "sample.txt")]
+                         */
+                    }
             } else if btnType == .privacy {
                 contentBtnText(title: "Privacy link")
             } else if btnType == .instructions {
@@ -114,6 +161,17 @@ extension FCSettingView {
             }
         })
         .frame(height: 50)
+    }
+    
+    func feedbackMessageBody() -> String {
+        let systemVersion = UIDevice.current.systemVersion
+        let infoDic = Bundle.main.infoDictionary
+        // 获取App的版本号
+        let appVersion = infoDic?["CFBundleShortVersionString"] ?? "8.8.8"
+        // 获取App的名称
+        let appName = "\(AppName)"
+        
+        return "\n\n\nSystem Version：\(systemVersion)\n App Name：\(appName)\n App Version：\(appVersion ?? "1.0")"
     }
     
     func contentBtnText(title: String) -> some View {
@@ -127,16 +185,26 @@ extension FCSettingView {
 
 extension FCSettingView {
     func closeBtnClick() {
-        
+        mode.dismiss()
     }
     
     func contentBtnClick(btnType: SettingContentBtnType) {
         if btnType == .feedback {
+            self.showMailSheet.toggle()
             
         } else if btnType == .privacy {
+            if let url = URL.init(string: privateUrlString) {
+                if UIApplication.shared.canOpenURL(url) {
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                }
+            }
             
         } else if btnType == .instructions {
-            
+            if let url = URL.init(string: termsUrlString) {
+                if UIApplication.shared.canOpenURL(url) {
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                }
+            }
         }
     }
     

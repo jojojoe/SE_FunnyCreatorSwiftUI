@@ -133,7 +133,7 @@ extension FCCameraTakeView: CameraActions {
         VStack {
             
             NavigationLink(destination: FCEditShapeView(events: events, maskShapeName: maskShapeName, bgImageName: bgImageName, stickerName: stickerName)
-                            .frame(height: 400)
+                            .navigationBarHidden(true)
                            , isActive: $events.didTakeCapturePhoto) {
 
                 Button(action: {
@@ -160,10 +160,7 @@ extension FCCameraTakeView: CameraActions {
     
     func captureBtnClick() {
         self.takePhoto(events: events)
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
-            
-             
-        }
+         
 
     }
     
@@ -203,6 +200,54 @@ struct FCMaskOverlayerView: View {
         
     }
 }
+
+class FCMaskOverlayerUIView: UIView {
+    var maskShapeName: String
+    var bgImageName: String
+    var stickerName: String
+    
+    init(frame: CGRect, bgImageName: String, stickerName: String, maskShapeName: String) {
+        self.maskShapeName = maskShapeName
+        self.bgImageName = bgImageName
+        self.stickerName = stickerName
+        
+        super.init(frame: frame)
+        setupView()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    //CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
+    func setupView() {
+        self.backgroundColor = .clear
+        
+        let bgImageView = UIImageView()
+        bgImageView.frame = self.bounds
+        bgImageView.image = UIImage(named: bgImageName)
+        self.addSubview(bgImageView)
+        
+        let maskShapeImageView = UIImageView()
+        maskShapeImageView.frame = self.bounds
+        maskShapeImageView.image = UIImage(named: maskShapeName)
+        bgImageView.mask = maskShapeImageView
+        
+        let stickerImageView = UIImageView()
+        stickerImageView.frame = self.bounds
+        stickerImageView.image = UIImage(named: stickerName)
+        self.addSubview(stickerImageView)
+        
+    }
+    
+}
+
+
+
+
+
+
+
+
 
 //struct CameraInterfaceView: View, CameraActions {
 //    @ObservedObject var events: UserEvents

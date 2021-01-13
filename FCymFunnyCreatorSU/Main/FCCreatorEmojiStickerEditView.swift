@@ -13,7 +13,7 @@ import DynamicColor
 struct FCCreatorEmojiStickerEditView: View {
     @Environment(\.presentationMode) var mode
     @State var contentIconList: [CreatorEmojiStickerItem]
-    @State var isUserPhototype: Bool = false
+
     @State var isShowContentSelectView = false
     @State var currentEmojiImage: UIImage = UIImage()
     
@@ -30,7 +30,10 @@ struct FCCreatorEmojiStickerEditView: View {
                         .background(.white)
                         .mask(Color(.black).frame(width: geo.size.width - 30 * 2, height: geo.size.height - 80, alignment: .center))
                         .onTapGesture {
-                            isShowContentSelectView = true
+                            if contentIconList.count >= 1 {
+                                isShowContentSelectView = true
+                            }
+                            
                         }
                 }
                 

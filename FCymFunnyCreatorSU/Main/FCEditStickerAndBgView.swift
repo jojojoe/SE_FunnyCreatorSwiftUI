@@ -29,7 +29,7 @@ struct FCEditStickerAndBgView: View {
     
     @State var isStickerType: Bool = true
     @State var isShowPurchaseView: Bool = false
-    
+    @State var isShowSaveView: Bool = false
     var body: some View {
 
         GeometryReader { geo in
@@ -64,6 +64,24 @@ struct FCEditStickerAndBgView: View {
 
 
 extension FCEditStickerAndBgView {
+    func previewCanvasImage() -> UIImage {
+        let canvasView = UIView()
+        let frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
+        canvasView.frame = frame
+        let bgImageView = UIImageView()
+        bgImageView.frame = frame
+        bgImageView.image = events.resultImage
+        canvasView.addSubview(bgImageView)
+        
+        let overlayerView = FCMaskOverlayerUIView(frame: frame, bgImageName: bgImageName, stickerName: stickerName, maskShapeName: maskShapeName)
+        
+        canvasView.addSubview(overlayerView)
+        
+        return canvasView.screenshot ?? UIImage()
+        
+    }
+ 
+    
     var topBackBgView: some View {
         HStack {
             Button(action: {
@@ -75,23 +93,28 @@ extension FCEditStickerAndBgView {
             
             Spacer()
             
-            Button(action: {
-                nextBackClick()
-            }, label: {
-                ZStack {
-                    Color(DynamicColor(hexString: "#FFDCEC"))
-                        .cornerRadius(2)
+            NavigationLink(destination: FCEditSaveView(resultImage: previewCanvasImage())
+                           , isActive: $isShowSaveView) {
+                Button(action: {
+                    isShowSaveView = true
+                }, label: {
                     ZStack {
-                        Color(.white)
-                            .border(Color.black, width: 1, cornerRadius: 2)
-                        Text("Next")
-                            .foregroundColor(.black)
-                            .font(Font.custom("Avenir-BlackOblique", size: 12))
-                    }.padding(2)
+                        Color(DynamicColor(hexString: "#FFDCEC"))
+                            .cornerRadius(2)
+                        ZStack {
+                            Color(.white)
+                                .border(Color.black, width: 1, cornerRadius: 2)
+                            Text("Next")
+                                .foregroundColor(.black)
+                                .font(Font.custom("Avenir-BlackOblique", size: 12))
+                        }.padding(2)
+                        
+                    }
                     
-                }
-                
-            }).frame(width: 76, height: 30, alignment: .center)
+                }).frame(width: 76, height: 30, alignment: .center)
+            }
+            
+            
             
             Spacer()
                 .frame(width: 24)
@@ -112,8 +135,8 @@ extension FCEditStickerAndBgView {
     
     var backgroundPreviewView: some View {
         GeometryReader { geo in
-//            Image(uiImage: events.resultImage!)
-            Image("background_big_4")
+            Image(uiImage: events.resultImage!)
+//            Image("background_big_4")
                 .resizable()
                 .frame(width: geo.size.width, height: geo.size.height, alignment: .center)
         }
@@ -276,9 +299,7 @@ extension FCEditStickerAndBgView {
         mode.dismiss()
     }
     
-    func nextBackClick() {
-        
-    }
+    
     
     func randomBtnClick() {
         if (isStickerType) {

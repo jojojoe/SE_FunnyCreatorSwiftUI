@@ -141,28 +141,45 @@ extension FCCreatorUserFaceTakeView: CameraActions {
     }
     
     func userPhoto() -> UIImage {
-        let frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.width)
-        let canvas = UIView()
-        canvas.backgroundColor = .white
-        canvas.frame = frame
-        let userImage = events.resultImage
-        let userImageView = UIImageView(image: userImage)
-        userImageView.frame = frame
-        canvas.addSubview(userImageView)
+        let canvasView = UIView()
+        let frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
+        canvasView.frame = frame
+        let bgImageView = UIImageView()
+        bgImageView.frame = frame
+        bgImageView.image = events.resultImage
+        canvasView.addSubview(bgImageView)
         
-        let overlayerView = FCMaskOverlayerView(maskShapeName: $maskShapeName, bgImageName: $bgImageName, stickerName: $stickerName)
+        let overlayerView = FCMaskOverlayerUIView(frame: frame, bgImageName: bgImageName, stickerName: stickerName, maskShapeName: maskShapeName)
         
-        let overlayerViewChild = UIHostingController(rootView: overlayerView)
-        overlayerViewChild.view.frame = frame
-        canvas.addSubview(overlayerViewChild.view)
+        canvasView.addSubview(overlayerView)
         
-        return canvas.screenshot ?? UIImage()
+        return canvasView.screenshot ?? UIImage()
+        
     }
+    
+//    func userPhoto() -> UIImage {
+//        let frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.width)
+//        let canvas = UIView()
+//        canvas.backgroundColor = .white
+//        canvas.frame = frame
+//        let userImage = c
+//        let userImageView = UIImageView(image: userImage)
+//        userImageView.frame = frame
+//        canvas.addSubview(userImageView)
+//
+//        let overlayerView = FCMaskOverlayerView(maskShapeName: $maskShapeName, bgImageName: $bgImageName, stickerName: $stickerName)
+//
+//        let overlayerViewChild = UIHostingController(rootView: overlayerView)
+//        overlayerViewChild.view.frame = frame
+//        canvas.addSubview(overlayerViewChild.view)
+//
+//        return canvas.screenshot ?? UIImage()
+//    }
     
     var captureButton: some View {
         VStack {
             
-            NavigationLink(destination: FCCreatorEmojiStickerEditView(contentIconList: CFResourceModelManager.default.creatorEmojiItemList, isUserPhototype: true, currentEmojiImage: userPhoto())
+            NavigationLink(destination: FCCreatorEmojiStickerEditView(contentIconList: [], currentEmojiImage: userPhoto())
                             
                            , isActive: $events.didTakeCapturePhoto) {
 
