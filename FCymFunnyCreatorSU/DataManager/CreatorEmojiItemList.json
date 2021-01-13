@@ -1,0 +1,118 @@
+
+[
+    {
+        "id" : 0,
+        "thumbName" : "no_sticker_ic",
+        "bigName" : "",
+        "isPro" : false
+    },
+    {
+        "id" : 1,
+        "thumbName" : "sticker_ic_1",
+        "bigName" : "sticker_big_1",
+        "isPro" : false
+    },
+    {
+        "id" : 2,
+        "thumbName" : "sticker_ic_2",
+        "bigName" : "sticker_big_2",
+        "isPro" : false
+    },
+    {
+        "id" : 3,
+        "thumbName" : "sticker_ic_3",
+        "bigName" : "sticker_big_3",
+        "isPro" : true
+    },
+    {
+        "id" : 4,
+        "thumbName" : "sticker_ic_4",
+        "bigName" : "sticker_big_4",
+        "isPro" : true
+    },
+    {
+        "id" : 5,
+        "thumbName" : "sticker_ic_5",
+        "bigName" : "sticker_big_5",
+        "isPro" : true
+    },
+    {
+        "id" : 6,
+        "thumbName" : "sticker_ic_6",
+        "bigName" : "sticker_big_6",
+        "isPro" : true
+    },
+    {
+        "id" : 7,
+        "thumbName" : "sticker_ic_4",
+        "bigName" : "sticker_big_4",
+        "isPro" : true
+    },
+    {
+        "id" : 8,
+        "thumbName" : "sticker_ic_5",
+        "bigName" : "sticker_big_5",
+        "isPro" : true
+    },
+    {
+        "id" : 9,
+        "thumbName" : "sticker_ic_6",
+        "bigName" : "sticker_big_6",
+        "isPro" : true
+    },
+    {
+        "id" : 10,
+        "thumbName" : "sticker_ic_4",
+        "bigName" : "sticker_big_4",
+        "isPro" : true
+    },
+    {
+        "id" : 11,
+        "thumbName" : "sticker_ic_5",
+        "bigName" : "sticker_big_5",
+        "isPro" : true
+    },
+    {
+        "id" : 12,
+        "thumbName" : "sticker_ic_6",
+        "bigName" : "sticker_big_6",
+        "isPro" : true
+    },
+    {
+        "id" : 13,
+        "thumbName" : "sticker_ic_4",
+        "bigName" : "sticker_big_4",
+        "isPro" : true
+    },
+    {
+        "id" : 14,
+        "thumbName" : "sticker_ic_5",
+        "bigName" : "sticker_big_5",
+        "isPro" : true
+    },
+    {
+        "id" : 15,
+        "thumbName" : "sticker_ic_6",
+        "bigName" : "sticker_big_6",
+        "isPro" : true
+    },
+    {
+        "id" : 16,
+        "thumbName" : "sticker_ic_4",
+        "bigName" : "sticker_big_4",
+        "isPro" : true
+    },
+    {
+        "id" : 17,
+        "thumbName" : "sticker_ic_5",
+        "bigName" : "sticker_big_5",
+        "isPro" : true
+    },
+    {
+        "id" : 18,
+        "thumbName" : "sticker_ic_6",
+        "bigName" : "sticker_big_6",
+        "isPro" : true
+    }
+
+]

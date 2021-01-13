@@ -8,6 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		EB3C282925AD712F00BA2573 /* WWAlbumHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3C282825AD712F00BA2573 /* WWAlbumHelper.swift */; };
+		EB3C282C25AD77E100BA2573 /* QRMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3C282B25AD77E100BA2573 /* QRMaker.swift */; };
+		EB3C283125AD7C2000BA2573 /* TextView in Frameworks */ = {isa = PBXBuildFile; productRef = EB3C283025AD7C2000BA2573 /* TextView */; };
+		EB3C283625AD8BEC00BA2573 /* SwiftUI+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3C283525AD8BEC00BA2573 /* SwiftUI+Extension.swift */; };
+		EB3C283925AD8C3300BA2573 /* FCEditQRcodePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3C283825AD8C3200BA2573 /* FCEditQRcodePreview.swift */; };
+		EB3C283D25AD964400BA2573 /* ActivityView in Frameworks */ = {isa = PBXBuildFile; productRef = EB3C283C25AD964400BA2573 /* ActivityView */; };
+		EB3C284325ADA15400BA2573 /* FCCreatorMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3C284225ADA15400BA2573 /* FCCreatorMenuView.swift */; };
+		EB3C284625ADA59800BA2573 /* FCCreatorEmojiStickerEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3C284525ADA59800BA2573 /* FCCreatorEmojiStickerEditView.swift */; };
+		EB3C284925ADC29300BA2573 /* CreatorEmojiItemList.json in Resources */ = {isa = PBXBuildFile; fileRef = EB3C284825ADC29300BA2573 /* CreatorEmojiItemList.json */; };
+		EB3C284C25ADC2AC00BA2573 /* CreatorStickerItemList.json in Resources */ = {isa = PBXBuildFile; fileRef = EB3C284B25ADC2AC00BA2573 /* CreatorStickerItemList.json */; };
+		EB3C284F25AE8F0000BA2573 /* FCCreatorSaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3C284E25AE8EFF00BA2573 /* FCCreatorSaveView.swift */; };
+		EB3C285325AEAC4B00BA2573 /* ToastUI in Frameworks */ = {isa = PBXBuildFile; productRef = EB3C285225AEAC4B00BA2573 /* ToastUI */; };
+		EB3C285625AED0F700BA2573 /* FCCreatorUserFaceTakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3C285525AED0F700BA2573 /* FCCreatorUserFaceTakeView.swift */; };
 		EB5DA9F225A48088006EED20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5DA9F125A48088006EED20 /* AppDelegate.swift */; };
 		EB5DA9F425A48088006EED20 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5DA9F325A48088006EED20 /* SceneDelegate.swift */; };
 		EB5DA9F625A48088006EED20 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5DA9F525A48088006EED20 /* ContentView.swift */; };
@@ -51,6 +63,15 @@
 
 /* Begin PBXFileReference section */
 		EB3C282825AD712F00BA2573 /* WWAlbumHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WWAlbumHelper.swift; sourceTree = "<group>"; };
+		EB3C282B25AD77E100BA2573 /* QRMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRMaker.swift; sourceTree = "<group>"; };
+		EB3C283525AD8BEC00BA2573 /* SwiftUI+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftUI+Extension.swift"; sourceTree = "<group>"; };
+		EB3C283825AD8C3200BA2573 /* FCEditQRcodePreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCEditQRcodePreview.swift; sourceTree = "<group>"; };
+		EB3C284225ADA15400BA2573 /* FCCreatorMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCCreatorMenuView.swift; sourceTree = "<group>"; };
+		EB3C284525ADA59800BA2573 /* FCCreatorEmojiStickerEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCCreatorEmojiStickerEditView.swift; sourceTree = "<group>"; };
+		EB3C284825ADC29300BA2573 /* CreatorEmojiItemList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CreatorEmojiItemList.json; sourceTree = "<group>"; };
+		EB3C284B25ADC2AC00BA2573 /* CreatorStickerItemList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CreatorStickerItemList.json; sourceTree = "<group>"; };
+		EB3C284E25AE8EFF00BA2573 /* FCCreatorSaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCCreatorSaveView.swift; sourceTree = "<group>"; };
+		EB3C285525AED0F700BA2573 /* FCCreatorUserFaceTakeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCCreatorUserFaceTakeView.swift; sourceTree = "<group>"; };
 		EB5DA9EE25A48088006EED20 /* FCymFunnyCreatorSU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FCymFunnyCreatorSU.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB5DA9F125A48088006EED20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB5DA9F325A48088006EED20 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,8 +118,11 @@
 			files = (
 				EB5DAA4825A719D4006EED20 /* SwiftyStoreKit in Frameworks */,
 				EBC68B5125AD53EE001A4C54 /* SwifterSwift in Frameworks */,
+				EB3C283125AD7C2000BA2573 /* TextView in Frameworks */,
 				EB5DAA2125A58E94006EED20 /* DynamicColor in Frameworks */,
+				EB3C283D25AD964400BA2573 /* ActivityView in Frameworks */,
 				EB5DAA1D25A58E31006EED20 /* SwiftUIX in Frameworks */,
+				EB3C285325AEAC4B00BA2573 /* ToastUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,14 +135,6 @@
 				EBC68B4C25AD4B71001A4C54 /* RoundCornerView.swift */,
 			);
 			path = RoundCornerView;
-			sourceTree = "<group>";
-		};
-		EB3C282725AD712100BA2573 /* AlbumHelper */ = {
-			isa = PBXGroup;
-			children = (
-				EB3C282825AD712F00BA2573 /* WWAlbumHelper.swift */,
-			);
-			path = AlbumHelper;
 			sourceTree = "<group>";
 		};
 		EB5DA9E525A48088006EED20 = {
@@ -182,6 +198,11 @@
 				EBC68AEF25ABEAFA001A4C54 /* FCEditShapeView.swift */,
 				EBC68B4225AC6469001A4C54 /* FCEditStickerAndBgView.swift */,
 				EBC68B5325AD56F7001A4C54 /* FCEditSaveView.swift */,
+				EB3C283825AD8C3200BA2573 /* FCEditQRcodePreview.swift */,
+				EB3C284225ADA15400BA2573 /* FCCreatorMenuView.swift */,
+				EB3C284525ADA59800BA2573 /* FCCreatorEmojiStickerEditView.swift */,
+				EB3C285525AED0F700BA2573 /* FCCreatorUserFaceTakeView.swift */,
+				EB3C284E25AE8EFF00BA2573 /* FCCreatorSaveView.swift */,
 				EBC68B2F25AC3908001A4C54 /* Sidebar */,
 			);
 			path = Main;
@@ -190,7 +211,6 @@
 		EB5DAA2D25A6A31F006EED20 /* ViewStuff */ = {
 			isa = PBXGroup;
 			children = (
-				EB3C282725AD712100BA2573 /* AlbumHelper */,
 				EB3C282625AD711700BA2573 /* RoundCornerView */,
 				EB5DAA6A25A83796006EED20 /* PresentModifier */,
 				EB5DAA6125A7FC29006EED20 /* PrivacyAuthorization */,
@@ -209,6 +229,8 @@
 				EBC68B2125AC2509001A4C54 /* ShapeList.json */,
 				EBC68B2425AC2623001A4C54 /* StickerList.json */,
 				EBC68B2725AC273C001A4C54 /* BackgroundList.json */,
+				EB3C284825ADC29300BA2573 /* CreatorEmojiItemList.json */,
+				EB3C284B25ADC2AC00BA2573 /* CreatorStickerItemList.json */,
 			);
 			path = DataManager;
 			sourceTree = "<group>";
@@ -218,6 +240,9 @@
 			children = (
 				EB5DAA4025A70566006EED20 /* Keychain.swift */,
 				EBC68B2C25AC2CF5001A4C54 /* JsonLoader.swift */,
+				EB3C282B25AD77E100BA2573 /* QRMaker.swift */,
+				EB3C282825AD712F00BA2573 /* WWAlbumHelper.swift */,
+				EB3C283525AD8BEC00BA2573 /* SwiftUI+Extension.swift */,
 			);
 			path = ToolStuff;
 			sourceTree = "<group>";
@@ -298,6 +323,9 @@
 				EB5DAA2025A58E94006EED20 /* DynamicColor */,
 				EB5DAA4725A719D4006EED20 /* SwiftyStoreKit */,
 				EBC68B5025AD53EE001A4C54 /* SwifterSwift */,
+				EB3C283025AD7C2000BA2573 /* TextView */,
+				EB3C283C25AD964400BA2573 /* ActivityView */,
+				EB3C285225AEAC4B00BA2573 /* ToastUI */,
 			);
 			productName = FCymFunnyCreatorSU;
 			productReference = EB5DA9EE25A48088006EED20 /* FCymFunnyCreatorSU.app */;
@@ -331,6 +359,9 @@
 				EB5DAA1F25A58E94006EED20 /* XCRemoteSwiftPackageReference "DynamicColor" */,
 				EB5DAA4625A719D4006EED20 /* XCRemoteSwiftPackageReference "SwiftyStoreKit" */,
 				EBC68B4F25AD53EE001A4C54 /* XCRemoteSwiftPackageReference "SwifterSwift" */,
+				EB3C282F25AD7C2000BA2573 /* XCRemoteSwiftPackageReference "TextView" */,
+				EB3C283B25AD964400BA2573 /* XCRemoteSwiftPackageReference "ActivityView" */,
+				EB3C285125AEAC4B00BA2573 /* XCRemoteSwiftPackageReference "ToastUI" */,
 			);
 			productRefGroup = EB5DA9EF25A48088006EED20 /* Products */;
 			projectDirPath = "";
@@ -348,6 +379,8 @@
 			files = (
 				EB5DA9FE25A4808C006EED20 /* LaunchScreen.storyboard in Resources */,
 				EBC68B2525AC2623001A4C54 /* StickerList.json in Resources */,
+				EB3C284925ADC29300BA2573 /* CreatorEmojiItemList.json in Resources */,
+				EB3C284C25ADC2AC00BA2573 /* CreatorStickerItemList.json in Resources */,
 				EB5DA9FB25A4808C006EED20 /* Preview Assets.xcassets in Resources */,
 				EBC68B2825AC273C001A4C54 /* BackgroundList.json in Resources */,
 				EB5DA9F825A4808C006EED20 /* Assets.xcassets in Resources */,
@@ -363,11 +396,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBC68B4325AC6469001A4C54 /* FCEditStickerAndBgView.swift in Sources */,
+				EB3C284F25AE8F0000BA2573 /* FCCreatorSaveView.swift in Sources */,
 				EB5DAA5925A7F945006EED20 /* CameraViewControllerDelegate.swift in Sources */,
 				EB5DAA5725A7F945006EED20 /* CameraActions.swift in Sources */,
 				EBC68B3C25AC3A37001A4C54 /* SidebarRowView.swift in Sources */,
 				EB5DA9F225A48088006EED20 /* AppDelegate.swift in Sources */,
+				EB3C283625AD8BEC00BA2573 /* SwiftUI+Extension.swift in Sources */,
 				EB3C282925AD712F00BA2573 /* WWAlbumHelper.swift in Sources */,
+				EB3C284625ADA59800BA2573 /* FCCreatorEmojiStickerEditView.swift in Sources */,
 				EBC68AF025ABEAFA001A4C54 /* FCEditShapeView.swift in Sources */,
 				EBC68B3E25AC3A39001A4C54 /* SidebarItem.swift in Sources */,
 				EB5DAA1925A55D4F006EED20 /* FCMainView.swift in Sources */,
@@ -376,17 +412,21 @@
 				EB5DAA4B25A7F759006EED20 /* FCCameraTakeView.swift in Sources */,
 				EB5DAA2F25A6A33E006EED20 /* PageControl.swift in Sources */,
 				EBC68B5425AD56F7001A4C54 /* FCEditSaveView.swift in Sources */,
+				EB3C284325ADA15400BA2573 /* FCCreatorMenuView.swift in Sources */,
 				EB5DAA7C25A848B2006EED20 /* NavigationPresentDemo.swift in Sources */,
 				EB5DAA3425A6D889006EED20 /* FCSettingView.swift in Sources */,
 				EBC68B2D25AC2CF5001A4C54 /* JsonLoader.swift in Sources */,
 				EB5DAA2525A5A623006EED20 /* FCSplashView.swift in Sources */,
+				EB3C282C25AD77E100BA2573 /* QRMaker.swift in Sources */,
 				EB5DA9F425A48088006EED20 /* SceneDelegate.swift in Sources */,
 				EB5DA9F625A48088006EED20 /* ContentView.swift in Sources */,
 				EB5DAA4425A70F13006EED20 /* QGrid.swift in Sources */,
+				EB3C283925AD8C3300BA2573 /* FCEditQRcodePreview.swift in Sources */,
 				EB5DAA7E25A84DB6006EED20 /* FullScreenPresentModifier.swift in Sources */,
 				EBC68B1F25AC22B4001A4C54 /* ResourceModelManager.swift in Sources */,
 				EBC68B3A25AC3A34001A4C54 /* SidebarView.swift in Sources */,
 				EB5DAA5F25A7FC25006EED20 /* PrivacyAuthorizationManager.swift in Sources */,
+				EB3C285625AED0F700BA2573 /* FCCreatorUserFaceTakeView.swift in Sources */,
 				EB5DAA5A25A7F945006EED20 /* CameraView.swift in Sources */,
 				EB5DAA5825A7F945006EED20 /* CameraViewController.swift in Sources */,
 				EB5DAA3B25A704B9006EED20 /* CoinManager.swift in Sources */,
@@ -595,6 +635,30 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		EB3C282F25AD7C2000BA2573 /* XCRemoteSwiftPackageReference "TextView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kenmueller/TextView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.4.8;
+			};
+		};
+		EB3C283B25AD964400BA2573 /* XCRemoteSwiftPackageReference "ActivityView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/shaps80/ActivityView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		EB3C285125AEAC4B00BA2573 /* XCRemoteSwiftPackageReference "ToastUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/quanshousio/ToastUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.3.1;
+			};
+		};
 		EB5DAA1B25A58E30006EED20 /* XCRemoteSwiftPackageReference "SwiftUIX" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftUIX/SwiftUIX";
@@ -630,6 +694,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		EB3C283025AD7C2000BA2573 /* TextView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EB3C282F25AD7C2000BA2573 /* XCRemoteSwiftPackageReference "TextView" */;
+			productName = TextView;
+		};
+		EB3C283C25AD964400BA2573 /* ActivityView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EB3C283B25AD964400BA2573 /* XCRemoteSwiftPackageReference "ActivityView" */;
+			productName = ActivityView;
+		};
+		EB3C285225AEAC4B00BA2573 /* ToastUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EB3C285125AEAC4B00BA2573 /* XCRemoteSwiftPackageReference "ToastUI" */;
+			productName = ToastUI;
+		};
 		EB5DAA1C25A58E31006EED20 /* SwiftUIX */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = EB5DAA1B25A58E30006EED20 /* XCRemoteSwiftPackageReference "SwiftUIX" */;

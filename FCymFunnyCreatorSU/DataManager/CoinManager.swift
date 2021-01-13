@@ -114,6 +114,21 @@ class CoinManager: ObservableObject {
         }
     }
     
+    func purchaseIapId(iap: String, completion: @escaping ((Bool, String?)->Void)) {
+        SwiftyStoreKit.purchaseProduct(iap) { [weak self] result in
+            guard let `self` = self else { return }
+            debugPrint("self\(self)")
+            switch result {
+            case .success:
+//                CoinsManager.coins += item.coinsCount
+                completion(true, nil)
+            case let .error(error):
+//                HUD.error(error.localizedDescription)
+                completion(false, error.localizedDescription)
+            }
+        }
+    }
+    
 }
 
 

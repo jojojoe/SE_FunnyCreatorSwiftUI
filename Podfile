@@ -7,11 +7,9 @@ target 'FCymFunnyCreatorSU' do
 
   # Pods for FCymFunnyCreatorSU
   
-  pod 'SwifterSwift'
   pod 'Defaults', '~>3.1.1'
   pod 'NoticeObserveKit'
   pod 'SnapKit'
-  pod 'DynamicColor'
 
 #  Store
   pod 'SwiftyStoreKit'

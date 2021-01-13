@@ -7,6 +7,21 @@
 
 import Foundation
 
+struct CreatorEmojiStickerItem: Codable, Identifiable, Hashable {
+    static func == (lhs: CreatorEmojiStickerItem, rhs: CreatorEmojiStickerItem) -> Bool {
+        return lhs.id == rhs.id && lhs.thumbName == rhs.thumbName
+    }
+    var id: Int = 0
+    var thumbName: String = ""
+    var bigName: String = ""
+    var isPro: Bool = false
+     
+}
+
+ 
+
+ 
+
 struct ShapeItem: Codable, Identifiable, Hashable {
     static func == (lhs: ShapeItem, rhs: ShapeItem) -> Bool {
         return lhs.id == rhs.id
@@ -45,6 +60,8 @@ class CFResourceModelManager: ObservableObject {
     @Published var shapeItemList: [ShapeItem] = []
     @Published var stickerItemList: [StickerItem] = []
     @Published var backgroundItemList: [BackgroundItem] = []
+    @Published var creatorEmojiItemList: [CreatorEmojiStickerItem] = []
+    @Published var creatorStickerItemList: [CreatorEmojiStickerItem] = []
     
     static let `default` = CFResourceModelManager()
     
@@ -56,6 +73,10 @@ class CFResourceModelManager: ObservableObject {
         shapeItemList = LoadJsonData.default.loadJson([ShapeItem].self, name: "ShapeList") ?? []
         stickerItemList = LoadJsonData.default.loadJson([StickerItem].self, name: "StickerList") ?? []
         backgroundItemList = LoadJsonData.default.loadJson([BackgroundItem].self, name: "BackgroundList") ?? []
+        
+        creatorEmojiItemList = LoadJsonData.default.loadJson([CreatorEmojiStickerItem].self, name: "CreatorEmojiItemList") ?? []
+        creatorStickerItemList = LoadJsonData.default.loadJson([CreatorEmojiStickerItem].self, name: "CreatorStickerItemList") ?? []
+        
     }
      
     

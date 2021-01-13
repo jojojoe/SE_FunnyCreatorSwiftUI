@@ -224,7 +224,7 @@ extension FCEditStickerAndBgView {
                         Spacer(minLength: 20)
                         Text("Because you are using a paid item, 50coins will be charged when saving")
                             .multilineTextAlignment(.center)
-                            .font(Font.custom("Avenir-Avenir", size: 14))
+                            .font(Font.custom("Avenir-Medium", size: 14))
                             .frame(width: 300)
                         Spacer(minLength: 34)
                         purchaseAlertBtn_Ok

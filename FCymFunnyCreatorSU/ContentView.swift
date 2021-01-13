@@ -13,7 +13,16 @@ struct ContentView: View {
     var body: some View {
 //        FCMainView()
         
-        FCEditStickerAndBgView(events: UserEvents(), maskShapeName: "shape_big_1", bgImageName: "background_big_3", stickerName: "sticker_big_1")
+        FCCreatorSaveView()
+        
+//        FCCreatorEmojiStickerEditView( contentIconList: CFResourceModelManager.default.creatorEmojiItemList)
+        
+        
+//        FCEditQRcodePreview(qrImage: UIImage(named: "background_ic_5")!, contentImage: UIImage(named: "background_ic_4")!)
+//
+//        FCEditSaveView(resultImage: UIImage(named: "background_ic_5")!)
+        
+//        FCEditStickerAndBgView(events: UserEvents(), maskShapeName: "shape_big_1", bgImageName: "background_big_3", stickerName: "sticker_big_1")
         
 //        ForEach(0..<CFResourceModelManager.default.shapeItemList.count) { index in
 //            HStack {
