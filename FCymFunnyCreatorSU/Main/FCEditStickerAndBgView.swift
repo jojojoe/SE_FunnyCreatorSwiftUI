@@ -54,8 +54,10 @@ struct FCEditStickerAndBgView: View {
                     bottomTabView
                 }
                 purchaseAlertView
-                    .hidden(!isShowPurchaseView)
+                    .offset(y: isShowPurchaseView ? 0 : UIScreen.main.bounds.height)
                     .animation(.easeInOut)
+                    .transition(.opacity)
+                    
                 
             }.navigationBarHidden(true)
         }
@@ -233,6 +235,12 @@ extension FCEditStickerAndBgView {
         ZStack {
             Color(.clear)
             VStack {
+                Button(action: {
+                    isShowPurchaseView = false
+                }, label: {
+                    Color(.clear)
+                })
+                
                 Spacer()
                 ZStack {
                     RoundedCorners(color: .white, tl: 16, tr: 16, bl: 0, br: 0)
@@ -473,7 +481,7 @@ struct FCEditStickerAndBgView_Previews: PreviewProvider {
     
     static var previews: some View {
         Group {
-            FCEditStickerAndBgView(events: UserEvents(), maskShapeName: "shape_big_1", bgImageName: "background_big_3", stickerName: "sticker_big_1")
+            FCEditStickerAndBgView(events: UserEvents(), maskShapeName: "shape_big_1", bgImageName: "background_big_1", stickerName: "sticker_big_1")
         }
     }
 }

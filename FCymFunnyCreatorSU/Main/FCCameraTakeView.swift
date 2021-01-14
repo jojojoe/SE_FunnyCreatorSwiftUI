@@ -10,7 +10,7 @@ import SwiftUI
 import DynamicColor
 
 var maskShapeNameDefault: String = "shape_big_1"
-var bgImageNameDefault: String = "background_big_3"
+var bgImageNameDefault: String = "background_big_1"
 var stickerNameDefault: String = "sticker_big_1"
 
 

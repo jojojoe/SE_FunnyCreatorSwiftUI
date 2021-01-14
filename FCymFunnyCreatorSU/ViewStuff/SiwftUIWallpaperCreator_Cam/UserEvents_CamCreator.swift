@@ -1,13 +1,14 @@
 //
-//  UserEvents.swift
-//  SwiftUICam
+//  UserEvents_CamCreator.swift
+//  FCymFunnyCreatorSU
 //
-//  Created by Pierre Véron on 31.03.20.
-//  Copyright © 2020 Pierre Véron. All rights reserved.
+//  Created by JOJO on 2021/1/14.
 //
+
+import Foundation
 import SwiftUI
 
-public class UserEvents: ObservableObject {
+public class UserEvents_CamCreator: ObservableObject {
     @Published public var didAskToCapturePhoto = false
     @Published public var didAskToRotateCamera = false
     @Published public var didAskToChangeFlashMode = false

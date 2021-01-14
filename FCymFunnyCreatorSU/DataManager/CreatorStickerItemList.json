@@ -1,43 +1,113 @@
+
 [
-    {
-        "id" : 0,
-        "thumbName" : "no_sticker_ic",
-        "bigName" : "",
-        "isPro" : false
-    },
+     
     {
         "id" : 1,
-        "thumbName" : "sticker_ic_1",
-        "bigName" : "sticker_big_1",
+        "thumbName" : "wall_sticker_ic_1",
+        "bigName" : "wall_sticker_ic_1",
         "isPro" : false
     },
     {
         "id" : 2,
-        "thumbName" : "sticker_ic_2",
-        "bigName" : "sticker_big_2",
+        "thumbName" : "wall_sticker_ic_2",
+        "bigName" : "wall_sticker_ic_2",
         "isPro" : false
     },
     {
         "id" : 3,
-        "thumbName" : "sticker_ic_3",
-        "bigName" : "sticker_big_3",
+        "thumbName" : "wall_sticker_ic_3",
+        "bigName" : "wall_sticker_ic_3",
         "isPro" : true
     },
     {
         "id" : 4,
-        "thumbName" : "sticker_ic_4",
-        "bigName" : "sticker_big_4",
+        "thumbName" : "wall_sticker_ic_4",
+        "bigName" : "wall_sticker_ic_4",
         "isPro" : true
     },
     {
         "id" : 5,
-        "thumbName" : "sticker_ic_5",
-        "bigName" : "sticker_big_5",
+        "thumbName" : "wall_sticker_ic_5",
+        "bigName" : "wall_sticker_ic_5",
         "isPro" : true
     },
     {
         "id" : 6,
-        "thumbName" : "sticker_ic_6",
-        "bigName" : "sticker_big_6",
+        "thumbName" : "wall_sticker_ic_6",
+        "bigName" : "wall_sticker_ic_6",
         "isPro" : true
-    }]
+    },
+    {
+        "id" : 7,
+        "thumbName" : "wall_sticker_ic_7",
+        "bigName" : "wall_sticker_ic_7",
+        "isPro" : true
+    },
+    {
+        "id" : 8,
+        "thumbName" : "wall_sticker_ic_8",
+        "bigName" : "wall_sticker_ic_8",
+        "isPro" : true
+    },
+    {
+        "id" : 9,
+        "thumbName" : "wall_sticker_ic_9",
+        "bigName" : "wall_sticker_ic_9",
+        "isPro" : true
+    },
+    {
+        "id" : 10,
+        "thumbName" : "wall_sticker_ic_10",
+        "bigName" : "wall_sticker_ic_10",
+        "isPro" : true
+    },
+    {
+        "id" : 11,
+        "thumbName" : "wall_sticker_ic_11",
+        "bigName" : "wall_sticker_ic_11",
+        "isPro" : true
+    },
+    {
+        "id" : 12,
+        "thumbName" : "wall_sticker_ic_12",
+        "bigName" : "wall_sticker_ic_12",
+        "isPro" : true
+    },
+    {
+        "id" : 13,
+        "thumbName" : "wall_sticker_ic_13",
+        "bigName" : "wall_sticker_ic_13",
+        "isPro" : true
+    },
+    {
+        "id" : 14,
+        "thumbName" : "wall_sticker_ic_14",
+        "bigName" : "wall_sticker_ic_14",
+        "isPro" : true
+    },
+    {
+        "id" : 15,
+        "thumbName" : "wall_sticker_ic_15",
+        "bigName" : "wall_sticker_ic_15",
+        "isPro" : true
+    },
+    {
+        "id" : 16,
+        "thumbName" : "wall_sticker_ic_16",
+        "bigName" : "wall_sticker_ic_16",
+        "isPro" : true
+    },
+    {
+        "id" : 17,
+        "thumbName" : "wall_sticker_ic_17",
+        "bigName" : "wall_sticker_ic_17",
+        "isPro" : true
+    },
+    {
+        "id" : 18,
+        "thumbName" : "wall_sticker_ic_18",
+        "bigName" : "wall_sticker_ic_18",
+        "isPro" : true
+    }
+
+]

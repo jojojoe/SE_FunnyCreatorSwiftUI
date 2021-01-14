@@ -10,13 +10,28 @@ import SwiftUI
 import DynamicColor
 import SwiftUIX
 
+extension AnyTransition {
+  static var customTransition: AnyTransition {
+    let transition = AnyTransition.move(edge: .bottom)
+      .combined(with: .scale(scale: 0.6, anchor: .bottom))
+      .combined(with: .opacity)
+    return transition
+  }
+}
+
+
 struct FCMainView: View {
+    
+    @EnvironmentObject var splashManager: FCSplashViewManager
     
     @State var isActive = false
     @State private var isShowSettingView = false
     @State var isShowCoinStore = false
     @State var isShowExploreNow = false
     @State var isShowCreator = false
+    @State var isShowQRScan = false
+    
+    @State var isShowSplash = false
     
     var body: some View {
         
@@ -31,7 +46,7 @@ struct FCMainView: View {
                     settingBtn
                     Spacer()
                     topTitleLabel
-                    
+
                     ZStack {
                         VStack {
                             Spacer()
@@ -46,7 +61,25 @@ struct FCMainView: View {
                         }
                     }
                 }
+                
+                
+                    FCSplashView()
+                        .transition(.customTransition)
+//                        .animation(.easeInOut)
+//                        .transition(.opacity)
+//                        .transition(.offset(x: 0, y: -190))
+//                        .environmentObject(FCSplashViewManager.default)
+                        .environmentObject(splashManager)
+                
+                        .hidden(splashManager.isShowSplash)
+//                        .hidden(FCSplashViewManager.default.isShowSplash)
+                
+                
+                
+                
             }.navigationBarHidden(true)
+            
+            
             .background(.white)
         }
         
@@ -143,6 +176,8 @@ extension FCMainView {
     
     /// content btns
     var contentBtnsBgView: some View {
+        //FCCameraTakeView ()
+        //FCCreatorUserFaceTakeView
         HStack {
             Spacer()
                 .frame(width: 30, height: 15, alignment: .center)
@@ -162,7 +197,7 @@ extension FCMainView {
                 .frame(width: 15, height: 15, alignment: .center)
              
             NavigationLink(destination: FCCreatorMenuView()
-                            .navigationBarHidden(true)
+                           
                             , isActive: $isShowCreator) {
 
                 Button(action: {
@@ -184,11 +219,15 @@ extension FCMainView {
     }
     
     var scannerBtnBgView: some View {
+        
         Button(action: {
-            scannerBtnClick()
+            isShowQRScan = true
         }) {
             bottomBtnsView(bgColor: "#F7F7FC", imgName: "home_code_ic", title1: "Insta code scanner")
-        }
+        }.sheet(isPresented: $isShowQRScan, content: {
+            QQScanViewSwiftUI()
+        })
+        
     }
     
     var storeBtnBgView: some View {
@@ -205,6 +244,10 @@ extension FCMainView {
     
 }
 
+
+extension FCMainView {
+    
+}
 
 extension FCMainView {
     func contentBtnsView(bgColor: String, imgName: String, title1: String, title2: String) -> some View {
@@ -308,9 +351,7 @@ extension FCMainView {
     
      
     
-    func scannerBtnClick() {
-        
-    }
+    
     
     func storeBtnClick() {
         isShowCoinStore = true

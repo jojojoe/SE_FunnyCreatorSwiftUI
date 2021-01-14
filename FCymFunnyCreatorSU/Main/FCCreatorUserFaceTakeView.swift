@@ -10,19 +10,27 @@ import SwiftUI
 import DynamicColor
 
 var maskShapeNameDefault_creator: String = "shape_big_1"
-var bgImageNameDefault_creator: String = "background_big_3"
+var bgImageNameDefault_creator: String = "background_big_1"
 var stickerNameDefault_creator: String = "sticker_big_1"
+
+//class FCCreatorTakePhoto: ObservableObject {
+//    @Published public var resultImage: UIImage? = nil
+//}
 
 
 struct FCCreatorUserFaceTakeView: View {
     @Environment(\.presentationMode) var mode
     
+//    @ObservedObject var creatorTakePhoto = FCCreatorTakePhoto()
     
     @ObservedObject var events = UserEvents()
 
     @State private var maskShapeName: String = maskShapeNameDefault_creator
     @State private var bgImageName: String = bgImageNameDefault_creator
     @State private var stickerName: String = stickerNameDefault_creator
+    
+    @State var isShowNextEditView: Bool = false
+    
     
     var body: some View {
         
@@ -73,7 +81,7 @@ extension FCCreatorUserFaceTakeView {
         GeometryReader { geo in
             ZStack {
                 //
-                CameraView(events: events, applicationName: "SwiftUICam", canvasSize: CGSize.init(width: geo.size.width, height: geo.size.height))
+                CameraView(events: events, applicationName: "SwiftUICamCreator", canvasSize: CGSize.init(width: geo.size.width, height: geo.size.height))
                     .frame(width: geo.size.width, height: geo.size.height, alignment: .center)
 //                backgroundPreviewView
                 
@@ -140,14 +148,11 @@ extension FCCreatorUserFaceTakeView: CameraActions {
         .frame(width: 60, height: 60, alignment: .center)
     }
     
-    func userPhoto() -> UIImage {
+    func overlayerPhoto() -> UIImage {
         let canvasView = UIView()
         let frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
         canvasView.frame = frame
-        let bgImageView = UIImageView()
-        bgImageView.frame = frame
-        bgImageView.image = events.resultImage
-        canvasView.addSubview(bgImageView)
+         
         
         let overlayerView = FCMaskOverlayerUIView(frame: frame, bgImageName: bgImageName, stickerName: stickerName, maskShapeName: maskShapeName)
         
@@ -177,24 +182,24 @@ extension FCCreatorUserFaceTakeView: CameraActions {
 //    }
     
     var captureButton: some View {
-        VStack {
-            
-            NavigationLink(destination: FCCreatorEmojiStickerEditView(contentIconList: [], currentEmojiImage: userPhoto())
-                            
-                           , isActive: $events.didTakeCapturePhoto) {
+        //$events.didTakeCapturePhoto $isShowNextEditView
+        NavigationLink(
+            destination:
+                FCCreatorUserFaceEmojiStickerEditView(events: events, contentIconList: [], overlayerImage: overlayerPhoto())
+                .navigationBarHidden(true),
+            isActive: $events.didTakeCapturePhoto) {
 
-                Button(action: {
-                    captureBtnClick()
-                }, label: {
-                    Image("take_photo_ic")
-                        .resizable()
-                        .frame(width: 60, height: 60, alignment: .center)
-                        
-                })
-                .frame(width: 60, height: 60, alignment: .center)
-            }
+            Button(action: {
+                
+                captureBtnClick()
+            }, label: {
+                Image("take_photo_ic")
+                    .resizable()
+                    .frame(width: 60, height: 60, alignment: .center)
+                    
+            })
+            .frame(width: 60, height: 60, alignment: .center)
         }
-        
         
     }
     
@@ -214,10 +219,10 @@ extension FCCreatorUserFaceTakeView: CameraActions {
     
     func captureBtnClick() {
         self.takePhoto(events: events)
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
-            
-             
-        }
+//        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+//            isShowNextEditView = true
+//        }
+        
 
     }
     

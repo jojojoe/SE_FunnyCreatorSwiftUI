@@ -21,7 +21,7 @@ extension View {
 }
 
 extension UIView {
-    func asImage() -> UIImage {
+    func uiviewAsImage() -> UIImage {
         let format = UIGraphicsImageRendererFormat()
         format.scale = 1
         return UIGraphicsImageRenderer(size: self.layer.frame.size, format: format).image { context in
@@ -34,11 +34,11 @@ extension UIView {
 
 
 extension View {
-    func asImage(size: CGSize) -> UIImage {
+    func viewAsImage(size: CGSize) -> UIImage {
         let controller = UIHostingController(rootView: self)
         controller.view.bounds = CGRect(origin: .zero, size: size)
         //UIApplication.shared.windows.first!.rootViewController?.view.addSubview(controller.view)
-        let image = controller.view.asImage()
+        let image = controller.view.uiviewAsImage()
         //controller.view.removeFromSuperview()
         return image
     }

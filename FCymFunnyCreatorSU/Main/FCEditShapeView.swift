@@ -43,8 +43,10 @@ struct FCEditShapeView: View {
                     Spacer()
                 }
                 purchaseAlertView
-                    .hidden(!isShowPurchaseView)
+                    .offset(y: isShowPurchaseView ? 0 : UIScreen.main.bounds.height)
                     .animation(.easeInOut)
+                    .transition(.opacity)
+                    
             }
         }.navigationBarHidden(true)
     }
@@ -196,6 +198,12 @@ extension FCEditShapeView {
         ZStack {
             Color(.clear)
             VStack {
+                Button(action: {
+                    isShowPurchaseView = false
+                }, label: {
+                    Color(.clear)
+                })
+                
                 Spacer()
                 ZStack {
                     RoundedCorners(color: .white, tl: 16, tr: 16, bl: 0, br: 0)
@@ -298,7 +306,7 @@ struct FCEditShapeView_Previews: PreviewProvider {
     
     static var previews: some View {
         Group {
-            FCEditShapeView(events: UserEvents(), maskShapeName: "shape_big_1", bgImageName: "background_big_3", stickerName: "sticker_big_1")
+            FCEditShapeView(events: UserEvents(), maskShapeName: "shape_big_1", bgImageName: "background_big_1", stickerName: "sticker_big_1")
         }
     }
 }

@@ -18,30 +18,33 @@ struct FCCreatorMenuView: View {
     @State var isShowWallpaperView_sticker: Bool = false
     @State var isShowUserPhotoTakeView: Bool = false
     var body: some View {
-        GeometryReader { geo in
-            ZStack {
-                VStack {
-                    topBackBgView
-                    Spacer()
+        NavigationView {
+            GeometryReader { geo in
+                ZStack {
+                    VStack {
+                        topBackBgView
+                        Spacer()
+                    }
+    //
+                    VStack {
+                        Spacer()
+                        emojiBtn
+                            .frame(width: 314, height: 106, alignment: .center)
+                        Spacer()
+                            .frame(height: 10)
+                        stickerBtn
+                            .frame(width: 314, height: 106, alignment: .center)
+                        Spacer()
+                            .frame(height: 10)
+                        photoBtn
+                            .frame(width: 314, height: 106, alignment: .center)
+                        Spacer()
+                    }
                 }
-//
-                VStack {
-                    Spacer()
-                    emojiBtn
-                        .frame(width: geo.size.width - 30 * 2, height: 106, alignment: .center)
-                    Spacer()
-                        .frame(height: 10)
-                    stickerBtn
-                        .frame(width: geo.size.width - 30 * 2, height: 106, alignment: .center)
-                    Spacer()
-                        .frame(height: 10)
-                    photoBtn
-                        .frame(width: geo.size.width - 30 * 2, height: 106, alignment: .center)
-                    Spacer()
-                }
-            }
-            
-        }
+                
+            }.navigationBarHidden(true)
+        } .navigationBarHidden(true)
+        
         
     }
     
@@ -64,7 +67,7 @@ extension FCCreatorMenuView {
 extension FCCreatorMenuView {
     
     var emojiBtn: some View {
-        NavigationLink(destination: FCCreatorEmojiStickerEditView(contentIconList: CFResourceModelManager.default.creatorEmojiItemList)
+        NavigationLink(destination: FCCreatorEmojiStickerEditView(contentIconList: CFResourceModelManager.default.creatorEmojiItemList, currentEmojiImage: UIImage(named: "emoji_sticker_ic_1")!)
                         .navigationBarHidden(true)
                        , isActive: $isShowWallpaperView_emoji) {
             contentBtn(icon: "emoji_madker_ic", title: "Emoji Maker", colorHex: "#FFDCEC")
@@ -76,7 +79,7 @@ extension FCCreatorMenuView {
     }
     var stickerBtn: some View {
         
-        NavigationLink(destination: FCCreatorEmojiStickerEditView(contentIconList: CFResourceModelManager.default.creatorStickerItemList)
+        NavigationLink(destination: FCCreatorEmojiStickerEditView(contentIconList: CFResourceModelManager.default.creatorStickerItemList, currentEmojiImage: UIImage(named: "wall_sticker_ic_1")!)
                         .navigationBarHidden(true)
                        , isActive: $isShowWallpaperView_sticker) {
             contentBtn(icon: "sticker_maker_ic", title: "Sticker Maker", colorHex: "#C9FFEE")
@@ -86,16 +89,28 @@ extension FCCreatorMenuView {
         }
     }
     var photoBtn: some View {
-        
+        //FCCameraTakeView()
         NavigationLink(destination: FCCreatorUserFaceTakeView()
-                        .navigationBarHidden(true)
-                       , isActive: $isShowUserPhotoTakeView) {
-            
-            contentBtn(icon: "photo_maker_ic", title: "Photo Maker", colorHex: "#F7F7FC")
-                .onTapGesture {
-                    isShowUserPhotoTakeView = true
-                }
+                        , isActive: $isShowUserPhotoTakeView) {
+
+            Button(action: {
+                isShowUserPhotoTakeView = true
+            }) {
+                contentBtn(icon: "photo_maker_ic", title: "Photo Maker", colorHex: "#F7F7FC")
+            }.cornerRadius(5)
         }
+        
+//        NavigationLink(destination: FCCreatorUserFaceTakeView()
+//                        .navigationBarHidden(true)
+//                       , isActive: $isShowUserPhotoTakeView) {
+//            Button(action: {
+//                isShowUserPhotoTakeView = true
+//            }, label: {
+//                contentBtn(icon: "photo_maker_ic", title: "Photo Maker", colorHex: "#F7F7FC")
+//            })
+//            
+//                 
+//        }
         
         
         

@@ -1,17 +1,16 @@
 //
-//  CameraView.swift
-//  SwiftUICam
+//  CameraView_CamCreator.swift
+//  FCymFunnyCreatorSU
 //
-//  Created by Pierre Véron on 31.03.20.
-//  Copyright © 2020 Pierre Véron. All rights reserved.
+//  Created by JOJO on 2021/1/14.
 //
 
 import SwiftUI
 import AVFoundation
 
 // MARK: CameraView
-public struct CameraView: UIViewControllerRepresentable {
-    @ObservedObject var events: UserEvents
+public struct CameraView_CamCreator: UIViewControllerRepresentable {
+    @ObservedObject var events: UserEvents_CamCreator
     //To enable call to updateUIView() on change of UserEvents() bc there is a bug
     class RandomClass { }
     let x = RandomClass()
@@ -28,7 +27,7 @@ public struct CameraView: UIViewControllerRepresentable {
     private var canvasSize: CGSize
     
     
-    public init(events: UserEvents, applicationName: String, preferredStartingCameraType: AVCaptureDevice.DeviceType = .builtInWideAngleCamera, preferredStartingCameraPosition: AVCaptureDevice.Position = .back, focusImage: String? = nil, pinchToZoom: Bool = true, tapToFocus: Bool = true, doubleTapCameraSwitch: Bool = true, canvasSize: CGSize = CGSize.zero) {
+    public init(events: UserEvents_CamCreator, applicationName: String, preferredStartingCameraType: AVCaptureDevice.DeviceType = .builtInWideAngleCamera, preferredStartingCameraPosition: AVCaptureDevice.Position = .back, focusImage: String? = nil, pinchToZoom: Bool = true, tapToFocus: Bool = true, doubleTapCameraSwitch: Bool = true, canvasSize: CGSize = CGSize.zero) {
         self.events = events
         self.canvasSize = canvasSize
         self.applicationName = applicationName
@@ -42,8 +41,8 @@ public struct CameraView: UIViewControllerRepresentable {
         self.doubleTapCameraSwitch = doubleTapCameraSwitch
     }
     
-    public func makeUIViewController(context: Context) -> CameraViewController {
-        let cameraViewController = CameraViewController(cameraCanvasSize: canvasSize)
+    public func makeUIViewController(context: Context) -> CameraViewController_CamCreator {
+        let cameraViewController = CameraViewController_CamCreator(cameraCanvasSize: canvasSize)
 
         
         cameraViewController.delegate = context.coordinator
@@ -61,7 +60,7 @@ public struct CameraView: UIViewControllerRepresentable {
         return cameraViewController
     }
     
-    public func updateUIViewController(_ cameraViewController: CameraViewController, context: Context) {
+    public func updateUIViewController(_ cameraViewController: CameraViewController_CamCreator, context: Context) {
         if events.didAskToCapturePhoto {
             cameraViewController.takePhoto()
         }
@@ -84,11 +83,11 @@ public struct CameraView: UIViewControllerRepresentable {
     }
     
     // MARK: Coordinator
-    public class Coordinator: NSObject, CameraViewControllerDelegate {
+    public class Coordinator: NSObject, CameraViewControllerDelegate_CamCreator {
         
-        var parent: CameraView
+        var parent: CameraView_CamCreator
         
-        init(_ parent: CameraView) {
+        init(_ parent: CameraView_CamCreator) {
             self.parent = parent
         }
         

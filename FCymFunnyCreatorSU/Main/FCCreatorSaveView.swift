@@ -17,7 +17,10 @@ enum FCStoreAlertType {
 
 struct FCCreatorSaveView: View {
     @Environment(\.presentationMode) var mode
-    @State var previewImage: UIImage = UIImage(named: "test_screen")!
+    
+    @State var creatorPhoto: FCCreatorPhoto
+    
+//    @State var previewImage: UIImage = UIImage(named: "test_screen")!
     @State var isShowPurchaseView: Bool = false
     
     
@@ -34,10 +37,10 @@ struct FCCreatorSaveView: View {
                     .ignoresSafeArea()
                 VStack {
                     topBackBgView
-                    Image(uiImage: previewImage)
+                    Image(uiImage: creatorPhoto.resultImage ?? UIImage(named: "test_screen") ?? UIImage())
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(height: geo.size.height - 44 - 190)
+                        .frame(height: UIScreen.main.bounds.size.height - 44 - 290)
                     
                     Spacer()
                         .frame(height: 20)
@@ -48,8 +51,9 @@ struct FCCreatorSaveView: View {
                     Spacer()
                 }
                 purchaseAlertView
-                    .hidden(!isShowPurchaseView)
-                
+                    .offset(y: isShowPurchaseView ? 0 : UIScreen.main.bounds.height)
+                    .animation(.easeInOut)
+                    .transition(.opacity)
                 
                 
             }
@@ -168,7 +172,7 @@ struct FCCreatorSaveView: View {
  
     func saveSmallBtnClick() {
         
-        if let imageData = previewImage.jpegData(compressionQuality: 0.6) {
+        if let imageData = creatorPhoto.resultImage?.jpegData(compressionQuality: 0.6) {
             WWAlbumHelper.default.savePhoto(imageData) { (success, error) in
                 
                 isShowAlert = true
@@ -190,7 +194,7 @@ struct FCCreatorSaveView: View {
         // 金币足
         if CoinManager.default.coinCount > CoinManager.default.coinCostCount {
 
-            if let imageData = previewImage.jpegData(compressionQuality: 1) {
+            if let imageData = creatorPhoto.resultImage?.jpegData(compressionQuality: 1) {
                 WWAlbumHelper.default.savePhoto(imageData) { (success, error) in
                     isShowAlert = true
                     if success {
@@ -293,7 +297,7 @@ struct FCCreatorSaveView_Previews: PreviewProvider {
     
     static var previews: some View {
         Group {
-            FCCreatorSaveView()
+            FCCreatorSaveView(creatorPhoto: FCCreatorPhoto())
             
         }
     }

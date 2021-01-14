@@ -20,7 +20,8 @@ struct FCEditQRcodePreview: View {
     
     
     @State private var isPresentedShare = false
-    
+    @State private var contentPreviewViewRect: CGRect = .zero
+        
     
     
     
@@ -34,6 +35,8 @@ struct FCEditQRcodePreview: View {
                 VStack {
                     topBackBgView
                     contentPreviewView
+                        .getRect($contentPreviewViewRect)
+                        
                         .frame(width: geo.size.width, height: geo.size.width, alignment: .center)
                         .backgroundFill(.white)
                     Spacer()
@@ -103,8 +106,11 @@ extension FCEditQRcodePreview {
     }
     
     func generatePreviewImage() -> UIImage {
-        let resultImage = contentPreviewView.asImage(size: CGSize(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.width))
-        return resultImage
+        
+        
+        let resultImage = self.contentPreviewViewRect.uiImage
+        
+        return resultImage ?? UIImage()
     }
 }
 

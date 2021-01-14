@@ -1,28 +1,28 @@
 //
-//  FCCreatorEmojiStickerEditView.swift
+//  FCCreatorUserFaceEmojiStickerEditView.swift
 //  FCymFunnyCreatorSU
 //
-//  Created by JOJO on 2021/1/12.
+//  Created by JOJO on 2021/1/14.
 //
 
 import Foundation
 import SwiftUI
 import DynamicColor
  
-class FCCreatorPhoto: ObservableObject {
-    @Published public var resultImage: UIImage? = nil
-}
 
 
-struct FCCreatorEmojiStickerEditView: View {
+struct FCCreatorUserFaceEmojiStickerEditView: View {
     @Environment(\.presentationMode) var mode
     
+    @ObservedObject var events: UserEvents
+//    @ObservedObject var creatorTakePhoto: FCCreatorTakePhoto
     @ObservedObject var creatorPhoto = FCCreatorPhoto()
+    
     
     @State var contentIconList: [CreatorEmojiStickerItem]
 
     @State var isShowContentSelectView = false
-    @State var currentEmojiImage: UIImage = UIImage()
+    @State var overlayerImage: UIImage = UIImage()
     @State var isShowSaveView: Bool = false
     @State var previewRect: CGRect = .zero
     
@@ -41,15 +41,8 @@ struct FCCreatorEmojiStickerEditView: View {
                         
                     
                 }
-                contentSelectView
-                    .offset(y: isShowContentSelectView ? 0 : UIScreen.main.bounds.height)
-                    .animation(.easeInOut)
-                    .transition(.opacity)
                 
-//                contentSelectView
-//                    .animation(.easeInOut)
-//                    .transition(.customTransition)
-//                    .hidden(!isShowContentSelectView)
+                 
                 VStack{
                     
                     if uiImage != nil {
@@ -71,7 +64,10 @@ struct FCCreatorEmojiStickerEditView: View {
         GeometryReader { geo in
             HStack {
                 Spacer()
-                preivew
+                FCCreatorPreviewUserFace(userfaceImage: $events.resultImage, overlayerImage: $overlayerImage)
+                    .frame(width: previewWidth(), height: previewHeight())
+                    .background(.white)
+                    .mask(Color(.black).frame(width: previewWidth(), height: previewHeight()))
                     .onTapGesture {
                         if contentIconList.count >= 1 {
                             isShowContentSelectView = true
@@ -84,18 +80,10 @@ struct FCCreatorEmojiStickerEditView: View {
         
     }
     
-    var preivew: some View {
-        FCCreatorPreview(iconImage: $currentEmojiImage)
-            .frame(width: previewWidth(), height: previewHeight())
-            .background(.white)
-            .mask(Color(.black).frame(width: previewWidth(), height: previewHeight()))
-
-        
-            
-    }
+     
 }
 
-extension FCCreatorEmojiStickerEditView {
+extension FCCreatorUserFaceEmojiStickerEditView {
     
 //    func resultImage() -> UIImage {
 //        let image = self.previewRect.uiImage
@@ -112,7 +100,7 @@ extension FCCreatorEmojiStickerEditView {
     
 }
 
-extension FCCreatorEmojiStickerEditView {
+extension FCCreatorUserFaceEmojiStickerEditView {
     var topBackBgView: some View {
         HStack {
 
@@ -131,7 +119,7 @@ extension FCCreatorEmojiStickerEditView {
                 isActive: $isShowSaveView) {
                 Button(action: {
                     
-                    convertViewToData(view: preivew, size: .init(width: previewWidth(), height: previewHeight())) {
+                    convertViewToData(view: preview, size: .init(width: previewWidth(), height: previewHeight())) {
                         creatorPhoto.resultImage = UIImage(data: $0 ?? Data())
                         isShowSaveView = true
                     }
@@ -163,88 +151,20 @@ extension FCCreatorEmojiStickerEditView {
 }
  
 
-extension FCCreatorEmojiStickerEditView {
-    var contentSelectView: some View {
-        
-        ZStack {
-            Color(.clear)
-                 
-            VStack {
-                Button(action: {
-                    isShowContentSelectView = false
-                }, label: {
-                    Color(.clear)
-                })
-                Spacer()
-                ZStack {
-                    RoundedCorners(color: .white, tl: 16, tr: 16, bl: 0, br: 0)
-                        .shadow(color: Color(DynamicColor.black.withAlphaComponent(0.5)), radius: 10, x: 0.0, y: 0.0)
-                        .edgesIgnoringSafeArea(.bottom)
-                    VStack {
-                        
-                        btn_Close
-                        iconCcontentView
-                        Spacer()
-                         
-                    }
-                }.frame(height: 375)
-                
-            }
-        }
-    }
-    
-    var btn_Close: some View {
-        HStack {
-            Spacer()
-            Button(action: {
-                isShowContentSelectView = false
-            }, label: {
-                Image("setting_close_ic")
-            }).frame(width: 50, height: 50, alignment: .center)
-        }
-        
-    }
-    
-    var iconCcontentView: some View {
-        GeometryReader { geo in
-            QGrid(contentIconList,
-                  columns: Int(4),
-                  vSpacing: 15,
-                  hSpacing: 15,
-                  vPadding: 10,
-                  hPadding: 28) {
-//                FCEmojiCell(emojiItem: $0)
-//                    .frame(height: 60)
-                emojiCell(item: $0)
-                    .frame(width: 60, height: 60, alignment: .center)
-                    
-            }
-        }
-    }
-    
-    
-    func emojiCell(item: CreatorEmojiStickerItem) -> some View {
-        Button(action: {
-            if let image = UIImage(named: item.bigName) {
-                currentEmojiImage = image
-            }
-            
-        }, label: {
-            Image(item.thumbName)
-                .resizable()
-        })
-    }
+extension FCCreatorUserFaceEmojiStickerEditView {
+     
     
     
 }
 
  
 
-struct FCCreatorEmojiStickerEditView_Previews: PreviewProvider {
+struct FCCreatorUserFaceEmojiStickerEditView_Previews: PreviewProvider {
     
     static var previews: some View {
         Group {
-            FCCreatorEmojiStickerEditView(contentIconList: CFResourceModelManager.default.creatorEmojiItemList, currentEmojiImage: UIImage(named: "emoji_sticker_ic_1")!)
+            FCCreatorUserFaceEmojiStickerEditView(events: UserEvents(), contentIconList: [])
+             
             
         }
     }
@@ -256,8 +176,12 @@ struct FCCreatorEmojiStickerEditView_Previews: PreviewProvider {
 
 
 
-struct FCCreatorPreview: View {
-    @Binding var iconImage: UIImage
+
+
+
+struct FCCreatorPreviewUserFace: View {
+    @Binding var userfaceImage: UIImage?
+    @Binding var overlayerImage: UIImage
     var itemPadding_h: CGFloat = 25
     var itemPadding_v: CGFloat = 5
     var body: some View {
@@ -301,9 +225,18 @@ struct FCCreatorPreview: View {
                 ForEach(0..<4) { index in
                     //
 //                    Image(uiImage: UIImage(named: "emoji_sticker_ic_1")!)
-                    Image(uiImage: iconImage)
-                        .resizable()
-                        .frame(width: geo.size.width / 4 - 10, height: geo.size.width / 4 - 10, alignment: .center)
+                    ZStack {
+                        if userfaceImage != nil {
+                            Image(uiImage: userfaceImage!)
+                                .resizable()
+                                .frame(width: geo.size.width / 4 - 10, height: geo.size.width / 4 - 10, alignment: .center)
+                        }
+                        
+                        Image(uiImage: overlayerImage)
+                            .resizable()
+                            .frame(width: geo.size.width / 4 - 10, height: geo.size.width / 4 - 10, alignment: .center)
+                    }
+                    
                 }.padding(5)
                 .frame(height: geo.size.width / 4)
             })
@@ -314,9 +247,6 @@ struct FCCreatorPreview: View {
     
     
 }
-
-
-
 
 
 
