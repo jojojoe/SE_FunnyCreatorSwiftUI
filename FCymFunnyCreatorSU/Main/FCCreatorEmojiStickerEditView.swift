@@ -8,12 +8,14 @@
 import Foundation
 import SwiftUI
 import DynamicColor
- 
+import UIKit
+
 class FCCreatorPhoto: ObservableObject {
     @Published public var resultImage: UIImage? = nil
 }
 
-
+let emojiIconWidth: CGFloat = 60
+let emojiPadding: CGFloat = 20
 struct FCCreatorEmojiStickerEditView: View {
     @Environment(\.presentationMode) var mode
     
@@ -38,8 +40,6 @@ struct FCCreatorEmojiStickerEditView: View {
                 VStack {
                     topBackBgView
                     preview
-                        
-                    
                 }
                 contentSelectView
                     .offset(y: isShowContentSelectView ? 0 : UIScreen.main.bounds.height)
@@ -85,12 +85,12 @@ struct FCCreatorEmojiStickerEditView: View {
     }
     
     var preivew: some View {
-        FCCreatorPreview(iconImage: $currentEmojiImage)
+        
+        FCCreatorEmojiWallpaperViewSwiftUI(canvasSize: CGSize(width: previewWidth(), height: previewHeight()) ,iconImage: currentEmojiImage , bgColor: UIColor.white , iconWidth: 60, padding: 20)
             .frame(width: previewWidth(), height: previewHeight())
             .background(.white)
             .mask(Color(.black).frame(width: previewWidth(), height: previewHeight()))
-
-        
+//        FCCreatorPreview(iconImage: $currentEmojiImage)
             
     }
 }
@@ -113,6 +113,13 @@ extension FCCreatorEmojiStickerEditView {
 }
 
 extension FCCreatorEmojiStickerEditView {
+    func wallpaperPreviewImage() -> UIImage  {
+        let scale: CGFloat = 3
+        let view = FCCreatorEmojiWallpaperView(frame: CGRect(x: 0, y: 0, width: previewWidth() * scale, height: previewHeight() * scale), iconImage: currentEmojiImage, bgImage: UIImage(), bgColor: UIColor.white, iconWidth: emojiIconWidth * scale, padding: emojiPadding * scale)
+        
+        return view.screenshot ?? UIImage()
+    }
+    
     var topBackBgView: some View {
         HStack {
 
@@ -130,11 +137,22 @@ extension FCCreatorEmojiStickerEditView {
                     .navigationBarHidden(true),
                 isActive: $isShowSaveView) {
                 Button(action: {
+                    //
+                    creatorPhoto.resultImage = wallpaperPreviewImage()
+                    isShowSaveView = true
                     
-                    convertViewToData(view: preivew, size: .init(width: previewWidth(), height: previewHeight())) {
-                        creatorPhoto.resultImage = UIImage(data: $0 ?? Data())
-                        isShowSaveView = true
-                    }
+                    
+//                    FCCreatorEmojiWallpaperViewSwiftUI(canvasSize: CGSize(width: previewWidth(), height: previewHeight()) ,iconImage: currentEmojiImage , bgColor: UIColor.white , iconWidth: 60, padding: 20)
+//                        .frame(width: previewWidth(), height: previewHeight())
+//                        .background(.white)
+//                        .mask(Color(.black).frame(width: previewWidth(), height: previewHeight()))
+                    
+                    
+                    
+//                    convertViewToData(view: preivew, size: .init(width: previewWidth(), height: previewHeight())) {
+//                        creatorPhoto.resultImage = UIImage(data: $0 ?? Data())
+//                        isShowSaveView = true
+//                    }
                 }, label: {
                     ZStack {
                         Color(DynamicColor(hexString: "#FFDCEC"))
@@ -157,9 +175,7 @@ extension FCCreatorEmojiStickerEditView {
         }.frame(height: 44)
     }
     
-    func nextBackClick() {
-        
-    }
+     
 }
  
 

@@ -2,75 +2,12 @@
   "object": {
     "pins": [
       {
-        "package": "ActivityView",
-        "repositoryURL": "https://github.com/shaps80/ActivityView.git",
-        "state": {
-          "branch": null,
-          "revision": "bf14a36514b87dec96b04cd446157765f79ec02c",
-          "version": "1.0.0"
-        }
-      },
-      {
-        "package": "DynamicColor",
-        "repositoryURL": "https://github.com/yannickl/DynamicColor.git",
-        "state": {
-          "branch": null,
-          "revision": "d9beca13ca85baa50ee29832d0db5129fba69630",
-          "version": "5.0.1"
-        }
-      },
-      {
-        "package": "SnapKit",
-        "repositoryURL": "https://github.com/SnapKit/SnapKit.git",
-        "state": {
-          "branch": null,
-          "revision": "d458564516e5676af9c70b4f4b2a9178294f1bc6",
-          "version": "5.0.1"
-        }
-      },
-      {
-        "package": "SwifterSwift",
-        "repositoryURL": "https://github.com/SwifterSwift/SwifterSwift.git",
-        "state": {
-          "branch": null,
-          "revision": "dc813f3aa92f904a009fe543b99d5649dce7c134",
-          "version": "5.2.0"
-        }
-      },
-      {
-        "package": "SwiftUIX",
-        "repositoryURL": "https://github.com/SwiftUIX/SwiftUIX",
-        "state": {
-          "branch": null,
-          "revision": "00ed845fb22b7e681de4fbb50a62f9b3a400d6fa",
-          "version": "0.0.4"
-        }
-      },
-      {
-        "package": "SwiftyStoreKit",
-        "repositoryURL": "https://github.com/bizz84/SwiftyStoreKit.git",
-        "state": {
-          "branch": null,
-          "revision": "9974acf07b31b6f5bf363d5118dc1bd4fcac6122",
-          "version": "0.16.1"
-        }
-      },
-      {
         "package": "TextView",
         "repositoryURL": "https://github.com/kenmueller/TextView",
         "state": {
           "branch": null,
           "revision": "e9bf78313788c0bc0bc57a08edc8fa5c85a31a79",
           "version": "1.4.8"
-        }
-      },
-      {
-        "package": "ToastUI",
-        "repositoryURL": "https://github.com/quanshousio/ToastUI.git",
-        "state": {
-          "branch": null,
-          "revision": "61e8f93b6e67467c6dfd52308c0940d5b3ca87e9",
-          "version": "1.3.1"
         }
       }
     ]

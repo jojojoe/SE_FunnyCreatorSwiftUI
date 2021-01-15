@@ -27,4 +27,7 @@ struct PageControl : UIViewRepresentable{
         uiView.currentPage = current
         
     }
+    
+    
+    
 }

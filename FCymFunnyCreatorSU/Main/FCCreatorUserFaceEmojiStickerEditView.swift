@@ -60,19 +60,47 @@ struct FCCreatorUserFaceEmojiStickerEditView: View {
         
     }
     
+    func iconImage() -> UIImage {
+        let bgView = UIView()
+        let width: CGFloat = 300
+        let padding: CGFloat = 4
+        bgView.backgroundColor = .white
+        bgView.frame = CGRect(x: 0, y: 0, width: width, height: width)
+        
+        let iconBgImage = UIImageView(frame: CGRect(x: padding/2, y: padding/2, width: width - padding, height: width - padding))
+        bgView.addSubview(iconBgImage)
+        iconBgImage.contentMode = .scaleAspectFill
+        iconBgImage.image = events.resultImage ?? UIImage(named: "emoji_sticker_ic_2")
+        
+        let iconOverlayerImage = UIImageView(frame: CGRect(x: 0, y: 0, width: width , height: width))
+        iconOverlayerImage.backgroundColor = .clear
+        bgView.addSubview(iconOverlayerImage)
+        iconOverlayerImage.contentMode = .scaleAspectFill
+        iconOverlayerImage.image = overlayerImage
+        
+        return bgView.screenshot ?? UIImage()
+    }
+    
     var preview: some View {
         GeometryReader { geo in
             HStack {
                 Spacer()
-                FCCreatorPreviewUserFace(userfaceImage: $events.resultImage, overlayerImage: $overlayerImage)
+                
+                FCCreatorEmojiWallpaperViewSwiftUI(canvasSize: CGSize(width: previewWidth(), height: previewHeight()) ,iconImage: iconImage() , bgColor: UIColor.white , iconWidth: 60, padding: 20)
                     .frame(width: previewWidth(), height: previewHeight())
                     .background(.white)
                     .mask(Color(.black).frame(width: previewWidth(), height: previewHeight()))
-                    .onTapGesture {
-                        if contentIconList.count >= 1 {
-                            isShowContentSelectView = true
-                        }
-                    }
+                
+                
+//                FCCreatorPreviewUserFace(userfaceImage: $events.resultImage, overlayerImage: $overlayerImage)
+//                    .frame(width: previewWidth(), height: previewHeight())
+//                    .background(.white)
+//                    .mask(Color(.black).frame(width: previewWidth(), height: previewHeight()))
+//                    .onTapGesture {
+//                        if contentIconList.count >= 1 {
+//                            isShowContentSelectView = true
+//                        }
+//                    }
                 Spacer()
             }
         }
@@ -101,6 +129,14 @@ extension FCCreatorUserFaceEmojiStickerEditView {
 }
 
 extension FCCreatorUserFaceEmojiStickerEditView {
+    func wallpaperPreviewImage() -> UIImage  {
+        let scale: CGFloat = 2
+        let view = FCCreatorEmojiWallpaperView(frame: CGRect(x: 0, y: 0, width: previewWidth() * scale, height: previewHeight() * scale), iconImage: iconImage(), bgImage: UIImage(), bgColor: UIColor.white, iconWidth: emojiIconWidth * scale, padding: emojiPadding * scale)
+        
+        
+        return view.screenshot ?? UIImage()
+    }
+    
     var topBackBgView: some View {
         HStack {
 
@@ -118,11 +154,12 @@ extension FCCreatorUserFaceEmojiStickerEditView {
                     .navigationBarHidden(true),
                 isActive: $isShowSaveView) {
                 Button(action: {
-                    
-                    convertViewToData(view: preview, size: .init(width: previewWidth(), height: previewHeight())) {
-                        creatorPhoto.resultImage = UIImage(data: $0 ?? Data())
-                        isShowSaveView = true
-                    }
+                    creatorPhoto.resultImage = wallpaperPreviewImage()
+                    isShowSaveView = true
+//                    convertViewToData(view: preview, size: .init(width: previewWidth(), height: previewHeight())) {
+//                        creatorPhoto.resultImage = UIImage(data: $0 ?? Data())
+//                        isShowSaveView = true
+//                    }
                 }, label: {
                     ZStack {
                         Color(DynamicColor(hexString: "#FFDCEC"))

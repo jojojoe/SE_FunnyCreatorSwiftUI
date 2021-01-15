@@ -91,7 +91,7 @@ public class CameraViewController: UIViewController {
     
     /// Sets whether or not video recordings will record audio
     /// Setting to true will prompt user for access to microphone on View Controller launch.
-    public var audioEnabled = true
+    public var audioEnabled = false
     
     // MARK: Public Get-only Variable Declarations
     
@@ -169,7 +169,7 @@ public class CameraViewController: UIViewController {
         previewView.session = session
         previewView.videoPreviewLayer.videoGravity = videoGravity
         previewView.videoPreviewLayer.connection?.videoOrientation = AVCaptureVideoOrientation.portrait
-        previewView.backgroundColor = .orange
+        previewView.backgroundColor = .white
         if cameraCanvasSize.equalTo(CGSize.zero) {
             cameraCanvasSize = view.frame.size
         }
@@ -496,11 +496,11 @@ public class CameraViewController: UIViewController {
             case .unspecified, .none, .front:
                 preferredPosition = .back
                 preferredDeviceType = .builtInDualCamera
-                
+                self.preferredStartingCameraPosition = .back
             case .back:
                 preferredPosition = .front
                 preferredDeviceType = .builtInTrueDepthCamera
-                
+                self.preferredStartingCameraPosition = .front
             @unknown default:
                 print("Unknown capture position. Defaulting to back, dual-camera.")
                 preferredPosition = .back
@@ -640,6 +640,7 @@ extension CameraViewController: AVCapturePhotoCaptureDelegate {
             // If camera is currently set to front camera, flip image
             //          let imageOrientation = getImageOrientation()
             
+            
             // For now, it is only right
             let image = UIImage(cgImage: cgImageRef!, scale: 1, orientation: .right).fixOrientation()
             let targetWh = cameraCanvasSize.width / cameraCanvasSize.height
@@ -658,8 +659,17 @@ extension CameraViewController: AVCapturePhotoCaptureDelegate {
                 let originY: CGFloat = 0
                 cropRect = CGRect(x: originX, y: originY, width: cropWidth, height: cropHeight)
             }
-             
-            let cropedImg = image.cropImage(withRect: cropRect)
+            
+            var fixedImage = image
+            // fix前置摄像头镜像
+            if self.preferredStartingCameraPosition == .front, let horFixedImage = fixedImage.horMirro() {
+                fixedImage = horFixedImage
+            }
+            
+            let cropedImg = fixedImage.cropImage(withRect: cropRect)
+            
+            
+            
             
 //            UIImage(data: data)?
             
@@ -886,6 +896,33 @@ extension CameraViewController {
 
 // MARK: 修复转向
 extension UIImage {
+    
+    func horMirro() -> UIImage? {
+        
+        let rect = CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height)//创建矩形框
+        //根据size大小创建一个基于位图的图形上下文
+        UIGraphicsBeginImageContextWithOptions(rect.size, false, self.scale)
+        guard let currentContext =  UIGraphicsGetCurrentContext() else {
+            return nil
+        }//获取当前quartz 2d绘图环境
+        currentContext.clip(to: rect);//设置当前绘图环境到矩形框
+        currentContext.rotate(by: CGFloat.pi)
+//        CGContextRotateCTM(currentContext, CGFloat(M_PI)); //旋转180度
+        //平移， 这里是平移坐标系，跟平移图形是一个道理
+        currentContext.translateBy(x: -rect.size.width, y: -rect.size.height)
+//        CGContextTranslateCTM(currentContext, -rect.size.width, -rect.size.height);
+        currentContext.draw(self.cgImage!, in: rect)
+//        CGContextDrawImage(currentContext, rect, srcImage.CGImage);//绘图
+         
+        //翻转图片
+        let drawImage =  UIGraphicsGetImageFromCurrentImageContext();//获得图片
+        let flipImage =  UIImage(cgImage:drawImage!.cgImage!,
+                                 scale:self.scale,
+            orientation:self.imageOrientation  //图片方向不用改
+        )
+        return flipImage
+        
+    }
     
     func fixOrientation() -> UIImage {
         if self.imageOrientation == .up {

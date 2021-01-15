@@ -11,10 +11,10 @@ import DynamicColor
 import SwiftUIX
 import MessageUI
 
-var privateUrlString = "https://www.baidu.com/"
-var termsUrlString = "https://www.baidu.com/"
-var feedbackString = "804463232@qq.com"
-var AppName = ""
+var privateUrlString = "http://chubby-blood.surge.sh/Facial_Privacy_Policy.htm"
+var termsUrlString = "http://chubby-blood.surge.sh/Terms_of_use.htm"
+var feedbackString = "qrcodeslike@hotmail.com"
+var AppName = "QRcode Monster"
 enum SettingContentBtnType: Equatable {
     case feedback
     case privacy

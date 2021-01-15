@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 import DynamicColor
+import SwiftUIX
 
 enum FCStoreAlertType {
     case saveImageSuccess

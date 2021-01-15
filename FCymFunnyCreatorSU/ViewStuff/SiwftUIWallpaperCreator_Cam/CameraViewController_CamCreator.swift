@@ -139,7 +139,7 @@ public class CameraViewController_CamCreator: UIViewController {
         previewView.session = session
         previewView.videoPreviewLayer.videoGravity = videoGravity
         previewView.videoPreviewLayer.connection?.videoOrientation = AVCaptureVideoOrientation.portrait
-        previewView.backgroundColor = .orange
+        previewView.backgroundColor = .white
         if cameraCanvasSize.equalTo(CGSize.zero) {
             cameraCanvasSize = view.frame.size
         }

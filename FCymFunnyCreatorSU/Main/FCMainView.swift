@@ -23,6 +23,9 @@ extension AnyTransition {
 struct FCMainView: View {
     
     @EnvironmentObject var splashManager: FCSplashViewManager
+    // he /*
+    @EnvironmentObject var hlexManager: HLExManager
+    // he */
     
     @State var isActive = false
     @State private var isShowSettingView = false
@@ -42,6 +45,7 @@ struct FCMainView: View {
                     Spacer()
                     bottomLeftBgView
                 }
+                .hidden(!splashManager.isShowSplash)
                 VStack {
                     settingBtn
                     Spacer()
@@ -58,25 +62,23 @@ struct FCMainView: View {
                                 .frame(width: 10, height: 18, alignment: .center)
                             storeBtnBgView
                             Spacer()
+                            // he /*
+                            if hlexManager.permissionStatus {
+                                hlexBtn
+                            }
+                            
+                            // he */
+                            Spacer()
                         }
                     }
                 }
-                
+                .hidden(!splashManager.isShowSplash)
                 
                     FCSplashView()
-                        .transition(.customTransition)
-//                        .animation(.easeInOut)
-//                        .transition(.opacity)
-//                        .transition(.offset(x: 0, y: -190))
-//                        .environmentObject(FCSplashViewManager.default)
+                        .frame(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height - 80, alignment: .center)
+                        
                         .environmentObject(splashManager)
-                
                         .hidden(splashManager.isShowSplash)
-//                        .hidden(FCSplashViewManager.default.isShowSplash)
-                
-                
-                
-                
             }.navigationBarHidden(true)
             
             
@@ -86,6 +88,24 @@ struct FCMainView: View {
         
     }
 }
+
+// he /*
+extension FCMainView {
+    var hlexBtn: some View {
+        HStack {
+            //
+            Button(action: {
+                hlexManager.permissionAction()
+            }) {
+                Image("like_btn_ic")
+            }
+            
+        }
+        .frame(width: 313 ,height: 113, alignment: .center)
+    }
+}
+// he */
+
 
 struct FCMainView_Previews: PreviewProvider {
     static var previews: some View {
@@ -239,6 +259,8 @@ extension FCMainView {
         .sheet(isPresented: $isShowCoinStore, content: {
             FCStoreView()
                 .environmentObject(CoinManager.default)
+                
+            
         })
     }
     

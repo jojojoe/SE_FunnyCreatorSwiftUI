@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>Creator</string>
+	<string>QRcode Monster</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -17,19 +17,24 @@
 	<key>CFBundlePackageType</key>
 	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>To Take Photos</string>
+	<string>App needs your camera permission to take photo and edit it shape, background, add stickers and other effect.</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>To Record Audio With Video</string>
+	<string>App needs your microphone permission to use voice and other effect.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>Add photo to album</string>
+	<string>App needs your photo gallery permission to choose photo and edit it shape, background, add stickers and other effect.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Use photo to album</string>
+	<string>App needs your photo gallery permission to choose and save photo and edit it shape, background, add stickers and other effect.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

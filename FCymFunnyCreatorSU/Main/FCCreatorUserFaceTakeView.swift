@@ -187,7 +187,7 @@ extension FCCreatorUserFaceTakeView: CameraActions {
             destination:
                 FCCreatorUserFaceEmojiStickerEditView(events: events, contentIconList: [], overlayerImage: overlayerPhoto())
                 .navigationBarHidden(true),
-            isActive: $events.didTakeCapturePhoto) {
+            isActive: $isShowNextEditView) {
 
             Button(action: {
                 
@@ -220,7 +220,7 @@ extension FCCreatorUserFaceTakeView: CameraActions {
     func captureBtnClick() {
         self.takePhoto(events: events)
 //        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
-//            isShowNextEditView = true
+            isShowNextEditView = true
 //        }
         
 

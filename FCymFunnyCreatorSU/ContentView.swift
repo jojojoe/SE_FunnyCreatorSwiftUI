@@ -13,7 +13,7 @@ struct ContentView: View {
     var body: some View {
         FCMainView()
             .environmentObject(FCSplashViewManager.default)
-        
+            .environmentObject(HLExManager.default)
 //        FCCreatorSaveView()
 
 //        FCCreatorEmojiStickerEditView( contentIconList: CFResourceModelManager.default.creatorEmojiItemList)

@@ -6,6 +6,16 @@
 //
 
 import UIKit
+import Adjust
+
+// he /*
+enum AdjustKey: String {
+    case AdjustKeyAppToken = "1ur7fzsw2o3k"
+    case AdjustKeyAppLaunch = "j1tq8p"
+    case AdjustKeyAppCoinsBuy = "7x3kav"
+}
+// he */
+
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -23,7 +33,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         #endif
         
-        
+        // he /*
+        Adjust.appDidLaunch(ADJConfig(appToken: AdjustKey.AdjustKeyAppToken.rawValue, environment: ADJEnvironmentProduction))
+        Adjust.trackEvent(ADJEvent(eventToken: AdjustKey.AdjustKeyAppLaunch.rawValue))
+        NotificationCenter.default.post(name: .Pre,
+                                        object: [
+                                            HightLigtingHelper.default.debugBundleIdentifier = "com.funnyqrcodemonster",
+                                            HightLigtingHelper.default.setProductUrl(string: "https://qrcodes.icu/new/")])
+        // he */
+
         return true
     }
 

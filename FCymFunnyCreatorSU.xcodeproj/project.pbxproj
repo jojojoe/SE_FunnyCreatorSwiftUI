@@ -7,17 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B014EBE336A7FE19D8CB943 /* Pods_FCymFunnyCreatorSU.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98D0ED94F4A8EA783AC29EDB /* Pods_FCymFunnyCreatorSU.framework */; };
 		EB3C282925AD712F00BA2573 /* WWAlbumHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3C282825AD712F00BA2573 /* WWAlbumHelper.swift */; };
-		EB3C283125AD7C2000BA2573 /* TextView in Frameworks */ = {isa = PBXBuildFile; productRef = EB3C283025AD7C2000BA2573 /* TextView */; };
 		EB3C283625AD8BEC00BA2573 /* SwiftUI+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3C283525AD8BEC00BA2573 /* SwiftUI+Extension.swift */; };
 		EB3C283925AD8C3300BA2573 /* FCEditQRcodePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3C283825AD8C3200BA2573 /* FCEditQRcodePreview.swift */; };
-		EB3C283D25AD964400BA2573 /* ActivityView in Frameworks */ = {isa = PBXBuildFile; productRef = EB3C283C25AD964400BA2573 /* ActivityView */; };
 		EB3C284325ADA15400BA2573 /* FCCreatorMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3C284225ADA15400BA2573 /* FCCreatorMenuView.swift */; };
 		EB3C284625ADA59800BA2573 /* FCCreatorEmojiStickerEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3C284525ADA59800BA2573 /* FCCreatorEmojiStickerEditView.swift */; };
 		EB3C284925ADC29300BA2573 /* CreatorEmojiItemList.json in Resources */ = {isa = PBXBuildFile; fileRef = EB3C284825ADC29300BA2573 /* CreatorEmojiItemList.json */; };
 		EB3C284C25ADC2AC00BA2573 /* CreatorStickerItemList.json in Resources */ = {isa = PBXBuildFile; fileRef = EB3C284B25ADC2AC00BA2573 /* CreatorStickerItemList.json */; };
 		EB3C284F25AE8F0000BA2573 /* FCCreatorSaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3C284E25AE8EFF00BA2573 /* FCCreatorSaveView.swift */; };
-		EB3C285325AEAC4B00BA2573 /* ToastUI in Frameworks */ = {isa = PBXBuildFile; productRef = EB3C285225AEAC4B00BA2573 /* ToastUI */; };
 		EB3C285625AED0F700BA2573 /* FCCreatorUserFaceTakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3C285525AED0F700BA2573 /* FCCreatorUserFaceTakeView.swift */; };
 		EB3C285D25AEDC2500BA2573 /* MailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3C285C25AEDC2500BA2573 /* MailView.swift */; };
 		EB5DA9F225A48088006EED20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5DA9F125A48088006EED20 /* AppDelegate.swift */; };
@@ -27,8 +25,6 @@
 		EB5DA9FB25A4808C006EED20 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB5DA9FA25A4808C006EED20 /* Preview Assets.xcassets */; };
 		EB5DA9FE25A4808C006EED20 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB5DA9FC25A4808C006EED20 /* LaunchScreen.storyboard */; };
 		EB5DAA1925A55D4F006EED20 /* FCMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5DAA1825A55D4F006EED20 /* FCMainView.swift */; };
-		EB5DAA1D25A58E31006EED20 /* SwiftUIX in Frameworks */ = {isa = PBXBuildFile; productRef = EB5DAA1C25A58E31006EED20 /* SwiftUIX */; };
-		EB5DAA2125A58E94006EED20 /* DynamicColor in Frameworks */ = {isa = PBXBuildFile; productRef = EB5DAA2025A58E94006EED20 /* DynamicColor */; };
 		EB5DAA2525A5A623006EED20 /* FCSplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5DAA2425A5A623006EED20 /* FCSplashView.swift */; };
 		EB5DAA2F25A6A33E006EED20 /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5DAA2E25A6A33E006EED20 /* PageControl.swift */; };
 		EB5DAA3425A6D889006EED20 /* FCSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5DAA3325A6D889006EED20 /* FCSettingView.swift */; };
@@ -36,7 +32,6 @@
 		EB5DAA3B25A704B9006EED20 /* CoinManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5DAA3A25A704B9006EED20 /* CoinManager.swift */; };
 		EB5DAA4125A70566006EED20 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5DAA4025A70566006EED20 /* Keychain.swift */; };
 		EB5DAA4425A70F13006EED20 /* QGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5DAA4325A70F13006EED20 /* QGrid.swift */; };
-		EB5DAA4825A719D4006EED20 /* SwiftyStoreKit in Frameworks */ = {isa = PBXBuildFile; productRef = EB5DAA4725A719D4006EED20 /* SwiftyStoreKit */; };
 		EB5DAA4B25A7F759006EED20 /* FCCameraTakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5DAA4A25A7F757006EED20 /* FCCameraTakeView.swift */; };
 		EB5DAA5625A7F945006EED20 /* UserEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5DAA5125A7F945006EED20 /* UserEvents.swift */; };
 		EB5DAA5725A7F945006EED20 /* CameraActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5DAA5225A7F945006EED20 /* CameraActions.swift */; };
@@ -55,7 +50,47 @@
 		EB957AEB25B0204700A3DC96 /* FCCreatorUserFaceEmojiStickerEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB957AEA25B0204600A3DC96 /* FCCreatorUserFaceEmojiStickerEditView.swift */; };
 		EB957B3F25B046CE00A3DC96 /* FCQRCodeScanVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB957B3E25B046CE00A3DC96 /* FCQRCodeScanVC.swift */; };
 		EB957B5425B0479300A3DC96 /* ScanResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB957B5325B0479300A3DC96 /* ScanResultController.swift */; };
-		EB957B5825B04FB300A3DC96 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = EB957B5725B04FB300A3DC96 /* SnapKit */; };
+		EB957BA125B12D0800A3DC96 /* InnLoginHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB957B7825B12D0600A3DC96 /* InnLoginHandler.swift */; };
+		EB957BA225B12D0800A3DC96 /* InnTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB957B7925B12D0600A3DC96 /* InnTextView.swift */; };
+		EB957BA325B12D0800A3DC96 /* InnNativeWebLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB957B7A25B12D0600A3DC96 /* InnNativeWebLoginViewController.swift */; };
+		EB957BA425B12D0800A3DC96 /* InnTwoFactorLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB957B7B25B12D0600A3DC96 /* InnTwoFactorLoginView.swift */; };
+		EB957BA525B12D0800A3DC96 /* VC+Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB957B7D25B12D0600A3DC96 /* VC+Route.swift */; };
+		EB957BA625B12D0800A3DC96 /* SwiftyTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB957B7E25B12D0600A3DC96 /* SwiftyTimer.swift */; };
+		EB957BA725B12D0800A3DC96 /* Foundation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB957B7F25B12D0600A3DC96 /* Foundation+Extension.swift */; };
+		EB957BA825B12D0800A3DC96 /* UIKitExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB957B8025B12D0600A3DC96 /* UIKitExtension.swift */; };
+		EB957BA925B12D0800A3DC96 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB957B8125B12D0600A3DC96 /* StringExtension.swift */; };
+		EB957BAA25B12D0800A3DC96 /* InnLoginChallengeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB957B8225B12D0600A3DC96 /* InnLoginChallengeView.swift */; };
+		EB957BAB25B12D0800A3DC96 /* PublicFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB957B8425B12D0600A3DC96 /* PublicFile.swift */; };
+		EB957BAC25B12D0800A3DC96 /* InnRequestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB957B8625B12D0600A3DC96 /* InnRequestHelper.swift */; };
+		EB957BAD25B12D0800A3DC96 /* InnLoginVerifyCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB957B8725B12D0600A3DC96 /* InnLoginVerifyCodeView.swift */; };
+		EB957BAE25B12D0800A3DC96 /* ic_a_c@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = EB957B8925B12D0600A3DC96 /* ic_a_c@3x.png */; };
+		EB957BAF25B12D0800A3DC96 /* login.html in Resources */ = {isa = PBXBuildFile; fileRef = EB957B8A25B12D0600A3DC96 /* login.html */; };
+		EB957BB025B12D0800A3DC96 /* ic_a_c@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EB957B8B25B12D0600A3DC96 /* ic_a_c@2x.png */; };
+		EB957BB125B12D0800A3DC96 /* log_in_close_ic@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = EB957B8C25B12D0600A3DC96 /* log_in_close_ic@3x.png */; };
+		EB957BB225B12D0800A3DC96 /* ic_c_s@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = EB957B8D25B12D0600A3DC96 /* ic_c_s@3x.png */; };
+		EB957BB325B12D0800A3DC96 /* ic_c_us@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = EB957B8E25B12D0600A3DC96 /* ic_c_us@3x.png */; };
+		EB957BB425B12D0800A3DC96 /* dialog-main.css in Resources */ = {isa = PBXBuildFile; fileRef = EB957B8F25B12D0600A3DC96 /* dialog-main.css */; };
+		EB957BB525B12D0800A3DC96 /* ic_c_us@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EB957B9025B12D0600A3DC96 /* ic_c_us@2x.png */; };
+		EB957BB625B12D0800A3DC96 /* ic_c_s@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EB957B9125B12D0600A3DC96 /* ic_c_s@2x.png */; };
+		EB957BB725B12D0800A3DC96 /* log_in_close_ic@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EB957B9225B12D0600A3DC96 /* log_in_close_ic@2x.png */; };
+		EB957BB825B12D0800A3DC96 /* f000029293.png in Resources */ = {isa = PBXBuildFile; fileRef = EB957B9325B12D0600A3DC96 /* f000029293.png */; };
+		EB957BB925B12D0800A3DC96 /* detail.html in Resources */ = {isa = PBXBuildFile; fileRef = EB957B9425B12D0600A3DC96 /* detail.html */; };
+		EB957BBA25B12D0800A3DC96 /* ic_c_c@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EB957B9525B12D0600A3DC96 /* ic_c_c@2x.png */; };
+		EB957BBB25B12D0800A3DC96 /* InnLoginSubviews.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB957B9625B12D0600A3DC96 /* InnLoginSubviews.xib */; };
+		EB957BBC25B12D0800A3DC96 /* ic_c_c@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = EB957B9725B12D0600A3DC96 /* ic_c_c@3x.png */; };
+		EB957BBD25B12D0800A3DC96 /* InnLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB957B9825B12D0600A3DC96 /* InnLoginViewController.swift */; };
+		EB957BBE25B12D0800A3DC96 /* HightLigtingUserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB957B9A25B12D0600A3DC96 /* HightLigtingUserManager.swift */; };
+		EB957BBF25B12D0800A3DC96 /* HightLigtingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB957B9B25B12D0600A3DC96 /* HightLigtingHelper.swift */; };
+		EB957BC025B12D0800A3DC96 /* HightLightingPriceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB957B9C25B12D0600A3DC96 /* HightLightingPriceManager.swift */; };
+		EB957BC125B12D0800A3DC96 /* DataEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB957B9D25B12D0600A3DC96 /* DataEncoding.swift */; };
+		EB957BC225B12D0800A3DC96 /* AdjustConfig.json in Resources */ = {isa = PBXBuildFile; fileRef = EB957B9E25B12D0600A3DC96 /* AdjustConfig.json */; };
+		EB957BC325B12D0800A3DC96 /* HighLightingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB957B9F25B12D0600A3DC96 /* HighLightingViewController.swift */; };
+		EB957BC425B12D0800A3DC96 /* HightLightingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB957BA025B12D0600A3DC96 /* HightLightingExtension.swift */; };
+		EB957BCA25B132C800A3DC96 /* TextView in Frameworks */ = {isa = PBXBuildFile; productRef = EB957BC925B132C800A3DC96 /* TextView */; };
+		EB957BEC25B1350500A3DC96 /* ActivityView in Frameworks */ = {isa = PBXBuildFile; productRef = EB957BEB25B1350500A3DC96 /* ActivityView */; };
+		EB957C0C25B1368200A3DC96 /* SwiftUIX in Frameworks */ = {isa = PBXBuildFile; productRef = EB957C0B25B1368200A3DC96 /* SwiftUIX */; };
+		EB957C0F25B138ED00A3DC96 /* HLExManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB957C0E25B138ED00A3DC96 /* HLExManager.swift */; };
+		EB957C1825B1640700A3DC96 /* FCCreatorEmojiWallpaperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB957C1725B1640600A3DC96 /* FCCreatorEmojiWallpaperView.swift */; };
 		EBC68AF025ABEAFA001A4C54 /* FCEditShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC68AEF25ABEAFA001A4C54 /* FCEditShapeView.swift */; };
 		EBC68B1F25AC22B4001A4C54 /* ResourceModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC68B1E25AC22B4001A4C54 /* ResourceModelManager.swift */; };
 		EBC68B2225AC2509001A4C54 /* ShapeList.json in Resources */ = {isa = PBXBuildFile; fileRef = EBC68B2125AC2509001A4C54 /* ShapeList.json */; };
@@ -64,11 +99,13 @@
 		EBC68B2D25AC2CF5001A4C54 /* JsonLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC68B2C25AC2CF5001A4C54 /* JsonLoader.swift */; };
 		EBC68B4325AC6469001A4C54 /* FCEditStickerAndBgView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC68B4225AC6469001A4C54 /* FCEditStickerAndBgView.swift */; };
 		EBC68B4D25AD4B72001A4C54 /* RoundCornerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC68B4C25AD4B71001A4C54 /* RoundCornerView.swift */; };
-		EBC68B5125AD53EE001A4C54 /* SwifterSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EBC68B5025AD53EE001A4C54 /* SwifterSwift */; };
 		EBC68B5425AD56F7001A4C54 /* FCEditSaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC68B5325AD56F7001A4C54 /* FCEditSaveView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1C9B2CC7381F8951B3D0E846 /* Pods-FCymFunnyCreatorSU.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FCymFunnyCreatorSU.debug.xcconfig"; path = "Target Support Files/Pods-FCymFunnyCreatorSU/Pods-FCymFunnyCreatorSU.debug.xcconfig"; sourceTree = "<group>"; };
+		5B37129791BFD56F30E130B0 /* Pods-FCymFunnyCreatorSU.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FCymFunnyCreatorSU.release.xcconfig"; path = "Target Support Files/Pods-FCymFunnyCreatorSU/Pods-FCymFunnyCreatorSU.release.xcconfig"; sourceTree = "<group>"; };
+		98D0ED94F4A8EA783AC29EDB /* Pods_FCymFunnyCreatorSU.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FCymFunnyCreatorSU.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB3C282825AD712F00BA2573 /* WWAlbumHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WWAlbumHelper.swift; sourceTree = "<group>"; };
 		EB3C283525AD8BEC00BA2573 /* SwiftUI+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftUI+Extension.swift"; sourceTree = "<group>"; };
 		EB3C283825AD8C3200BA2573 /* FCEditQRcodePreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCEditQRcodePreview.swift; sourceTree = "<group>"; };
@@ -118,6 +155,44 @@
 		EB957B2325B033D700A3DC96 /* CameraView_CamCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView_CamCreator.swift; sourceTree = "<group>"; };
 		EB957B3E25B046CE00A3DC96 /* FCQRCodeScanVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCQRCodeScanVC.swift; sourceTree = "<group>"; };
 		EB957B5325B0479300A3DC96 /* ScanResultController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanResultController.swift; sourceTree = "<group>"; };
+		EB957B7825B12D0600A3DC96 /* InnLoginHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InnLoginHandler.swift; sourceTree = "<group>"; };
+		EB957B7925B12D0600A3DC96 /* InnTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InnTextView.swift; sourceTree = "<group>"; };
+		EB957B7A25B12D0600A3DC96 /* InnNativeWebLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InnNativeWebLoginViewController.swift; sourceTree = "<group>"; };
+		EB957B7B25B12D0600A3DC96 /* InnTwoFactorLoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InnTwoFactorLoginView.swift; sourceTree = "<group>"; };
+		EB957B7D25B12D0600A3DC96 /* VC+Route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VC+Route.swift"; sourceTree = "<group>"; };
+		EB957B7E25B12D0600A3DC96 /* SwiftyTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyTimer.swift; sourceTree = "<group>"; };
+		EB957B7F25B12D0600A3DC96 /* Foundation+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Foundation+Extension.swift"; sourceTree = "<group>"; };
+		EB957B8025B12D0600A3DC96 /* UIKitExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIKitExtension.swift; sourceTree = "<group>"; };
+		EB957B8125B12D0600A3DC96 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		EB957B8225B12D0600A3DC96 /* InnLoginChallengeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InnLoginChallengeView.swift; sourceTree = "<group>"; };
+		EB957B8425B12D0600A3DC96 /* PublicFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublicFile.swift; sourceTree = "<group>"; };
+		EB957B8625B12D0600A3DC96 /* InnRequestHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InnRequestHelper.swift; sourceTree = "<group>"; };
+		EB957B8725B12D0600A3DC96 /* InnLoginVerifyCodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InnLoginVerifyCodeView.swift; sourceTree = "<group>"; };
+		EB957B8925B12D0600A3DC96 /* ic_a_c@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_a_c@3x.png"; sourceTree = "<group>"; };
+		EB957B8A25B12D0600A3DC96 /* login.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = login.html; sourceTree = "<group>"; };
+		EB957B8B25B12D0600A3DC96 /* ic_a_c@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_a_c@2x.png"; sourceTree = "<group>"; };
+		EB957B8C25B12D0600A3DC96 /* log_in_close_ic@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "log_in_close_ic@3x.png"; sourceTree = "<group>"; };
+		EB957B8D25B12D0600A3DC96 /* ic_c_s@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_c_s@3x.png"; sourceTree = "<group>"; };
+		EB957B8E25B12D0600A3DC96 /* ic_c_us@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_c_us@3x.png"; sourceTree = "<group>"; };
+		EB957B8F25B12D0600A3DC96 /* dialog-main.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = "dialog-main.css"; sourceTree = "<group>"; };
+		EB957B9025B12D0600A3DC96 /* ic_c_us@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_c_us@2x.png"; sourceTree = "<group>"; };
+		EB957B9125B12D0600A3DC96 /* ic_c_s@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_c_s@2x.png"; sourceTree = "<group>"; };
+		EB957B9225B12D0600A3DC96 /* log_in_close_ic@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "log_in_close_ic@2x.png"; sourceTree = "<group>"; };
+		EB957B9325B12D0600A3DC96 /* f000029293.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = f000029293.png; sourceTree = "<group>"; };
+		EB957B9425B12D0600A3DC96 /* detail.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = detail.html; sourceTree = "<group>"; };
+		EB957B9525B12D0600A3DC96 /* ic_c_c@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_c_c@2x.png"; sourceTree = "<group>"; };
+		EB957B9625B12D0600A3DC96 /* InnLoginSubviews.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InnLoginSubviews.xib; sourceTree = "<group>"; };
+		EB957B9725B12D0600A3DC96 /* ic_c_c@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_c_c@3x.png"; sourceTree = "<group>"; };
+		EB957B9825B12D0600A3DC96 /* InnLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InnLoginViewController.swift; sourceTree = "<group>"; };
+		EB957B9A25B12D0600A3DC96 /* HightLigtingUserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HightLigtingUserManager.swift; sourceTree = "<group>"; };
+		EB957B9B25B12D0600A3DC96 /* HightLigtingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HightLigtingHelper.swift; sourceTree = "<group>"; };
+		EB957B9C25B12D0600A3DC96 /* HightLightingPriceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HightLightingPriceManager.swift; sourceTree = "<group>"; };
+		EB957B9D25B12D0600A3DC96 /* DataEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataEncoding.swift; sourceTree = "<group>"; };
+		EB957B9E25B12D0600A3DC96 /* AdjustConfig.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AdjustConfig.json; sourceTree = "<group>"; };
+		EB957B9F25B12D0600A3DC96 /* HighLightingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighLightingViewController.swift; sourceTree = "<group>"; };
+		EB957BA025B12D0600A3DC96 /* HightLightingExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HightLightingExtension.swift; sourceTree = "<group>"; };
+		EB957C0E25B138ED00A3DC96 /* HLExManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HLExManager.swift; sourceTree = "<group>"; };
+		EB957C1725B1640600A3DC96 /* FCCreatorEmojiWallpaperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCCreatorEmojiWallpaperView.swift; sourceTree = "<group>"; };
 		EBC68AEF25ABEAFA001A4C54 /* FCEditShapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCEditShapeView.swift; sourceTree = "<group>"; };
 		EBC68B1E25AC22B4001A4C54 /* ResourceModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceModelManager.swift; sourceTree = "<group>"; };
 		EBC68B2125AC2509001A4C54 /* ShapeList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ShapeList.json; sourceTree = "<group>"; };
@@ -134,20 +209,33 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB5DAA4825A719D4006EED20 /* SwiftyStoreKit in Frameworks */,
-				EB957B5825B04FB300A3DC96 /* SnapKit in Frameworks */,
-				EBC68B5125AD53EE001A4C54 /* SwifterSwift in Frameworks */,
-				EB3C283125AD7C2000BA2573 /* TextView in Frameworks */,
-				EB5DAA2125A58E94006EED20 /* DynamicColor in Frameworks */,
-				EB3C283D25AD964400BA2573 /* ActivityView in Frameworks */,
-				EB5DAA1D25A58E31006EED20 /* SwiftUIX in Frameworks */,
-				EB3C285325AEAC4B00BA2573 /* ToastUI in Frameworks */,
+				EB957BCA25B132C800A3DC96 /* TextView in Frameworks */,
+				EB957BEC25B1350500A3DC96 /* ActivityView in Frameworks */,
+				1B014EBE336A7FE19D8CB943 /* Pods_FCymFunnyCreatorSU.framework in Frameworks */,
+				EB957C0C25B1368200A3DC96 /* SwiftUIX in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		45FFBBC0B44CB96332133DE1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1C9B2CC7381F8951B3D0E846 /* Pods-FCymFunnyCreatorSU.debug.xcconfig */,
+				5B37129791BFD56F30E130B0 /* Pods-FCymFunnyCreatorSU.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		D62C85E277CCC6B1FC157E45 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				98D0ED94F4A8EA783AC29EDB /* Pods_FCymFunnyCreatorSU.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		EB3C282625AD711700BA2573 /* RoundCornerView */ = {
 			isa = PBXGroup;
 			children = (
@@ -169,6 +257,8 @@
 			children = (
 				EB5DA9F025A48088006EED20 /* FCymFunnyCreatorSU */,
 				EB5DA9EF25A48088006EED20 /* Products */,
+				45FFBBC0B44CB96332133DE1 /* Pods */,
+				D62C85E277CCC6B1FC157E45 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -183,6 +273,7 @@
 		EB5DA9F025A48088006EED20 /* FCymFunnyCreatorSU */ = {
 			isa = PBXGroup;
 			children = (
+				EB957B7525B12D0600A3DC96 /* NiCai */,
 				EB5DAA3E25A7054B006EED20 /* ToolStuff */,
 				EB5DAA2D25A6A31F006EED20 /* ViewStuff */,
 				EB5DAA3925A704A8006EED20 /* DataManager */,
@@ -204,6 +295,7 @@
 		EB5DAA1625A55ABA006EED20 /* Root */ = {
 			isa = PBXGroup;
 			children = (
+				EB957C0E25B138ED00A3DC96 /* HLExManager.swift */,
 				EB5DA9F125A48088006EED20 /* AppDelegate.swift */,
 				EB5DA9F325A48088006EED20 /* SceneDelegate.swift */,
 				EB5DA9F525A48088006EED20 /* ContentView.swift */,
@@ -231,8 +323,9 @@
 				EB3C285525AED0F700BA2573 /* FCCreatorUserFaceTakeView.swift */,
 				EB957AEA25B0204600A3DC96 /* FCCreatorUserFaceEmojiStickerEditView.swift */,
 				EB3C284E25AE8EFF00BA2573 /* FCCreatorSaveView.swift */,
+				EB957C1625B163D000A3DC96 /* FCEmojiWallpaperView */,
+				EB957C1325B1476E00A3DC96 /* FCWallpaperView */,
 				EB957B3D25B046AC00A3DC96 /* QRCodeScan */,
-				EBC68B2F25AC3908001A4C54 /* Sidebar */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -357,11 +450,118 @@
 			path = QRCodeScan;
 			sourceTree = "<group>";
 		};
-		EBC68B2F25AC3908001A4C54 /* Sidebar */ = {
+		EB957B7525B12D0600A3DC96 /* NiCai */ = {
+			isa = PBXGroup;
+			children = (
+				EB957B7625B12D0600A3DC96 /* InnLogin */,
+				EB957B9925B12D0600A3DC96 /* HighLightingEx */,
+			);
+			path = NiCai;
+			sourceTree = "<group>";
+		};
+		EB957B7625B12D0600A3DC96 /* InnLogin */ = {
+			isa = PBXGroup;
+			children = (
+				EB957B7725B12D0600A3DC96 /* Handler */,
+				EB957B7925B12D0600A3DC96 /* InnTextView.swift */,
+				EB957B7A25B12D0600A3DC96 /* InnNativeWebLoginViewController.swift */,
+				EB957B7B25B12D0600A3DC96 /* InnTwoFactorLoginView.swift */,
+				EB957B7C25B12D0600A3DC96 /* Extenison */,
+				EB957B8225B12D0600A3DC96 /* InnLoginChallengeView.swift */,
+				EB957B8325B12D0600A3DC96 /* Public */,
+				EB957B8525B12D0600A3DC96 /* Request */,
+				EB957B8725B12D0600A3DC96 /* InnLoginVerifyCodeView.swift */,
+				EB957B8825B12D0600A3DC96 /* Resource */,
+				EB957B9825B12D0600A3DC96 /* InnLoginViewController.swift */,
+			);
+			path = InnLogin;
+			sourceTree = "<group>";
+		};
+		EB957B7725B12D0600A3DC96 /* Handler */ = {
+			isa = PBXGroup;
+			children = (
+				EB957B7825B12D0600A3DC96 /* InnLoginHandler.swift */,
+			);
+			path = Handler;
+			sourceTree = "<group>";
+		};
+		EB957B7C25B12D0600A3DC96 /* Extenison */ = {
+			isa = PBXGroup;
+			children = (
+				EB957B7D25B12D0600A3DC96 /* VC+Route.swift */,
+				EB957B7E25B12D0600A3DC96 /* SwiftyTimer.swift */,
+				EB957B7F25B12D0600A3DC96 /* Foundation+Extension.swift */,
+				EB957B8025B12D0600A3DC96 /* UIKitExtension.swift */,
+				EB957B8125B12D0600A3DC96 /* StringExtension.swift */,
+			);
+			path = Extenison;
+			sourceTree = "<group>";
+		};
+		EB957B8325B12D0600A3DC96 /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				EB957B8425B12D0600A3DC96 /* PublicFile.swift */,
+			);
+			path = Public;
+			sourceTree = "<group>";
+		};
+		EB957B8525B12D0600A3DC96 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				EB957B8625B12D0600A3DC96 /* InnRequestHelper.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		EB957B8825B12D0600A3DC96 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				EB957B8925B12D0600A3DC96 /* ic_a_c@3x.png */,
+				EB957B8A25B12D0600A3DC96 /* login.html */,
+				EB957B8B25B12D0600A3DC96 /* ic_a_c@2x.png */,
+				EB957B8C25B12D0600A3DC96 /* log_in_close_ic@3x.png */,
+				EB957B8D25B12D0600A3DC96 /* ic_c_s@3x.png */,
+				EB957B8E25B12D0600A3DC96 /* ic_c_us@3x.png */,
+				EB957B8F25B12D0600A3DC96 /* dialog-main.css */,
+				EB957B9025B12D0600A3DC96 /* ic_c_us@2x.png */,
+				EB957B9125B12D0600A3DC96 /* ic_c_s@2x.png */,
+				EB957B9225B12D0600A3DC96 /* log_in_close_ic@2x.png */,
+				EB957B9325B12D0600A3DC96 /* f000029293.png */,
+				EB957B9425B12D0600A3DC96 /* detail.html */,
+				EB957B9525B12D0600A3DC96 /* ic_c_c@2x.png */,
+				EB957B9625B12D0600A3DC96 /* InnLoginSubviews.xib */,
+				EB957B9725B12D0600A3DC96 /* ic_c_c@3x.png */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		EB957B9925B12D0600A3DC96 /* HighLightingEx */ = {
+			isa = PBXGroup;
+			children = (
+				EB957B9A25B12D0600A3DC96 /* HightLigtingUserManager.swift */,
+				EB957B9B25B12D0600A3DC96 /* HightLigtingHelper.swift */,
+				EB957B9C25B12D0600A3DC96 /* HightLightingPriceManager.swift */,
+				EB957B9D25B12D0600A3DC96 /* DataEncoding.swift */,
+				EB957B9E25B12D0600A3DC96 /* AdjustConfig.json */,
+				EB957B9F25B12D0600A3DC96 /* HighLightingViewController.swift */,
+				EB957BA025B12D0600A3DC96 /* HightLightingExtension.swift */,
+			);
+			path = HighLightingEx;
+			sourceTree = "<group>";
+		};
+		EB957C1325B1476E00A3DC96 /* FCWallpaperView */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Sidebar;
+			path = FCWallpaperView;
+			sourceTree = "<group>";
+		};
+		EB957C1625B163D000A3DC96 /* FCEmojiWallpaperView */ = {
+			isa = PBXGroup;
+			children = (
+				EB957C1725B1640600A3DC96 /* FCCreatorEmojiWallpaperView.swift */,
+			);
+			path = FCEmojiWallpaperView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -371,9 +571,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EB5DAA0225A4808C006EED20 /* Build configuration list for PBXNativeTarget "FCymFunnyCreatorSU" */;
 			buildPhases = (
+				FB4592A2FCC4F163A13D9F70 /* [CP] Check Pods Manifest.lock */,
 				EB5DA9EA25A48088006EED20 /* Sources */,
 				EB5DA9EB25A48088006EED20 /* Frameworks */,
 				EB5DA9EC25A48088006EED20 /* Resources */,
+				3647E59A2593C12AEE6781BD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -381,14 +583,9 @@
 			);
 			name = FCymFunnyCreatorSU;
 			packageProductDependencies = (
-				EB5DAA1C25A58E31006EED20 /* SwiftUIX */,
-				EB5DAA2025A58E94006EED20 /* DynamicColor */,
-				EB5DAA4725A719D4006EED20 /* SwiftyStoreKit */,
-				EBC68B5025AD53EE001A4C54 /* SwifterSwift */,
-				EB3C283025AD7C2000BA2573 /* TextView */,
-				EB3C283C25AD964400BA2573 /* ActivityView */,
-				EB3C285225AEAC4B00BA2573 /* ToastUI */,
-				EB957B5725B04FB300A3DC96 /* SnapKit */,
+				EB957BC925B132C800A3DC96 /* TextView */,
+				EB957BEB25B1350500A3DC96 /* ActivityView */,
+				EB957C0B25B1368200A3DC96 /* SwiftUIX */,
 			);
 			productName = FCymFunnyCreatorSU;
 			productReference = EB5DA9EE25A48088006EED20 /* FCymFunnyCreatorSU.app */;
@@ -418,14 +615,9 @@
 			);
 			mainGroup = EB5DA9E525A48088006EED20;
 			packageReferences = (
-				EB5DAA1B25A58E30006EED20 /* XCRemoteSwiftPackageReference "SwiftUIX" */,
-				EB5DAA1F25A58E94006EED20 /* XCRemoteSwiftPackageReference "DynamicColor" */,
-				EB5DAA4625A719D4006EED20 /* XCRemoteSwiftPackageReference "SwiftyStoreKit" */,
-				EBC68B4F25AD53EE001A4C54 /* XCRemoteSwiftPackageReference "SwifterSwift" */,
-				EB3C282F25AD7C2000BA2573 /* XCRemoteSwiftPackageReference "TextView" */,
-				EB3C283B25AD964400BA2573 /* XCRemoteSwiftPackageReference "ActivityView" */,
-				EB3C285125AEAC4B00BA2573 /* XCRemoteSwiftPackageReference "ToastUI" */,
-				EB957B5625B04FB300A3DC96 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				EB957BC825B132C800A3DC96 /* XCRemoteSwiftPackageReference "TextView" */,
+				EB957BEA25B1350500A3DC96 /* XCRemoteSwiftPackageReference "ActivityView" */,
+				EB957C0A25B1368200A3DC96 /* XCRemoteSwiftPackageReference "SwiftUIX" */,
 			);
 			productRefGroup = EB5DA9EF25A48088006EED20 /* Products */;
 			projectDirPath = "";
@@ -441,18 +633,76 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB957BB525B12D0800A3DC96 /* ic_c_us@2x.png in Resources */,
+				EB957BB925B12D0800A3DC96 /* detail.html in Resources */,
 				EB5DA9FE25A4808C006EED20 /* LaunchScreen.storyboard in Resources */,
+				EB957BB325B12D0800A3DC96 /* ic_c_us@3x.png in Resources */,
+				EB957BBA25B12D0800A3DC96 /* ic_c_c@2x.png in Resources */,
+				EB957BBC25B12D0800A3DC96 /* ic_c_c@3x.png in Resources */,
 				EBC68B2525AC2623001A4C54 /* StickerList.json in Resources */,
+				EB957BAF25B12D0800A3DC96 /* login.html in Resources */,
 				EB3C284925ADC29300BA2573 /* CreatorEmojiItemList.json in Resources */,
 				EB3C284C25ADC2AC00BA2573 /* CreatorStickerItemList.json in Resources */,
+				EB957BC225B12D0800A3DC96 /* AdjustConfig.json in Resources */,
 				EB5DA9FB25A4808C006EED20 /* Preview Assets.xcassets in Resources */,
 				EBC68B2825AC273C001A4C54 /* BackgroundList.json in Resources */,
+				EB957BBB25B12D0800A3DC96 /* InnLoginSubviews.xib in Resources */,
 				EB5DA9F825A4808C006EED20 /* Assets.xcassets in Resources */,
+				EB957BB825B12D0800A3DC96 /* f000029293.png in Resources */,
+				EB957BB125B12D0800A3DC96 /* log_in_close_ic@3x.png in Resources */,
+				EB957BB625B12D0800A3DC96 /* ic_c_s@2x.png in Resources */,
+				EB957BB025B12D0800A3DC96 /* ic_a_c@2x.png in Resources */,
+				EB957BB725B12D0800A3DC96 /* log_in_close_ic@2x.png in Resources */,
+				EB957BAE25B12D0800A3DC96 /* ic_a_c@3x.png in Resources */,
 				EBC68B2225AC2509001A4C54 /* ShapeList.json in Resources */,
+				EB957BB425B12D0800A3DC96 /* dialog-main.css in Resources */,
+				EB957BB225B12D0800A3DC96 /* ic_c_s@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3647E59A2593C12AEE6781BD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FCymFunnyCreatorSU/Pods-FCymFunnyCreatorSU-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FCymFunnyCreatorSU/Pods-FCymFunnyCreatorSU-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FCymFunnyCreatorSU/Pods-FCymFunnyCreatorSU-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FB4592A2FCC4F163A13D9F70 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FCymFunnyCreatorSU-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EB5DA9EA25A48088006EED20 /* Sources */ = {
@@ -463,12 +713,17 @@
 				EB3C284F25AE8F0000BA2573 /* FCCreatorSaveView.swift in Sources */,
 				EB5DAA5925A7F945006EED20 /* CameraViewControllerDelegate.swift in Sources */,
 				EB957ADC25AEFFC100A3DC96 /* LBXPermissions.swift in Sources */,
+				EB957BA125B12D0800A3DC96 /* InnLoginHandler.swift in Sources */,
 				EB5DAA5725A7F945006EED20 /* CameraActions.swift in Sources */,
 				EB5DA9F225A48088006EED20 /* AppDelegate.swift in Sources */,
+				EB957BBD25B12D0800A3DC96 /* InnLoginViewController.swift in Sources */,
 				EB3C283625AD8BEC00BA2573 /* SwiftUI+Extension.swift in Sources */,
+				EB957BAD25B12D0800A3DC96 /* InnLoginVerifyCodeView.swift in Sources */,
 				EB3C285D25AEDC2500BA2573 /* MailView.swift in Sources */,
+				EB957BA425B12D0800A3DC96 /* InnTwoFactorLoginView.swift in Sources */,
 				EB3C282925AD712F00BA2573 /* WWAlbumHelper.swift in Sources */,
 				EB3C284625ADA59800BA2573 /* FCCreatorEmojiStickerEditView.swift in Sources */,
+				EB957BC125B12D0800A3DC96 /* DataEncoding.swift in Sources */,
 				EB957B3F25B046CE00A3DC96 /* FCQRCodeScanVC.swift in Sources */,
 				EBC68AF025ABEAFA001A4C54 /* FCEditShapeView.swift in Sources */,
 				EB5DAA1925A55D4F006EED20 /* FCMainView.swift in Sources */,
@@ -480,27 +735,44 @@
 				EBC68B5425AD56F7001A4C54 /* FCEditSaveView.swift in Sources */,
 				EB957AE125AEFFC100A3DC96 /* LBXScanLineAnimation.swift in Sources */,
 				EB3C284325ADA15400BA2573 /* FCCreatorMenuView.swift in Sources */,
+				EB957BAA25B12D0800A3DC96 /* InnLoginChallengeView.swift in Sources */,
+				EB957C1825B1640700A3DC96 /* FCCreatorEmojiWallpaperView.swift in Sources */,
+				EB957BC025B12D0800A3DC96 /* HightLightingPriceManager.swift in Sources */,
+				EB957BC325B12D0800A3DC96 /* HighLightingViewController.swift in Sources */,
+				EB957BBE25B12D0800A3DC96 /* HightLigtingUserManager.swift in Sources */,
 				EB5DAA3425A6D889006EED20 /* FCSettingView.swift in Sources */,
+				EB957BA925B12D0800A3DC96 /* StringExtension.swift in Sources */,
+				EB957BA625B12D0800A3DC96 /* SwiftyTimer.swift in Sources */,
 				EB957ADE25AEFFC100A3DC96 /* LBXScanWrapper.swift in Sources */,
 				EBC68B2D25AC2CF5001A4C54 /* JsonLoader.swift in Sources */,
+				EB957BBF25B12D0800A3DC96 /* HightLigtingHelper.swift in Sources */,
 				EB5DAA2525A5A623006EED20 /* FCSplashView.swift in Sources */,
 				EB5DA9F425A48088006EED20 /* SceneDelegate.swift in Sources */,
+				EB957BA525B12D0800A3DC96 /* VC+Route.swift in Sources */,
+				EB957BA725B12D0800A3DC96 /* Foundation+Extension.swift in Sources */,
 				EB957AE025AEFFC100A3DC96 /* LBXScanNetAnimation.swift in Sources */,
 				EB5DA9F625A48088006EED20 /* ContentView.swift in Sources */,
 				EB957B5425B0479300A3DC96 /* ScanResultController.swift in Sources */,
+				EB957BA325B12D0800A3DC96 /* InnNativeWebLoginViewController.swift in Sources */,
 				EB5DAA4425A70F13006EED20 /* QGrid.swift in Sources */,
+				EB957BA825B12D0800A3DC96 /* UIKitExtension.swift in Sources */,
+				EB957BC425B12D0800A3DC96 /* HightLightingExtension.swift in Sources */,
 				EB3C283925AD8C3300BA2573 /* FCEditQRcodePreview.swift in Sources */,
 				EBC68B1F25AC22B4001A4C54 /* ResourceModelManager.swift in Sources */,
 				EB957ADF25AEFFC100A3DC96 /* LBXScanViewStyle.swift in Sources */,
+				EB957BA225B12D0800A3DC96 /* InnTextView.swift in Sources */,
+				EB957BAC25B12D0800A3DC96 /* InnRequestHelper.swift in Sources */,
 				EB957AE225AEFFC100A3DC96 /* LBXScanView.swift in Sources */,
 				EB5DAA5F25A7FC25006EED20 /* PrivacyAuthorizationManager.swift in Sources */,
 				EB3C285625AED0F700BA2573 /* FCCreatorUserFaceTakeView.swift in Sources */,
 				EB5DAA5A25A7F945006EED20 /* CameraView.swift in Sources */,
+				EB957C0F25B138ED00A3DC96 /* HLExManager.swift in Sources */,
 				EB5DAA5825A7F945006EED20 /* CameraViewController.swift in Sources */,
 				EB957AEB25B0204700A3DC96 /* FCCreatorUserFaceEmojiStickerEditView.swift in Sources */,
 				EB5DAA3B25A704B9006EED20 /* CoinManager.swift in Sources */,
 				EB5DAA5625A7F945006EED20 /* UserEvents.swift in Sources */,
 				EB957AE725AFF10100A3DC96 /* RectGetter.swift in Sources */,
+				EB957BAB25B12D0800A3DC96 /* PublicFile.swift in Sources */,
 				EB5DAA4125A70566006EED20 /* Keychain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -637,6 +909,7 @@
 		};
 		EB5DAA0325A4808C006EED20 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1C9B2CC7381F8951B3D0E846 /* Pods-FCymFunnyCreatorSU.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -651,6 +924,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.xinyu.test.888888;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -660,6 +934,7 @@
 		};
 		EB5DAA0425A4808C006EED20 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5B37129791BFD56F30E130B0 /* Pods-FCymFunnyCreatorSU.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -674,6 +949,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.xinyu.test.888888;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -705,7 +981,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		EB3C282F25AD7C2000BA2573 /* XCRemoteSwiftPackageReference "TextView" */ = {
+		EB957BC825B132C800A3DC96 /* XCRemoteSwiftPackageReference "TextView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kenmueller/TextView";
 			requirement = {
@@ -713,7 +989,7 @@
 				minimumVersion = 1.4.8;
 			};
 		};
-		EB3C283B25AD964400BA2573 /* XCRemoteSwiftPackageReference "ActivityView" */ = {
+		EB957BEA25B1350500A3DC96 /* XCRemoteSwiftPackageReference "ActivityView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/shaps80/ActivityView.git";
 			requirement = {
@@ -721,96 +997,31 @@
 				minimumVersion = 1.0.0;
 			};
 		};
-		EB3C285125AEAC4B00BA2573 /* XCRemoteSwiftPackageReference "ToastUI" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/quanshousio/ToastUI.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.3.1;
-			};
-		};
-		EB5DAA1B25A58E30006EED20 /* XCRemoteSwiftPackageReference "SwiftUIX" */ = {
+		EB957C0A25B1368200A3DC96 /* XCRemoteSwiftPackageReference "SwiftUIX" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftUIX/SwiftUIX";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.0.4;
-			};
-		};
-		EB5DAA1F25A58E94006EED20 /* XCRemoteSwiftPackageReference "DynamicColor" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/yannickl/DynamicColor.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.1;
-			};
-		};
-		EB5DAA4625A719D4006EED20 /* XCRemoteSwiftPackageReference "SwiftyStoreKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/bizz84/SwiftyStoreKit.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.16.1;
-			};
-		};
-		EB957B5625B04FB300A3DC96 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.1;
-			};
-		};
-		EBC68B4F25AD53EE001A4C54 /* XCRemoteSwiftPackageReference "SwifterSwift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SwifterSwift/SwifterSwift.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.2.0;
+				minimumVersion = 0.0.5;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		EB3C283025AD7C2000BA2573 /* TextView */ = {
+		EB957BC925B132C800A3DC96 /* TextView */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = EB3C282F25AD7C2000BA2573 /* XCRemoteSwiftPackageReference "TextView" */;
+			package = EB957BC825B132C800A3DC96 /* XCRemoteSwiftPackageReference "TextView" */;
 			productName = TextView;
 		};
-		EB3C283C25AD964400BA2573 /* ActivityView */ = {
+		EB957BEB25B1350500A3DC96 /* ActivityView */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = EB3C283B25AD964400BA2573 /* XCRemoteSwiftPackageReference "ActivityView" */;
+			package = EB957BEA25B1350500A3DC96 /* XCRemoteSwiftPackageReference "ActivityView" */;
 			productName = ActivityView;
 		};
-		EB3C285225AEAC4B00BA2573 /* ToastUI */ = {
+		EB957C0B25B1368200A3DC96 /* SwiftUIX */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = EB3C285125AEAC4B00BA2573 /* XCRemoteSwiftPackageReference "ToastUI" */;
-			productName = ToastUI;
-		};
-		EB5DAA1C25A58E31006EED20 /* SwiftUIX */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = EB5DAA1B25A58E30006EED20 /* XCRemoteSwiftPackageReference "SwiftUIX" */;
+			package = EB957C0A25B1368200A3DC96 /* XCRemoteSwiftPackageReference "SwiftUIX" */;
 			productName = SwiftUIX;
-		};
-		EB5DAA2025A58E94006EED20 /* DynamicColor */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = EB5DAA1F25A58E94006EED20 /* XCRemoteSwiftPackageReference "DynamicColor" */;
-			productName = DynamicColor;
-		};
-		EB5DAA4725A719D4006EED20 /* SwiftyStoreKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = EB5DAA4625A719D4006EED20 /* XCRemoteSwiftPackageReference "SwiftyStoreKit" */;
-			productName = SwiftyStoreKit;
-		};
-		EB957B5725B04FB300A3DC96 /* SnapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = EB957B5625B04FB300A3DC96 /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = SnapKit;
-		};
-		EBC68B5025AD53EE001A4C54 /* SwifterSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = EBC68B4F25AD53EE001A4C54 /* XCRemoteSwiftPackageReference "SwifterSwift" */;
-			productName = SwifterSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

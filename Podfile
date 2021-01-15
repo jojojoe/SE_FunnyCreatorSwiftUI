@@ -7,9 +7,9 @@ target 'FCymFunnyCreatorSU' do
 
   # Pods for FCymFunnyCreatorSU
   
-  pod 'Defaults', '~>3.1.1'
+
   pod 'NoticeObserveKit'
-  pod 'SnapKit'
+
 
 #  Store
   pod 'SwiftyStoreKit'
@@ -19,9 +19,35 @@ target 'FCymFunnyCreatorSU' do
 # debug
   pod 'LookinServer', :configurations => ['Debug']
 
+# SwiftUI
+  #pod 'SwiftUIX'
+  pod 'DynamicColor'
+  pod 'SwifterSwift'
+
+  #pod 'ActivityView'
+  pod 'ToastUI'
 
 
-
+# cor
+  pod 'SwifterSwift'
+  pod 'AFNetworking'
+  pod 'SVProgressHUD'
+  pod 'Adjust'
+  
+  pod 'FireAdverting', '~> 0.1.10'
+  
+  pod 'Alamofire'
+  pod 'ZKProgressHUD'
+  pod 'Toast'
+  pod 'CryptoSwift'
+  pod 'DeviceKit'
+  pod 'SwiftyStoreKit'
+  pod 'Defaults'
+  pod 'Alertift'
+  pod 'SwiftyJSON'
+  pod 'RxRelay'
+  pod 'SnapKit'
+  pod 'RxCocoa'
 
 
 
