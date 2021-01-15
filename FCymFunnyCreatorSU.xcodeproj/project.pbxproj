@@ -324,7 +324,6 @@
 				EB957AEA25B0204600A3DC96 /* FCCreatorUserFaceEmojiStickerEditView.swift */,
 				EB3C284E25AE8EFF00BA2573 /* FCCreatorSaveView.swift */,
 				EB957C1625B163D000A3DC96 /* FCEmojiWallpaperView */,
-				EB957C1325B1476E00A3DC96 /* FCWallpaperView */,
 				EB957B3D25B046AC00A3DC96 /* QRCodeScan */,
 			);
 			path = Main;
@@ -547,13 +546,6 @@
 				EB957BA025B12D0600A3DC96 /* HightLightingExtension.swift */,
 			);
 			path = HighLightingEx;
-			sourceTree = "<group>";
-		};
-		EB957C1325B1476E00A3DC96 /* FCWallpaperView */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = FCWallpaperView;
 			sourceTree = "<group>";
 		};
 		EB957C1625B163D000A3DC96 /* FCEmojiWallpaperView */ = {

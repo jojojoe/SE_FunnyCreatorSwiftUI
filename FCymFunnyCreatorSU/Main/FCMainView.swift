@@ -254,7 +254,7 @@ extension FCMainView {
         Button(action: {
             storeBtnClick()
         }) {
-            bottomBtnsView(bgColor: "#F7F7FC", imgName: "home_code_ic", title1: "Magic coins store")
+            bottomBtnsView(bgColor: "#F7F7FC", imgName: "home_store_ic", title1: "Magic coins store")
         }
         .sheet(isPresented: $isShowCoinStore, content: {
             FCStoreView()

@@ -127,7 +127,7 @@ class QQScanViewController: LBXScanViewController {
         closePhoto.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             $0.left.equalTo(12)
-            $0.width.height.equalTo(44)
+            $0.width.height.equalTo(64)
         }
         
 //        self.btnMyQR = UIButton()

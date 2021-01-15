@@ -54,7 +54,7 @@ extension FCStoreView {
             backBtnClick()
         }, label: {
             Image("home_back_ic")
-        }).frame(width: 80, height: 44, alignment: .center)
+        }).frame(width: 80, height: 64, alignment: .center)
     }
     
     var coinView: some View {

@@ -34,6 +34,7 @@ class ScanResultController: UIViewController {
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             $0.left.equalTo(12)
             $0.width.height.equalTo(44)
+            $0.height.equalTo(64)
         }
         
         self.view.addSubview(contentTextView)

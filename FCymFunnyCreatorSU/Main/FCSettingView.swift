@@ -14,7 +14,7 @@ import MessageUI
 var privateUrlString = "http://chubby-blood.surge.sh/Facial_Privacy_Policy.htm"
 var termsUrlString = "http://chubby-blood.surge.sh/Terms_of_use.htm"
 var feedbackString = "qrcodeslike@hotmail.com"
-var AppName = "QRcode Monster"
+var AppName = "Avatar Monster"
 enum SettingContentBtnType: Equatable {
     case feedback
     case privacy

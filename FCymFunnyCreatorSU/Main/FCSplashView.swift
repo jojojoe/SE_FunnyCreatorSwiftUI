@@ -33,6 +33,7 @@ struct FCSplashView: View {
         
         VStack {
             topContentView
+            Spacer()
             pageControlView
             bottomBtn
             Spacer()
@@ -59,72 +60,78 @@ extension FCSplashView {
     
     
     var topContentView: some View {
-        
-        TabView(selection: $tabSelectIndex,
-                content:  {
-//                    ForEach(enumerating: splashList) { index, item in
-//                        contentSplashView(imgName: item.imgName, title: item.title, content: item.content).tag(item.id)
-//                            .offset(x: 0, y: 20)
-//
-//                    }
-                    contentSplashView(imgName: splashList[0].imgName, title: splashList[0].title, content: splashList[0].content).tag(splashList[0].id)
-//                        .offset(x: 0, y: 20)
-                        .scaleEffect(self.isShow1 ? 1:0.2)
-                        .transition(.opacity)
-                        .animation(.easeInOut)
-                        .onAppear {
-                            withAnimation{
-                                self.isShow1 = true
+        VStack {
+            Spacer()
+            TabView(selection: $tabSelectIndex,
+                    content:  {
+    //                    ForEach(enumerating: splashList) { index, item in
+    //                        contentSplashView(imgName: item.imgName, title: item.title, content: item.content).tag(item.id)
+    //                            .offset(x: 0, y: 20)
+    //
+    //                    }
+                        contentSplashView(imgName: splashList[0].imgName, title: splashList[0].title, content: splashList[0].content).tag(splashList[0].id)
+    //                        .offset(x: 0, y: 20)
+                            .scaleEffect(self.isShow1 ? 1:0.2)
+                            .transition(.opacity)
+                            .animation(.easeInOut)
+                            .onAppear {
+                                withAnimation{
+                                    self.isShow1 = true
+                                }
                             }
-                        }
-                        
-                    contentSplashView(imgName: splashList[1].imgName, title: splashList[1].title, content: splashList[1].content).tag(splashList[1].id)
-//                        .offset(x: 0, y: 20)
-                        .scaleEffect(self.isShow2 ? 1:0.2)
-                        .transition(.opacity)
-                        .animation(.easeInOut)
-                        .onAppear {
-                            withAnimation{
-                                self.isShow2 = true
+                            
+                        contentSplashView(imgName: splashList[1].imgName, title: splashList[1].title, content: splashList[1].content).tag(splashList[1].id)
+    //                        .offset(x: 0, y: 20)
+                            .scaleEffect(self.isShow2 ? 1:0.2)
+                            .transition(.opacity)
+                            .animation(.easeInOut)
+                            .onAppear {
+                                withAnimation{
+                                    self.isShow2 = true
+                                }
                             }
-                        }
-                      
-                    contentSplashView(imgName: splashList[2].imgName, title: splashList[2].title, content: splashList[2].content).tag(splashList[2].id)
-//                        .offset(x: 0, y: 20)
-                        .scaleEffect(self.isShow3 ? 1:0.2)
-                        .transition(.opacity)
-                        .animation(.easeInOut)
-                        .onAppear {
-                            withAnimation{
-                                self.isShow3 = true
+                          
+                        contentSplashView(imgName: splashList[2].imgName, title: splashList[2].title, content: splashList[2].content).tag(splashList[2].id)
+    //                        .offset(x: 0, y: 20)
+                            .scaleEffect(self.isShow3 ? 1:0.2)
+                            .transition(.opacity)
+                            .animation(.easeInOut)
+                            .onAppear {
+                                withAnimation{
+                                    self.isShow3 = true
+                                }
                             }
+                             
+                    })
+                .animation(.easeInOut)
+                .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+                .onChange(of: tabSelectIndex) { (tabSelectIndex) in
+                    if tabSelectIndex == 0 {
+                        withAnimation{
+                            self.isShow1 = true
+                            self.isShow2 = false
+                            self.isShow3 = false
                         }
-                         
-                })
-            .animation(.easeInOut)
-            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-            .onChange(of: tabSelectIndex) { (tabSelectIndex) in
-                if tabSelectIndex == 0 {
-                    withAnimation{
-                        self.isShow1 = true
-                        self.isShow2 = false
-                        self.isShow3 = false
-                    }
-                    
-                } else if tabSelectIndex == 1 {
-                    withAnimation{
-                        self.isShow2 = true
-                        self.isShow1 = false
-                        self.isShow3 = false
-                    }
-                } else if tabSelectIndex == 2 {
-                    withAnimation{
-                        self.isShow3 = true
-                        self.isShow2 = false
-                        self.isShow1 = false
+                    } else if tabSelectIndex == 1 {
+                        withAnimation{
+                            self.isShow2 = true
+                            self.isShow1 = false
+                            self.isShow3 = false
+                        }
+                    } else if tabSelectIndex == 2 {
+                        withAnimation{
+                            self.isShow3 = true
+                            self.isShow2 = false
+                            self.isShow1 = false
+                        }
                     }
                 }
-            }
+            
+            Spacer()
+        }
+        
+        
+        
     }
     
     var pageControlView: some View {
@@ -169,8 +176,9 @@ extension FCSplashView {
         GeometryReader { geo in
             VStack {
                 Spacer()
-                    .width(geo.size.width)
+                    
                 Image(imgName)
+                    
                     .resizable()
                     .frame(width: abs(geo.size.width - (80 * 2)),
                            height: abs(geo.size.width - (80 * 2)) * (257.0 / 298.0),
@@ -189,8 +197,8 @@ extension FCSplashView {
                     .padding(EdgeInsets(top: 10, leading: 40, bottom: 20, trailing: 40))
                     
                 Spacer()
-//                    .frame(height: 35)
-            }
+
+            }.width(geo.size.width)
         }
         
     }

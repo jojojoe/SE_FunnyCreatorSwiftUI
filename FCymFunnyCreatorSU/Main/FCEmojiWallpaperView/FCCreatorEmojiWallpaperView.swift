@@ -66,10 +66,15 @@ class FCCreatorEmojiWallpaperView: UIView {
         for l in 0...verCount {
             for index in 0...horCount {
                 let isJishu: Bool = (l % 2 == 1) ? true : false
+                let isFlip: Bool = (l % 3 == 0) ? true : false
                 let jishuOffset: CGFloat = isJishu ? (-(iconWidth + padding) / 2) : 0
                 let x: CGFloat = (iconWidth + padding) * CGFloat(index) + jishuOffset
                 let y: CGFloat = (iconWidth + padding) * CGFloat(l)
                 let iconV = UIImageView(frame: CGRect(x: x, y: y, width: iconWidth, height: iconWidth))
+                if isFlip {
+                    iconV.transform = CGAffineTransform(scaleX: -1, y: 1)
+                }
+                
                 canvasView.addSubview(iconV)
                 iconImageViews.append(iconV)
             }
