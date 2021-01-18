@@ -35,7 +35,7 @@ open class LBXScanViewController: UIViewController {
     open var isOpenInterestRect = false
     
     //连续扫码
-    open var isSupportContinuous = false;
+    open var isSupportContinuous = true;
 
     // 识别码的类型
     public var arrayCodeType: [AVMetadataObject.ObjectType]?
@@ -151,12 +151,31 @@ open class LBXScanViewController: UIViewController {
     }
     
     @objc open func openPhotoAlbum() {
-        LBXPermissions.authorizePhotoWith { [weak self] _ in
-            let picker = UIImagePickerController()
-            picker.sourceType = UIImagePickerController.SourceType.photoLibrary
-            picker.delegate = self
-            picker.allowsEditing = true
-            self?.present(picker, animated: true, completion: nil)
+        LBXPermissions.authorizePhotoWith { [weak self] success in
+            if success {
+                let picker = UIImagePickerController()
+                picker.sourceType = UIImagePickerController.SourceType.photoLibrary
+                picker.delegate = self
+                picker.allowsEditing = true
+                self?.present(picker, animated: true, completion: nil)
+            } else {
+                self?.showAlert(title: "Oops!", message: "You have declined access to photos, please active it in Settings>Privacy>Photos.", buttonTitles: ["Cancel", "Ok"], highlightedButtonIndex: 0) { (index) in
+                    if index == 0 {
+                        
+                    } else {
+                        self?.openSettingPage()
+                    }
+                }
+            }
+        }
+        
+    }
+    
+    func openSettingPage() {
+        let url = NSURL.init(string: UIApplication.openSettingsURLString)
+        let canOpen = UIApplication.shared.canOpenURL(url! as URL)
+        if canOpen {
+            UIApplication.shared.open(url! as URL, options: [:], completionHandler: nil)
         }
     }
 }

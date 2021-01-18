@@ -9,8 +9,6 @@ target 'FCymFunnyCreatorSU' do
   
 
   pod 'NoticeObserveKit'
-
-
 #  Store
   pod 'SwiftyStoreKit'
   pod 'TPInAppReceipt'

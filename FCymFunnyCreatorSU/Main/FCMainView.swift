@@ -27,7 +27,7 @@ struct FCMainView: View {
     @EnvironmentObject var hlexManager: HLExManager
     // he */
     
-    @State var isActive = false
+    
     @State private var isShowSettingView = false
     @State var isShowCoinStore = false
     @State var isShowExploreNow = false
@@ -35,6 +35,9 @@ struct FCMainView: View {
     @State var isShowQRScan = false
     
     @State var isShowSplash = false
+    
+    @State var isShowPhotoDeniedAlert = false
+    
     
     var body: some View {
         
@@ -80,13 +83,16 @@ struct FCMainView: View {
                         .environmentObject(splashManager)
                         .hidden(splashManager.isShowSplash)
             }.navigationBarHidden(true)
-            
-            
             .background(.white)
+            .alert(isPresented: $isShowPhotoDeniedAlert, content: {
+                Alert(title: Text("Oops!"), message: Text("You have declined access to photos, please active it in Settings>Privacy>Photos."), primaryButton: .cancel(Text("Cancel")), secondaryButton: .default(Text("Ok"), action: {
+                    PrivacyAuthorizationManager.default.openSettingPage()
+                }))
+            })
         }
-        
-        
     }
+    
+     
 }
 
 // he /*
@@ -203,7 +209,8 @@ extension FCMainView {
                 .frame(width: 30, height: 15, alignment: .center)
             // exploreNowBtn
             NavigationLink(destination: FCCameraTakeView()
-                            , isActive: $isActive) {
+                            .environmentObject(UserEvents.default)
+                            , isActive: $isShowExploreNow) {
 
                 Button(action: {
                     requestExplorePhoto()
@@ -241,7 +248,8 @@ extension FCMainView {
     var scannerBtnBgView: some View {
         
         Button(action: {
-            isShowQRScan = true
+            requestScanQRCode()
+//
         }) {
             bottomBtnsView(bgColor: "#F7F7FC", imgName: "home_code_ic", title1: "Insta code scanner")
         }.sheet(isPresented: $isShowQRScan, content: {
@@ -350,18 +358,40 @@ extension FCMainView {
 extension FCMainView {
     func requestExplorePhoto() {
         PrivacyAuthorizationManager.default.requestCameraPermission {
+            PrivacyAuthorizationManager.default.requestPhotosPermission {
+                self.isShowExploreNow = true
+            } deniedBlock: {
+                self.isShowPhotoDeniedAlert = true
+            }
             
-            self.isActive = true
         } deniedBlock: {
-
+            self.isShowPhotoDeniedAlert = true
+//            self.isActive = true
         }
     }
     
     func requestCreatorPhoto() {
         PrivacyAuthorizationManager.default.requestCameraPermission {
-            isShowCreator = true
-        } deniedBlock: {
+            
+            PrivacyAuthorizationManager.default.requestPhotosPermission {
+                isShowCreator = true
+            } deniedBlock: {
+                self.isShowPhotoDeniedAlert = true
+            }
 
+            
+            
+        } deniedBlock: {
+            self.isShowPhotoDeniedAlert = true
+        }
+    }
+    
+    func requestScanQRCode() {
+        PrivacyAuthorizationManager.default.requestCameraPermission {
+            
+            isShowQRScan = true
+        } deniedBlock: {
+            self.isShowPhotoDeniedAlert = true
         }
     }
     

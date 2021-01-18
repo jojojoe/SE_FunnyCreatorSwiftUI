@@ -173,7 +173,7 @@ struct FCCreatorSaveView: View {
  
     func saveSmallBtnClick() {
         
-        if let imageData = creatorPhoto.resultImage?.jpegData(compressionQuality: 0.6) {
+        if let imageData = creatorPhoto.resultImage?.jpegData(compressionQuality: 0.5) {
             WWAlbumHelper.default.savePhoto(imageData) { (success, error) in
                 
                 isShowAlert = true
@@ -245,7 +245,7 @@ extension FCCreatorSaveView {
                             .resizable()
                             .frame(width: 50, height: 50, alignment: .center)
                         Spacer(minLength: 20)
-                        Text("Because you are using a paid item, 50coins will be charged when saving")
+                        Text("Because you are using a paid item, \(CoinManager.default.coinCostCount)coins will be charged when saving")
                             .multilineTextAlignment(.center)
                             .font(Font.custom("Avenir-Medium", size: 14))
                             .frame(width: 300)

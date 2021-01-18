@@ -19,7 +19,7 @@ struct FCStoreView: View {
     
     @State var presentingToast_success = false
     @State var presentingToast_fail = false
-    
+    @State var presentingToast_fail_message = ""
     
     
     var body: some View {
@@ -180,7 +180,7 @@ extension FCStoreView {
             Alert(title: Text("Success"), message: Text(""), dismissButton: .default(Text("OK")))
         })
         .alert(isPresented: $presentingToast_fail, content: {
-            Alert(title: Text("Error"), message: Text(""), dismissButton: .default(Text("OK")))
+            Alert(title: Text("Error"), message: Text(presentingToast_fail_message), dismissButton: .default(Text("OK")))
         })
          
         

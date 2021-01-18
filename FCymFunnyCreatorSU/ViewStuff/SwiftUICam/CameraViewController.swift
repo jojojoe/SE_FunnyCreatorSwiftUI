@@ -394,18 +394,21 @@ public class CameraViewController: UIViewController {
         }
         
         // Add an audio input device.
-        do {
-            let audioDevice = AVCaptureDevice.default(for: .audio)
-            let audioDeviceInput = try AVCaptureDeviceInput(device: audioDevice!)
-            
-            if session.canAddInput(audioDeviceInput) {
-                session.addInput(audioDeviceInput)
-            } else {
-                print("Could not add audio device input to the session")
+        if audioEnabled {
+            do {
+                let audioDevice = AVCaptureDevice.default(for: .audio)
+                let audioDeviceInput = try AVCaptureDeviceInput(device: audioDevice!)
+                
+                if session.canAddInput(audioDeviceInput) {
+                    session.addInput(audioDeviceInput)
+                } else {
+                    print("Could not add audio device input to the session")
+                }
+            } catch {
+                print("Could not create audio device input: \(error)")
             }
-        } catch {
-            print("Could not create audio device input: \(error)")
         }
+        
         
         // Add the photo output.
         let photoOutput = AVCapturePhotoOutput()

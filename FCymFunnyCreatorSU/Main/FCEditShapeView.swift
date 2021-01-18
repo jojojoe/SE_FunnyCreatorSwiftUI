@@ -26,6 +26,8 @@ struct FCEditShapeView: View {
     @State var isShowPurchaseView: Bool = false
     @State var isShowStickerAndBgView: Bool = false
     
+    @State var isShowCostCoin: Bool = false
+    
     var body: some View {
 
         GeometryReader { geo in
@@ -67,7 +69,7 @@ extension FCEditShapeView {
             
             Spacer()
 
-            NavigationLink(destination: FCEditStickerAndBgView(events: events, maskShapeName: maskShapeName, bgImageName: bgImageName, stickerName: stickerName)
+            NavigationLink(destination: FCEditStickerAndBgView(events: events, maskShapeName: maskShapeName, bgImageName: bgImageName, stickerName: stickerName, isShowCostCoin_shape: isShowCostCoin)
                             .navigationBarHidden(true)
                            , isActive: $isShowStickerAndBgView) {
                 Button(action: {
@@ -112,7 +114,7 @@ extension FCEditShapeView {
     
     var backgroundPreviewView: some View {
         GeometryReader { geo in
-            Image(uiImage: events.resultImage!)
+            Image(uiImage: events.resultImage ?? UIImage(named: "background_big_4")!)
 //            Image("background_big_4")
                 .resizable()
                 .frame(width: geo.size.width, height: geo.size.height, alignment: .center)
@@ -141,6 +143,12 @@ extension FCEditShapeView {
         let item = shapeList.randomElement()
         maskShapeName = item?.bigName ?? ""
         selectionKeeper = item?.id ?? 0
+        if item?.isPro == true {
+            isShowPurchaseView = true
+            isShowCostCoin = true
+        } else {
+            isShowCostCoin = false
+        }
     }
     
 }
@@ -152,6 +160,9 @@ extension FCEditShapeView {
         maskShapeName = shapeList[index].bigName
         if shapeList[index].isPro {
             isShowPurchaseView = true
+            isShowCostCoin = true
+        } else {
+            isShowCostCoin = false
         }
     }
     
@@ -216,7 +227,7 @@ extension FCEditShapeView {
                             .resizable()
                             .frame(width: 50, height: 50, alignment: .center)
                         Spacer(minLength: 20)
-                        Text("Because you are using a paid item, 50coins will be charged when saving")
+                        Text("Because you are using a paid item, \(CoinManager.default.coinCostCount) will be charged when saving")
                             .multilineTextAlignment(.center)
                             .font(Font.custom("Avenir-Medium", size: 14))
                             .frame(width: 300)

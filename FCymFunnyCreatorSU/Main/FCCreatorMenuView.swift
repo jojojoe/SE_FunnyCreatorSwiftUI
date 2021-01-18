@@ -91,6 +91,7 @@ extension FCCreatorMenuView {
     var photoBtn: some View {
         //FCCameraTakeView()
         NavigationLink(destination: FCCreatorUserFaceTakeView()
+                        .environmentObject(UserEvents.default)
                         , isActive: $isShowUserPhotoTakeView) {
 
             Button(action: {

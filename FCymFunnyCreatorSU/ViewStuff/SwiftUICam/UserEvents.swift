@@ -18,7 +18,11 @@ public class UserEvents: ObservableObject {
     @Published public var didTakeCapturePhoto = false
     @Published public var didTakeCapturePhoto_wallpaper = false
     @Published public var resultImage: UIImage? = nil
+    
+    static let `default` = UserEvents()
     public init() {
         
     }
+    
+    
 }

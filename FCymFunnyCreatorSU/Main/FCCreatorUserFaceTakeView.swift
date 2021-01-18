@@ -22,8 +22,8 @@ struct FCCreatorUserFaceTakeView: View {
     @Environment(\.presentationMode) var mode
     
 //    @ObservedObject var creatorTakePhoto = FCCreatorTakePhoto()
-    
-    @ObservedObject var events = UserEvents()
+    @EnvironmentObject var events: UserEvents
+//    @ObservedObject var events = UserEvents()
 
     @State private var maskShapeName: String = maskShapeNameDefault_creator
     @State private var bgImageName: String = bgImageNameDefault_creator
@@ -219,13 +219,10 @@ extension FCCreatorUserFaceTakeView: CameraActions {
     
     func captureBtnClick() {
         self.takePhoto(events: events)
-//        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.0) {
             isShowNextEditView = true
-//        }
-        
-
+        }
     }
-    
 }
 
 
@@ -234,6 +231,7 @@ struct FCCreatorUserFaceTakeView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             FCCreatorUserFaceTakeView()
+                .environmentObject(UserEvents())
         }
     }
 }

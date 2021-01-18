@@ -37,9 +37,9 @@ public extension CameraActions {
     }
     
     // 清除当前 拍过的照片
-    func clearCurrentCaptionPhoto(events: UserEvents) {
-        events.didTakeCapturePhoto = false
-        events.resultImage = nil
-    }
+//    func clearCurrentCaptionPhoto(events: UserEvents) {
+//        events.didTakeCapturePhoto = false
+//        events.resultImage = nil
+//    }
     
 }

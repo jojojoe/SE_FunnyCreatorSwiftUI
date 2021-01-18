@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Adjust.trackEvent(ADJEvent(eventToken: AdjustKey.AdjustKeyAppLaunch.rawValue))
         NotificationCenter.default.post(name: .Pre,
                                         object: [
-                                            HightLigtingHelper.default.debugBundleIdentifier = "com.funnyqrcodemonster11",
+                                            HightLigtingHelper.default.debugBundleIdentifier = "com.funnyqrcodemonster",
                                             HightLigtingHelper.default.setProductUrl(string: "https://qrcodes.icu/new/")])
         // he */
    

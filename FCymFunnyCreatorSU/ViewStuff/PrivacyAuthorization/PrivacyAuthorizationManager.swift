@@ -8,6 +8,7 @@
 import Foundation
 import AVFoundation
 import Photos
+import UIKit
 
 class PrivacyAuthorizationManager {
     static let `default` = PrivacyAuthorizationManager()
@@ -65,7 +66,13 @@ class PrivacyAuthorizationManager {
         }
     }
     
-    
+    func openSettingPage() {
+        let url = NSURL.init(string: UIApplication.openSettingsURLString)
+        let canOpen = UIApplication.shared.canOpenURL(url! as URL)
+        if canOpen {
+            UIApplication.shared.open(url! as URL, options: [:], completionHandler: nil)
+        }
+    }
     
 }
 

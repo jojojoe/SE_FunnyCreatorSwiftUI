@@ -22,7 +22,7 @@ struct FCEditStickerAndBgView: View {
     
     
     @State var stickerList: [StickerItem] = CFResourceModelManager.default.stickerItemList
-    @State var selectionKeeper_sticker: Int = 0
+    @State var selectionKeeper_sticker: Int = 1
     
     @State var bgList: [BackgroundItem] = CFResourceModelManager.default.backgroundItemList
     @State var selectionKeeper_bg: Int = 0
@@ -30,6 +30,10 @@ struct FCEditStickerAndBgView: View {
     @State var isStickerType: Bool = true
     @State var isShowPurchaseView: Bool = false
     @State var isShowSaveView: Bool = false
+    
+    @State var isShowCostCoin_shape: Bool
+    @State var isShowCostCoin_stickerbg: Bool = false
+    
     var body: some View {
 
         GeometryReader { geo in
@@ -95,7 +99,7 @@ extension FCEditStickerAndBgView {
             
             Spacer()
             
-            NavigationLink(destination: FCEditSaveView(resultImage: previewCanvasImage())
+            NavigationLink(destination: FCEditSaveView(resultImage: previewCanvasImage(), isShouldCostCoin:(isShowCostCoin_shape || isShowCostCoin_stickerbg))
                            , isActive: $isShowSaveView) {
                 Button(action: {
                     isShowSaveView = true
@@ -253,7 +257,7 @@ extension FCEditStickerAndBgView {
                             .resizable()
                             .frame(width: 50, height: 50, alignment: .center)
                         Spacer(minLength: 20)
-                        Text("Because you are using a paid item, 50coins will be charged when saving")
+                        Text("Because you are using a paid item, \(CoinManager.default.coinCostCount) will be charged when saving")
                             .multilineTextAlignment(.center)
                             .font(Font.custom("Avenir-Medium", size: 14))
                             .frame(width: 300)
@@ -316,12 +320,14 @@ extension FCEditStickerAndBgView {
             stickerName = item?.bigName ?? ""
             selectionKeeper_sticker = item?.id ?? 0
             isShowPurchaseView = item?.isPro == true
+            isShowCostCoin_stickerbg = item?.isPro == true
         } else {
             // bg
             let item = bgList.randomElement()
             bgImageName = item?.bigName ?? ""
             selectionKeeper_bg = item?.id ?? 0
             isShowPurchaseView = item?.isPro == true
+            isShowCostCoin_stickerbg = item?.isPro == true
         }
     }
     
@@ -346,6 +352,7 @@ extension FCEditStickerAndBgView {
         stickerName = stickerList[index].bigName
         selectionKeeper_sticker = index
         isShowPurchaseView = stickerList[safe: index]?.isPro == true
+        isShowCostCoin_stickerbg = stickerList[safe: index]?.isPro == true
     }
     
     var stickerListView: some View {
@@ -415,6 +422,8 @@ extension FCEditStickerAndBgView {
         selectionKeeper_bg = index
         
         isShowPurchaseView = bgList[safe: index]?.isPro == true
+        
+        isShowCostCoin_stickerbg = bgList[safe: index]?.isPro == true
     }
     
     var bgListView: some View {
@@ -467,12 +476,9 @@ struct FCBgCell: View {
                         Spacer()
                     }
                 }
-                
             }
         }
     }
-    
-    
 }
 
 
@@ -481,7 +487,7 @@ struct FCEditStickerAndBgView_Previews: PreviewProvider {
     
     static var previews: some View {
         Group {
-            FCEditStickerAndBgView(events: UserEvents(), maskShapeName: "shape_big_1", bgImageName: "background_big_1", stickerName: "sticker_big_1")
+            FCEditStickerAndBgView(events: UserEvents(), maskShapeName: "shape_big_1", bgImageName: "background_big_1", stickerName: "sticker_big_1", isShowCostCoin_shape: false)
         }
     }
 }

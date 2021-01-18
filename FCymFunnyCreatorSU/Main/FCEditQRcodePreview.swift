@@ -10,21 +10,27 @@ import SwiftUI
 import DynamicColor
 import ActivityView
 
+enum FCEditQRcodePreviewAlertType {
+    case photoDeniedAlert
+    case saveImageSuccessAlert
+    case saveImageFailedAlert
+  
+}
 struct FCEditQRcodePreview: View {
     
     @Environment(\.presentationMode) var mode
     @State var qrImage: UIImage
     
-    @State var isShowSaveResultAlert = false
-    @State var isSaveSuccessStatus = false
+//    @State var isShowSaveResultAlert = false
+//    @State var isSaveSuccessStatus = false
     
     
     @State private var isPresentedShare = false
     @State private var contentPreviewViewRect: CGRect = .zero
         
+    @State var isShowAlert = false
     
-    
-    
+    @State var alertType: FCEditQRcodePreviewAlertType = .photoDeniedAlert
     
     var body: some View {
         GeometryReader { geo in
@@ -51,12 +57,29 @@ struct FCEditQRcodePreview: View {
                     items: [qrImage]
                 )
             }
-            
+            .alert(isPresented: $isShowAlert, content: {
+                alert()
+                
+            })
+             
         }
         
         
     }
     
+    func alert() -> Alert {
+        if alertType == .photoDeniedAlert {
+            return Alert(title: Text("Oops!"), message: Text("You have declined access to photos, please active it in Settings>Privacy>Photos."), primaryButton: .cancel(Text("Cancel")), secondaryButton: .default(Text("Ok"), action: {
+                 PrivacyAuthorizationManager.default.openSettingPage()
+             }))
+        } else if alertType == .saveImageSuccessAlert {
+            return Alert(title: Text("Save Success"), message: Text(""), dismissButton: .default(Text("OK")))
+        } else if alertType == .saveImageFailedAlert {
+            return Alert(title: Text("Save Error"), message: Text(""), dismissButton: .default(Text("OK")))
+        } else {
+            return Alert(title: Text("Save Error"), message: Text(""), dismissButton: .default(Text("OK")))
+        }
+    }
      
 }
 
@@ -96,13 +119,26 @@ extension FCEditQRcodePreview {
  
 
     func saveBtnClick(resultImage: UIImage) {
-        if let saveImage = (resultImage.jpegData(compressionQuality: 1)) {
-            WWAlbumHelper.default.savePhoto(saveImage) { (success, error) in
-                isShowSaveResultAlert = true
-                isSaveSuccessStatus = success
-                
+        
+        
+        PrivacyAuthorizationManager.default.requestPhotosPermission {
+            if let saveImage = (resultImage.jpegData(compressionQuality: 1)) {
+                WWAlbumHelper.default.savePhoto(saveImage) { (success, error) in
+                    if success {
+                        alertType = .saveImageSuccessAlert
+                    } else {
+                        alertType = .saveImageFailedAlert
+                    }
+                    isShowAlert = true
+                    
+                }
             }
+        } deniedBlock: {
+            alertType = .photoDeniedAlert
+            isShowAlert = true
         }
+
+        
     }
     
     func generatePreviewImage() -> UIImage {
@@ -142,7 +178,7 @@ extension FCEditQRcodePreview {
                 ZStack {
                     Color(.white)
                         .border(Color.black, width: 1, cornerRadius: 8)
-                    Text("OK")
+                    Text("Save")
                         .foregroundColor(.black)
                         .font(Font.custom("Avenir-BlackOblique", size: 16))
                 }.padding(8)
@@ -150,10 +186,7 @@ extension FCEditQRcodePreview {
             }
             
         }).frame(width: 150, height: 72, alignment: .center)
-        .alert(isPresented: $isShowSaveResultAlert, content: {
-            
-            Alert(title: Text(isSaveSuccessStatus ? "Save Success" : "Save Error"), message: Text(""), dismissButton: .default(Text("OK")))
-        })
+        
         
         
         

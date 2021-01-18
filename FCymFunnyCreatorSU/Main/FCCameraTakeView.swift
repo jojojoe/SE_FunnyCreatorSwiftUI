@@ -16,13 +16,15 @@ var stickerNameDefault: String = "sticker_big_1"
 
 struct FCCameraTakeView: View {
     @Environment(\.presentationMode) var mode
+    @EnvironmentObject var events: UserEvents
     
     
-    @ObservedObject var events = UserEvents()
 
     @State private var maskShapeName: String = maskShapeNameDefault
     @State private var bgImageName: String = bgImageNameDefault
     @State private var stickerName: String = stickerNameDefault
+    
+    @State var isShowShapEditView: Bool = false
     
     var body: some View {
         
@@ -134,7 +136,7 @@ extension FCCameraTakeView: CameraActions {
             
             NavigationLink(destination: FCEditShapeView(events: events, maskShapeName: maskShapeName, bgImageName: bgImageName, stickerName: stickerName)
                             .navigationBarHidden(true)
-                           , isActive: $events.didTakeCapturePhoto) {
+                           , isActive: $isShowShapEditView) {
 
                 Button(action: {
                     
@@ -160,7 +162,10 @@ extension FCCameraTakeView: CameraActions {
     
     func captureBtnClick() {
         self.takePhoto(events: events)
-         
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) {
+            isShowShapEditView = true
+        }
+        
 
     }
     
@@ -172,6 +177,7 @@ struct FCCameraTakeView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             FCCameraTakeView()
+                .environmentObject(UserEvents())
         }
     }
 }

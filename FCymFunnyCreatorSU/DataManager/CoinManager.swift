@@ -34,7 +34,7 @@ class CoinManager: ObservableObject {
     static let `default` = CoinManager()
     
     let coinFirst: Int = 100
-    let coinCostCount: Int = 30
+    let coinCostCount: Int = 50
     
     let k_localizedPriceList = "StoreItem.localizedPriceList"
     
@@ -122,7 +122,7 @@ class CoinManager: ObservableObject {
             switch result {
             case .success:
 //                CoinsManager.coins += item.coinsCount
-                Adjust.trackEvent(ADJEvent(eventToken: AdjustKey.AdjustKeyAppLaunch.rawValue))
+                Adjust.trackEvent(ADJEvent(eventToken: AdjustKey.AdjustKeyAppCoinsBuy.rawValue))
                 completion(true, nil)
             case let .error(error):
 //                HUD.error(error.localizedDescription)
