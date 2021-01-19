@@ -148,11 +148,6 @@
 		EB957ADB25AEFFC100A3DC96 /* LBXScanView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LBXScanView.swift; sourceTree = "<group>"; };
 		EB957AE625AFF10100A3DC96 /* RectGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectGetter.swift; sourceTree = "<group>"; };
 		EB957AEA25B0204600A3DC96 /* FCCreatorUserFaceEmojiStickerEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCCreatorUserFaceEmojiStickerEditView.swift; sourceTree = "<group>"; };
-		EB957B1725B0339500A3DC96 /* UserEvents_CamCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEvents_CamCreator.swift; sourceTree = "<group>"; };
-		EB957B1A25B033A400A3DC96 /* CameraActions_CamCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraActions_CamCreator.swift; sourceTree = "<group>"; };
-		EB957B1D25B033B500A3DC96 /* CameraViewController_CamCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController_CamCreator.swift; sourceTree = "<group>"; };
-		EB957B2025B033C500A3DC96 /* CameraViewControllerDelegate_CamCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewControllerDelegate_CamCreator.swift; sourceTree = "<group>"; };
-		EB957B2325B033D700A3DC96 /* CameraView_CamCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView_CamCreator.swift; sourceTree = "<group>"; };
 		EB957B3E25B046CE00A3DC96 /* FCQRCodeScanVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCQRCodeScanVC.swift; sourceTree = "<group>"; };
 		EB957B5325B0479300A3DC96 /* ScanResultController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanResultController.swift; sourceTree = "<group>"; };
 		EB957B7825B12D0600A3DC96 /* InnLoginHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InnLoginHandler.swift; sourceTree = "<group>"; };
@@ -337,7 +332,6 @@
 				EB3C285B25AEDC1A00BA2573 /* MailView */,
 				EB3C282625AD711700BA2573 /* RoundCornerView */,
 				EB5DAA6125A7FC29006EED20 /* PrivacyAuthorization */,
-				EB957B1625B0334200A3DC96 /* SiwftUIWallpaperCreator_Cam */,
 				EB5DAA5025A7F945006EED20 /* SwiftUICam */,
 				EB5DAA5C25A7F959006EED20 /* QGrid */,
 				EB5DAA5D25A7F965006EED20 /* PageControl */,
@@ -426,18 +420,6 @@
 				EB957AE625AFF10100A3DC96 /* RectGetter.swift */,
 			);
 			path = RectGetter;
-			sourceTree = "<group>";
-		};
-		EB957B1625B0334200A3DC96 /* SiwftUIWallpaperCreator_Cam */ = {
-			isa = PBXGroup;
-			children = (
-				EB957B1725B0339500A3DC96 /* UserEvents_CamCreator.swift */,
-				EB957B1A25B033A400A3DC96 /* CameraActions_CamCreator.swift */,
-				EB957B1D25B033B500A3DC96 /* CameraViewController_CamCreator.swift */,
-				EB957B2025B033C500A3DC96 /* CameraViewControllerDelegate_CamCreator.swift */,
-				EB957B2325B033D700A3DC96 /* CameraView_CamCreator.swift */,
-			);
-			path = SiwftUIWallpaperCreator_Cam;
 			sourceTree = "<group>";
 		};
 		EB957B3D25B046AC00A3DC96 /* QRCodeScan */ = {
