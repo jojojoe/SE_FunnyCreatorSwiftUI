@@ -73,11 +73,11 @@ struct FCEditQRcodePreview: View {
                  PrivacyAuthorizationManager.default.openSettingPage()
              }))
         } else if alertType == .saveImageSuccessAlert {
-            return Alert(title: Text("Save Success"), message: Text(""), dismissButton: .default(Text("OK")))
+            return Alert(title: Text("Photo storage successful."), message: Text(""), dismissButton: .default(Text("OK")))
         } else if alertType == .saveImageFailedAlert {
-            return Alert(title: Text("Save Error"), message: Text(""), dismissButton: .default(Text("OK")))
+            return Alert(title: Text("Photo storage failure."), message: Text(""), dismissButton: .default(Text("OK")))
         } else {
-            return Alert(title: Text("Save Error"), message: Text(""), dismissButton: .default(Text("OK")))
+            return Alert(title: Text("Photo storage failure."), message: Text(""), dismissButton: .default(Text("OK")))
         }
     }
      

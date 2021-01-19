@@ -87,11 +87,11 @@ struct FCEditSaveView: View {
             }))
             
         } else if alertType == .saveImageSuccessAlert {
-            return Alert(title: Text("Save Success"), message: Text(""), dismissButton: .default(Text("OK")))
+            return Alert(title: Text("Photo storage successful."), message: Text(""), dismissButton: .default(Text("OK")))
         } else if alertType == .saveImageFailedAlert {
-            return Alert(title: Text("Save Error"), message: Text(""), dismissButton: .default(Text("OK")))
+            return Alert(title: Text("Photo storage failure."), message: Text(""), dismissButton: .default(Text("OK")))
         } else if alertType == .coinNotEnoughAlert {
-            return Alert(title: Text("Coin is not enough to buy coins"), message: Text(""), primaryButton: .default(
+            return Alert(title: Text("Coins shortage.Click and Jump to Store Page."), message: Text(""), primaryButton: .default(
                     Text("OK")
 
                     , action: {
@@ -99,7 +99,7 @@ struct FCEditSaveView: View {
 
                     }), secondaryButton: .cancel(Text("Cancel")))
         } else {
-            return Alert(title: Text("Save Error"), message: Text(""), dismissButton: .default(Text("OK")))
+            return Alert(title: Text("Photo storage failure."), message: Text(""), dismissButton: .default(Text("OK")))
         }
     }
     

@@ -76,11 +76,11 @@ struct FCCreatorSaveView: View {
     }
     func alert() -> Alert {
         if alertType == .saveImageSuccess {
-            return Alert(title: Text("Save Success"), message: Text(""), dismissButton: .default(Text("OK")))
+            return Alert(title: Text("Photo storage successful."), message: Text(""), dismissButton: .default(Text("OK")))
         } else if alertType == .saveImageFail {
-            return Alert(title: Text("Save Error"), message: Text(""), dismissButton: .default(Text("OK")))
+            return Alert(title: Text("Photo storage failure."), message: Text(""), dismissButton: .default(Text("OK")))
         } else if alertType == .coinDontEnough {
-            return Alert(title: Text("Coin is not enough to buy coins"), message: Text(""), primaryButton: .default(
+            return Alert(title: Text("Coins shortage.Click and Jump to Store Page."), message: Text(""), primaryButton: .default(
                     Text("OK")
 
                     , action: {
@@ -89,7 +89,7 @@ struct FCCreatorSaveView: View {
                     }), secondaryButton: .cancel(Text("Cancel")))
 
         } else {
-            return Alert(title: Text("Save Error"), message: Text(""), dismissButton: .default(Text("OK")))
+            return Alert(title: Text("Photo storage failure."), message: Text(""), dismissButton: .default(Text("OK")))
         }
     }
      
@@ -193,7 +193,7 @@ struct FCCreatorSaveView: View {
         
         
         // 金币足
-        if CoinManager.default.coinCount > CoinManager.default.coinCostCount {
+        if CoinManager.default.coinCount >= CoinManager.default.coinCostCount {
 
             if let imageData = creatorPhoto.resultImage?.jpegData(compressionQuality: 1) {
                 WWAlbumHelper.default.savePhoto(imageData) { (success, error) in
@@ -245,7 +245,7 @@ extension FCCreatorSaveView {
                             .resizable()
                             .frame(width: 50, height: 50, alignment: .center)
                         Spacer(minLength: 20)
-                        Text("Because you are using a paid item, \(CoinManager.default.coinCostCount)coins will be charged when saving")
+                        Text("Because you are using a paid item, \(CoinManager.default.coinCostCount) will be charged when saving")
                             .multilineTextAlignment(.center)
                             .font(Font.custom("Avenir-Medium", size: 14))
                             .frame(width: 300)
