@@ -121,7 +121,7 @@ class CoinManager: ObservableObject {
             debugPrint("self\(self)")
             switch result {
             case .success:
-//                CoinsManager.coins += item.coinsCount
+                
                 Adjust.trackEvent(ADJEvent(eventToken: AdjustKey.AdjustKeyAppCoinsBuy.rawValue))
                 completion(true, nil)
             case let .error(error):
