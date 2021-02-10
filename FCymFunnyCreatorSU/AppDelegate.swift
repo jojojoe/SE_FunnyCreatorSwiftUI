@@ -14,6 +14,8 @@ enum AdjustKey: String {
     case AdjustKeyAppLaunch = "j1tq8p"
     case AdjustKeyAppCoinsBuy = "7x3kav"
 }
+// 核里面 AdjustConfig.json 也要填
+// 测试 进 ID com.testbase.www
 // he */
 
 
